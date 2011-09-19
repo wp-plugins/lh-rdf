@@ -177,7 +177,7 @@ if ( is_singular() ){
 <dc:title>SIOC Post profile for "LocalHero Beta"</dc:title>
 <dc:description>A SIOC profile describes the structure and contents of a weblog in a machine readable form. For more information please refer to http://sioc-project.org/.</dc:description>
 <foaf:primaryTopic rdf:resource="<?php the_permalink_rss() ?>"/>
-<admin:generatorAgent rdf:resource="http://rdfs.org/sioc/wp-sioc.php?version=1.26"/>
+<admin:generatorAgent rdf:resource="http://localhero.biz/plugins/lh-rdf/"/>
 </foaf:Document>
 
 <sioc:Post rdf:about="<?php the_permalink_rss() ?>">
@@ -277,7 +277,7 @@ echo "http://codex.wordpress.org/Post_Formats#".$lh_format;
 <dc:title>SIOC Author profile for "LocalHero Beta"</dc:title>
 <dc:description>A SIOC profile describes the structure and contents of a weblog in a machine readable form. For more information please refer to http://sioc-project.org/.</dc:description>
 <foaf:primaryTopic rdf:resource="<?php echo get_author_posts_url($post->post_author); ?>"/>
-<admin:generatorAgent rdf:resource="http://rdfs.org/sioc/wp-sioc.php?version=1.26"/>
+<admin:generatorAgent rdf:resource="http://localhero.biz/plugins/lh-rdf/"/>
 </foaf:Document>
 <?php
 $authordata = get_userdata($post->post_author);
@@ -313,7 +313,7 @@ echo $sha1; ?></foaf:mbox_sha1sum>
 <dc:title>SIOC Site profile for <?php bloginfo_rss('name'); ?></dc:title>
 <dc:description>A SIOC profile describes the structure and contents of a weblog in  machine readable form. For more information please refer to http://sioc-project.org/.</dc:description>
 <foaf:primaryTopic rdf:resource="<?php bloginfo_rss("url") ?>"/>
-<admin:generatorAgent rdf:resource="http://rdfs.org/sioc/wp-sioc.php?version=1.27"/>
+<admin:generatorAgent rdf:resource="http://localhero.biz/plugins/lh-rdf/"/>
 </foaf:Document>
 
 <sioc:Site rdf:about="<?php bloginfo_rss("url") ?>">
