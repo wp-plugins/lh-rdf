@@ -10,7 +10,7 @@ This plugin allows allows the publishing of RDF metadata from your weblog. Using
 
 == Description ==
 
-Once activated the plugin adds a new type of feed that can be subscribed to. E.G. `http://example.com/?feed=lhrdf` or `http://example.com/feed/lhrdf/` containing semantic content. It has been developed for use in [LocalHero][].
+Once activated the plugin adds a new type of feed that can be subscribed to. E.G. http://example.com/?feed=lhrdf or http://example.com/feed/lhrdf/ containing semantic content. It has been developed for use in [LocalHero][].
 
 [LocalHero]: http://localhero.biz/.
 
