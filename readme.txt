@@ -10,9 +10,7 @@ This plugin allows allows the publishing of RDF metadata from your weblog. Using
 
 == Description ==
 
-Onces activated the plugin adds a new type of feed that can be subscribed to. E.G. `http://example.com/feed/lhrdf/` or `http://example.com/?feed=lhrdf` containing semantic content.
-
-It has been developed for use in the [LocalHero][].
+Onces activated the plugin adds a new type of feed that can be subscribed to. E.G. `http://example.com/?feed=lhrdf` or `http://example.com/feed/lhrdf/` containing semantic content. It has been developed for use in [LocalHero][].
 
 [LocalHero]: http://localhero.biz/.
 
@@ -20,6 +18,7 @@ It has been developed for use in the [LocalHero][].
 
 1. Upload the entire `lh-rdf` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
+3. To ename pretty permlinks (e.g. `http://example.com/feed/lhrdf/`), go to Permalinks in the Setting menu and Save.
 
 == Changelog == 
 
