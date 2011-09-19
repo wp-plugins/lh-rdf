@@ -18,9 +18,12 @@ Once activated the plugin adds a new type of feed that can be subscribed to. E.G
 
 1. Upload the entire `lh-rdf` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. To ename pretty permlinks (e.g. `http://example.com/feed/lhrdf/`), go to Permalinks in the Setting menu and Save.
+3. To enable pretty permlinks (e.g. `http://example.com/feed/lhrdf/`), go to Permalinks in the Setting menu and Save.
 
 == Changelog == 
+
+**0.0.3 September 19, 2011**  
+Autodiscovery.
 
 **0.0.2 September 15, 2011**  
 Bug fix.

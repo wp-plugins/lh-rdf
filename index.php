@@ -13,6 +13,9 @@ Author URI: http://shawfactor.com/
 * Mapped WP relationships to SIOC triples
 = 0.02 =
 * Added SKOS triples
+= 0.03 =
+* Added Autodiscovery
+
 
 
 License:
@@ -105,7 +108,15 @@ add_action('template_redirect', 'LH_rdf_get_control');
 function LH_rdf_sioc_link() {
 	global $posts;
 	
-	if ( is_feed() ) return;
+	if ( is_feed() ){
+
+
+
+	} elseif (is_category()){
+
+
+
+	} else {
 
 	// Form the template link to SIOC metadata
 	$base_url = '<link rel="meta" type="application/rdf+xml" title="SIOC" href="';
@@ -115,6 +126,7 @@ function LH_rdf_sioc_link() {
 
 	if ( !empty($base_mid) ){
 		echo $base_url . $base_mid . $base_end;
+	}
 	}
 }
 
