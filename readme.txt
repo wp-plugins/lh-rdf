@@ -4,7 +4,7 @@ Donate link: http://localhero.biz/plugins/lh-rdf/
 Tags: feed, feeds, rdf, localhero, sioc
 Requires at least: 3.0
 Tested up to: 3.2
-Stable tag: 0.0.2
+Stable tag: trunk
 
 Adds a new type of feed you can subscribe to. http://example.com/feed/lhrdf/ or http://example.com/?feed=lhrdf contain9ing semantic content.
 
