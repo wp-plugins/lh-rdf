@@ -70,6 +70,12 @@ if ( is_singular() ){
 
 $base_mid .= "&p=".$post->ID;
 
+if (get_query_var('post_type')){ 
+
+$base_mid .= "&post_type=".get_query_var('post_type');
+
+}
+
 } elseif (is_author()){
 
 $base_mid = get_author_posts_url($post->post_author);
