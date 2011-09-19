@@ -182,7 +182,14 @@ if ( is_singular() ){
 
 <sioc:Post rdf:about="<?php the_permalink_rss() ?>">
 <sioc:link rdf:resource="<?php the_permalink_rss() ?>"/>
-<sioc:has_container rdf:resource="<?php bloginfo_rss("url") ?>#posts"/>
+<sioc:has_container rdf:resource="<?php
+if (get_query_var('post_type')){ 
+$post_type = get_query_var('post_type');
+echo get_query_var('post_type');
+} else {
+bloginfo_rss("url");
+echo "/#posts";
+?>"/>
 <dc:title><?php the_title_rss() ?></dc:title>
 <dc:date><?php echo mysql2date('Y-m-d\TH:i:s\Z', get_lastpostmodified('GMT'), false); ?></dc:date>
 <dcterms:created><?php echo mysql2date('D, d M Y H:i:s +0000', get_post_time('Y-m-d H:i:s', true), false); ?></dcterms:created>
@@ -309,6 +316,8 @@ echo $sha1; ?></foaf:mbox_sha1sum>
 
 ?>
 
+<!-- sioc_type = site -->
+
 <foaf:Document rdf:about="">
 <dc:title>SIOC Site profile for <?php bloginfo_rss('name'); ?></dc:title>
 <dc:description>A SIOC profile describes the structure and contents of a weblog in  machine readable form. For more information please refer to http://sioc-project.org/.</dc:description>
@@ -320,7 +329,7 @@ echo $sha1; ?></foaf:mbox_sha1sum>
 <dc:title><?php bloginfo_rss('name'); ?></dc:title>
 <dc:description>Website: <?php bloginfo_rss('name'); ?></dc:description>
 <sioc:link rdf:resource="http://localhero.biz/"/>
-<sioc:host_of rdf:resource="<?php bloginfo_rss("url") ?>/#posts"/>
+<sioc:host_of rdf:resource="<?php bloginfo_rss("url") ?>"/>
 <?php
 $args = array(
   'public'   => true,
