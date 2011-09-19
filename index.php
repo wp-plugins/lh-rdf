@@ -58,11 +58,19 @@ global $post;
 	
 $base_mid = "http://$_SERVER[HTTP_HOST]";
 
+$base_mid .= "/";
+
 $base_mid .= "?feed=lhrdf";
 
 if ( is_singular() ){
 
 $base_mid .= "&p=".$post->ID;
+
+} elseif (is_author()){
+
+$base_mid = get_author_posts_url($post->post_author);
+
+$base_mid .= "?feed=lhrdf";
 
 }
 
