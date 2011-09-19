@@ -6,7 +6,7 @@ Requires at least: 3.0
 Tested up to: 3.2
 Stable tag: trunk
 
-This plugin allows allows the publishing of RDF metadata from your weblog. Using the SIOC, SKOS, and FOAF namespaces (amongst others).
+This plugin allows allows the publishing of RDF xml metadata from your weblog. Using the SIOC, SKOS, and FOAF namespaces (amongst others).
 
 == Description ==
 
