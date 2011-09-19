@@ -320,7 +320,7 @@ echo $sha1; ?></foaf:mbox_sha1sum>
 <dc:title><?php bloginfo_rss('name'); ?></dc:title>
 <dc:description>Website: <?php bloginfo_rss('name'); ?></dc:description>
 <sioc:link rdf:resource="http://localhero.biz/"/>
-<sioc:host_of rdf:resource="<?php bloginfo_rss("url") ?>#posts"/>
+<sioc:host_of rdf:resource="<?php bloginfo_rss("url") ?>/#posts"/>
 <?php
 $args = array(
   'public'   => true,

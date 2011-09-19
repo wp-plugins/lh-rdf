@@ -4,7 +4,7 @@ Plugin Name: LH RDF
 Plugin URI: http://localhero.biz/plugins/lh-rdf/
 Description: Adds a semantic/SIOC RDF feed to Wordpress
 Author: shawfactor
-Version: 0.0.3
+Version: 0.0.4
 Author URI: http://shawfactor.com/
 
 == Changelog ==
@@ -15,6 +15,8 @@ Author URI: http://shawfactor.com/
 * Added SKOS triples
 = 0.03 =
 * Added Autodiscovery
+= 0.03 =
+* Added content negotiation
 
 
 

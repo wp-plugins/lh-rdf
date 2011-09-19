@@ -22,6 +22,9 @@ Once activated the plugin adds a new type of feed that can be subscribed to. E.G
 
 == Changelog == 
 
+**0.0.4 September 19, 2011**  
+Added content negotiation.
+
 **0.0.3 September 19, 2011**  
 Autodiscovery.
 
