@@ -51,11 +51,17 @@ add_action('init', 'LH_rdf_add_feed');
 
 function LH_rdf_get_link() {
  
-global $posts;
+global $post;
 	
-$base_mid = "http://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]";
+$base_mid = "http://$_SERVER[HTTP_HOST]";
 
 $base_mid .= "?feed=lhrdf";
+
+if ( is_singular() ){
+
+$base_mid .= "&p=".$post->ID;
+
+}
 
 return $base_mid;
 
@@ -97,7 +103,7 @@ add_action('template_redirect', 'LH_rdf_get_control');
 
 
 function LH_rdf_sioc_link() {
-	global $posts, $ping_value;
+	global $posts;
 	
 	if ( is_feed() ) return;
 
@@ -108,7 +114,7 @@ function LH_rdf_sioc_link() {
 	$base_mid = LH_rdf_get_link();
 
 	if ( !empty($base_mid) ){
-		echo $base_url . htmlentities($base_mid) . $base_end;
+		echo $base_url . $base_mid . $base_end;
 	}
 }
 
