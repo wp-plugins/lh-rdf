@@ -6,12 +6,15 @@ Requires at least: 3.0
 Tested up to: 3.2
 Stable tag: trunk
 
-This plugin allows allows the publishing of RDF metadata from your weblog. Using te following namespaces (amongst others) SIOC, SKOS, and foaf.
+This plugin allows allows the publishing of RDF metadata from your weblog. Using the SIOC, SKOS, and FOAF namespaces (amongst others).
 
 == Description ==
 
-Adds a new type of feed you can subscribe to.
-`http://example.com/feed/lhrdf/` or `http://example.com/?feed=lhrdf` containing semantic content.
+Onces activated the plugin adds a new type of feed that can be subscribed to. E.G. `http://example.com/feed/lhrdf/` or `http://example.com/?feed=lhrdf` containing semantic content.
+
+It has been developed for use in the [LocalHero][].
+
+[LocalHero]: http://localhero.biz/.
 
 == Installation ==
 
