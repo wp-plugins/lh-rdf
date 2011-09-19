@@ -12,7 +12,9 @@ This plugin allows allows the publishing of RDF xml metadata from your weblog in
 
 Once activated the plugin adds a new type of feed that can be subscribed to. E.G. http://example.com/?feed=lhrdf or http://example.com/feed/lhrdf/ containing semantic content. It has been developed for use in [LocalHero][].
 
-[LocalHero]: http://localhero.biz/.
+[LocalHero]: http://localhero.biz/
+
+LH RDF is inspired and to some extent based on the original wordpress SIOC exporter: http://sioc-project.org/wordpress.
 
 == Installation ==
 
