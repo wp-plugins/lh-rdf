@@ -185,10 +185,11 @@ if ( is_singular() ){
 <sioc:has_container rdf:resource="<?php
 if (get_query_var('post_type')){ 
 $post_type = get_query_var('post_type');
-echo get_query_var('post_type');
+echo get_post_type_archive_link( $post_type );
 } else {
 bloginfo_rss("url");
 echo "/#posts";
+}
 ?>"/>
 <dc:title><?php the_title_rss() ?></dc:title>
 <dc:date><?php echo mysql2date('Y-m-d\TH:i:s\Z', get_lastpostmodified('GMT'), false); ?></dc:date>
