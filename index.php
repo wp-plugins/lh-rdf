@@ -4,7 +4,7 @@ Plugin Name: LH RDF
 Plugin URI: http://localhero.biz/plugins/lh-rdf/
 Description: Adds a semantic/SIOC RDF feed to Wordpress
 Author: shawfactor
-Version: 0.0.4
+Version: 0.0.5
 Author URI: http://shawfactor.com/
 
 == Changelog ==
@@ -15,8 +15,10 @@ Author URI: http://shawfactor.com/
 * Added SKOS triples
 = 0.03 =
 * Added Autodiscovery
-= 0.03 =
+= 0.04 =
 * Added content negotiation
+= 0.05 =
+* Added custom post type support
 
 
 
@@ -73,6 +75,15 @@ $base_mid .= "&p=".$post->ID;
 $base_mid = get_author_posts_url($post->post_author);
 
 $base_mid .= "?feed=lhrdf";
+
+} elseif (get_query_var('post_type')){ 
+
+$post_type = get_query_var('post_type');
+
+$base_mid = get_post_type_archive_link($post_type);
+
+$base_mid .= "?feed=lhrdf";
+
 
 }
 

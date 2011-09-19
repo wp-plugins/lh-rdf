@@ -24,6 +24,9 @@ LH RDF is inspired and to some extent based on the original wordpress SIOC expor
 
 == Changelog == 
 
+**0.0.5 September 19, 2011**  
+Added custom post type support
+
 **0.0.4 September 19, 2011**  
 Added content negotiation.
 
