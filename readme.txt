@@ -1,12 +1,12 @@
 === LH RDF ===
 Contributors: shawfactor
 Donate link: http://localhero.biz/plugins/lh-rdf/
-Tags: feed, feeds, rdf, localhero, sioc
+Tags: feed, feeds, rdf, localhero, sioc, skos
 Requires at least: 3.0
 Tested up to: 3.2
 Stable tag: trunk
 
-Adds a new type of feed you can subscribe to. http://example.com/feed/lhrdf/ or http://example.com/?feed=lhrdf contain9ing semantic content.
+This plugin allows allows the publishing of RDF metadata from your weblog. Using te following namespaces (amongst others) SIOC, SKOS, and foaf.
 
 == Description ==
 
