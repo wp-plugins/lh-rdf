@@ -267,7 +267,12 @@ $j++;
 
 ?>
 <lh:db_id><?php echo $post->ID; ?></lh:db_id>
-<lh:db_post_type rdf:resource="<?php echo "http://codex.wordpress.org/Post_Types#".$post->post_type; ?>"/>
+<lh:post_type rdf:resource="<?php echo "http://codex.wordpress.org/Post_Types#".$post->post_type; ?>"/>
+<?php  if ( has_post_thumbnail()) {
+$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full');
+ ?>
+<lh:post_thumbnail rdf:resource="<?php echo $large_image_url[0]; ?>"/>
+<?php } ?>
 <lh:Post_Formats rdf:resource="<?php $lh_format = get_post_format($post->ID);
 if (!$lh_format){ $lh_format = "standard";}
 echo "http://codex.wordpress.org/Post_Formats#".$lh_format;
