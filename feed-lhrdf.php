@@ -160,6 +160,7 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 	xmlns:status="http://localhero.biz/namespace/status/#"
 	xmlns:sioc="http://rdfs.org/sioc/ns#"
+	xmlns:sioct="http://rdfs.org/sioc/types#"
 	xmlns:tag="http://www.holygoat.co.uk/owl/redwood/0.1/tags/"
 	xmlns:moat="http://moat-project.org/ns#"
 	xmlns:foaf="http://xmlns.com/foaf/0.1/"
@@ -219,7 +220,9 @@ $categories = get_the_category();
 $j = 0;
 while ($j < count($categories)) {
 
-echo "\t\t<sioc:topic>\n<skos:Concept rdf:about=\"".get_category_link($categories[$j]->cat_ID)."\"><skos:prefLabel xml:lang=\"en\">".$categories[$j]->category_nicename."</skos:prefLabel></skos:Concept>\n</sioc:topic>\n";
+echo "\t\t<sioc:topic><sioct:Category rdfs:label=\"".$categories[$j]->category_nicename."\" rdf:resource=\"".get_category_link($categories[$j]->cat_ID)."\">\n
+<rdfs:seeAlso rdf:resource=\"".get_category_link($categories[$j]->cat_ID)."?feed=lhrdf\"/>
+</sioct:Category></sioc:topic>";
 
 $j++;
 }
@@ -311,13 +314,52 @@ echo $sha1; ?></foaf:mbox_sha1sum>
 <?php
 
 
+} elseif (is_category()){
+
+
+$category = get_category_by_path(get_query_var('category_name'),false);
+
+//print_r($category);
+
+
+echo "\n<skos:Concept rdf:about=\"".get_category_link($category->cat_ID)."\"><skos:prefLabel xml:lang=\"en\">".$category->name."</skos:prefLabel><skos:scopeNote>".$category->category_description."</skos:scopeNote>";
+
+$subcategories = get_categories('parent='.$category->cat_ID); 
+
+$i = 0;
+
+while ($i < count($subcategories)) {
+
+echo "<skos:narrower>
+<skos:Concept rdf:about=\"".get_category_link($subcategories[$i]->cat_ID)."\"><rdfs:seeAlso rdf:resource=\"".get_category_link($subcategories[$i]->cat_ID)."?feed=lhrdf\"/></skos:Concept>
+</skos:narrower>";
+
+
+$i++;
+
+}
+
+if ($category->category_parent){
+
+echo "<skos:broader><skos:Concept rdf:about=\"".get_category_link($category->category_parent)."\"><rdfs:seeAlso rdf:resource=\"".get_category_link($category->category_parent)."?feed=lhrdf\"/></skos:Concept></skos:broader>";
+
+}
+
+?>
+
+<skos:inScheme rdf:resource="<?php bloginfo_rss("url") ?>/#categories"/>
+
+<?php
+
+echo "</skos:Concept>\n";
+
+
+
 
 } else {
 
 
 ?>
-
-<!-- sioc_type = site -->
 
 <foaf:Document rdf:about="">
 <dc:title>SIOC Site profile for <?php bloginfo_rss('name'); ?></dc:title>
@@ -330,7 +372,7 @@ echo $sha1; ?></foaf:mbox_sha1sum>
 <dc:title><?php bloginfo_rss('name'); ?></dc:title>
 <dc:description>Website: <?php bloginfo_rss('name'); ?></dc:description>
 <sioc:link rdf:resource="http://localhero.biz/"/>
-<sioc:host_of rdf:resource="<?php bloginfo_rss("url") ?>"/>
+<sioc:host_of rdf:resource="<?php bloginfo_rss("url") ?>/#posts"/>
 <?php
 $args = array(
   'public'   => true,
@@ -425,7 +467,7 @@ $j++;
 </sioc:Forum>
 
 
-<skos:ConceptScheme rdf:about="<?php bloginfo_rss("url") ?>">
+<skos:ConceptScheme rdf:about="<?php bloginfo_rss("url") ?>/#categories">
 <dc:title><?php bloginfo_rss('name'); ?></dc:title>
 <dc:description><?php bloginfo_rss('description') ?></dc:description>
 <dc:creator><?php the_author_meta( 'nickname', '1' ); ?> </dc:creator>
@@ -445,8 +487,10 @@ while ($j < count($categories)) {
 
 ?>
 
-<skos:hasTopConcept rdf:resource="<?php echo get_category_link($categories[$j]->cat_ID);
-?>"/>
+<skos:hasTopConcept>
+<skos:Concept rdf:about="<?php echo get_category_link($categories[$j]->cat_ID);
+?>"><rdfs:seeAlso rdf:resource="<?php echo get_category_link($categories[$j]->cat_ID);
+?>?feed=lhrdf"/></skos:Concept></skos:hasTopConcept>
 
 <?php
 
@@ -460,68 +504,6 @@ $j++;
 
 <?php
 
-$cat = get_categories(); 
-
-$j = 0;
-
-while ($j < count($cat)) {
-
-?>
-
-
-<skos:Concept rdf:about="<?php echo get_category_link($cat[$j]->cat_ID);
-?>">
-
-<skos:prefLabel xml:lang="en"><?php echo $cat[$j]->cat_name;
- ?></skos:prefLabel>
-<skos:scopeNote><?php echo $cat[$j]->category_description;
- ?></skos:scopeNote>
-
-<?php
-
-if ($cat[$j]->category_parent){
-
-?>
-
-<skos:broader rdf:resource="<?php echo get_category_link($cat[$j]->category_parent);
-?>"/>
-
-<?php
-
-}
-
-$subcategories = get_categories('parent='.$cat[$j]->cat_ID); 
-
-$i = 0;
-
-while ($i < count($subcategories)) {
-
-
-?>
-
-<skos:narrower rdf:resource="<?php echo get_category_link($subcategories[$i]->cat_ID);
-?>"/>
-
-<?php
-
-$i++;
-
-}
-
-
-
-
-?>
-
-       
-<skos:inScheme rdf:resource="<?php bloginfo_rss("url") ?>"/>
-</skos:Concept>
-
-<?php
-
-$j++;
-
-}
 
 }
 
