@@ -75,6 +75,19 @@ return $permalink_replacement;
 add_filter('the_permalink_rss', 'LH_rdf_override_the_permalink');
 
 
+function LH_rdf_override_the_excerpt($permalink) {
+
+global $post;
+
+$permalink_replacement = $post->post_excerpt;
+
+return $permalink_replacement;
+
+}
+
+add_filter('the_excerpt_rss', 'LH_rdf_override_the_excerpt');
+
+
 // ************* Get control from WordPress *************
 
 function LH_rdf_get_link() {
