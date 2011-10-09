@@ -24,6 +24,15 @@ LH RDF is inspired and to some extent based on the original wordpress SIOC expor
 
 == Changelog == 
 
+**0.0.8 September 25, 2011**  
+* Fixed Bugs
+
+**0.0.7 September 22, 2011**  
+* Added Post thumbnail support
+
+**0.0.6 September 19, 2011**  
+* Fixed SIOC topics and added SIOC terms
+
 **0.0.5 September 19, 2011**  
 Added custom post type support
 

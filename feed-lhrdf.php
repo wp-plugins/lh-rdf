@@ -1,6 +1,6 @@
 <?php
 /**
- * RSS 1 RDF Feed Template for displaying RSS 1 Posts feed.
+ * SIOC RDF Feed Template.
  *
  * @package WordPress
  */
@@ -143,30 +143,37 @@ function lh_extractLinks( $html ) {
 header('Content-Type: ' . feed_content_type('rdf') . '; charset=' . get_option('blog_charset'), true);
 
 echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
+<?php if (function_exists('LH_relationships_add_compliant_rdf_namespace')) { 
+
+echo "\n<rdf:RDF\n";
+
+LH_relationships_add_compliant_rdf_namespace();
+
+echo ">";
+
+
+} else { ?>
 <rdf:RDF
 	xmlns:rss="http://purl.org/rss/1.0/"
-	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-	xmlns:dc="http://purl.org/dc/elements/1.1/"
-	xmlns:dcterms="http://purl.org/dc/terms/"
-	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
-	xmlns:admin="http://webns.net/mvcb/"
-	xmlns:content="http://purl.org/rss/1.0/modules/content/"
-	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
-	xmlns:atom="http://www.w3.org/2005/Atom"
-	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
-	xmlns:georss="http://www.georss.org/georss" 
-	xmlns:lh="http://localhero.biz/namespace/lhero/#"
+ 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ 	xmlns:dc="http://purl.org/dc/elements/1.1/"
+ 	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+ 	xmlns:admin="http://webns.net/mvcb/"
+ 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:lh="http://localhero.biz/namespace/lhero/"
 	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:status="http://localhero.biz/namespace/status/#"
 	xmlns:sioc="http://rdfs.org/sioc/ns#"
-	xmlns:sioct="http://rdfs.org/sioc/types#"
 	xmlns:tag="http://www.holygoat.co.uk/owl/redwood/0.1/tags/"
 	xmlns:moat="http://moat-project.org/ns#"
 	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns:dcterms="http://purl.org/dc/terms/"
+	xmlns:sioct="http://rdfs.org/sioc/types#"
+	<?php do_action('rdf_ns'); ?>
 >
 
 <?php
+}
 
 if ( is_singular() ){
 ?>
@@ -197,7 +204,9 @@ echo "/#posts";
 <dcterms:created><?php echo mysql2date('D, d M Y H:i:s +0000', get_post_time('Y-m-d H:i:s', true), false); ?></dcterms:created>
 <sioc:content><![CDATA[<?php the_excerpt_rss() ?>]]></sioc:content>
 <?php if ( strlen( $post->post_content ) > 0 ){ ?>
-<content:encoded><![CDATA[<?php echo $post->post_content; ?>]]></content:encoded>
+<content:encoded><![CDATA[<?php $content = apply_filters('the_content', $post->post_content);
+echo $content;
+ ?>]]></content:encoded>
 <?php } else  { ?>
 <content:encoded><![CDATA[<?php the_excerpt_rss() ?>]]></content:encoded>
 <?php } 
@@ -211,7 +220,7 @@ echo $extract;
 
 
 <sioc:has_creator>
-<sioc:User rdf:about="<?php echo get_author_posts_url($post->post_author); ?>" rdfs:label="brian">
+<sioc:User rdf:about="<?php echo get_author_posts_url($post->post_author); ?>" rdfs:label="<?php echo get_author_name($post->post_author); ?>">
 <rdfs:seeAlso rdf:resource="<?php echo get_author_posts_url($post->post_author); ?>?feed=lhrdf"/>
 </sioc:User>
 </sioc:has_creator>
@@ -277,8 +286,7 @@ $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full')
 if (!$lh_format){ $lh_format = "standard";}
 echo "http://codex.wordpress.org/Post_Formats#".$lh_format;
 ?>"/>
-<?php if (function_exists('add_rdf_vals')) { add_rdf_vals(); } ?>
-<?php if (function_exists('add_rdf_nodes')) { add_rdf_nodes(); } ?>
+<?php do_action('rdf_item'); ?>
 
 </sioc:Post>
 <?php
@@ -313,6 +321,8 @@ echo $sha1; ?></foaf:mbox_sha1sum>
 <sioc:User rdf:about="<?php echo get_author_posts_url($post->post_author); ?>">
 <foaf:accountName><?php echo $authordata->user_nicename; ?></foaf:accountName>
 <sioc:name><?php echo $authordata->display_name; ?></sioc:name>
+<lh:post_author><?php echo $post->post_author; ?></lh:post_author >
+
 </sioc:User>
 
 
