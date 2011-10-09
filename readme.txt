@@ -24,6 +24,9 @@ LH RDF is inspired and to some extent based on the original wordpress SIOC expor
 
 == Changelog == 
 
+**0.0.9 October 5, 2011**  
+* Fixed feed permalinks
+
 **0.0.8 September 25, 2011**  
 * Fixed Bugs
 

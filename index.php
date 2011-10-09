@@ -4,7 +4,7 @@ Plugin Name: LH RDF
 Plugin URI: http://localhero.biz/plugins/lh-rdf/
 Description: Adds a semantic/SIOC RDF feed to Wordpress
 Author: shawfactor
-Version: 0.0.8
+Version: 0.0.9
 Author URI: http://shawfactor.com/
 
 == Changelog ==
@@ -25,6 +25,8 @@ Author URI: http://shawfactor.com/
 * Added Post thumbnail support
 = 0.08 =
 * Fixed Bugs
+= 0.09 =
+* Fixed Permalinks
 
 
 
@@ -57,9 +59,21 @@ add_feed('lhrdf', 'LH_rdf_output_rdf_xml');
 
 }
 
-
-
 add_action('init', 'LH_rdf_add_feed');
+
+
+function LH_rdf_override_the_permalink($permalink) {
+
+global $post;
+
+$permalink_replacement = $post->guid;
+
+return $permalink_replacement;
+
+}
+
+add_filter('the_permalink_rss', 'LH_rdf_override_the_permalink');
+
 
 // ************* Get control from WordPress *************
 
