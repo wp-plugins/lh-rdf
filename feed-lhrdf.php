@@ -136,7 +136,24 @@ function lh_extractLinks( $html ) {
 
 
 
-//header('Content-Type: text/html; charset=utf-8'); 
+if ( is_singular() ){
+
+} elseif (is_author()){
+
+} elseif (is_category()){
+
+} else {
+
+if ( !have_posts() ){
+
+//echo "not found";
+
+header("HTTP/1.0 404 Not Found"); 
+
+}
+
+}
+
 
 
 

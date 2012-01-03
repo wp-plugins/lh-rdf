@@ -22,7 +22,10 @@ LH RDF is inspired and to some extent based on the original wordpress SIOC expor
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. To enable pretty permlinks (e.g. `http://example.com/feed/lhrdf/`), go to Permalinks in the Setting menu and Save.
 
-== Changelog == 
+== Changelog ==
+
+**0.1.0 December 26, 2011**  
+* Fixed Date Scheme
 
 **0.0.9 October 5, 2011**  
 * Fixed feed permalinks
