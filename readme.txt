@@ -24,6 +24,10 @@ LH RDF is inspired and to some extent based on the original wordpress SIOC expor
 
 == Changelog ==
 
+
+**0.1.1 January 05, 2012**  
+* Fixed Dcritical bug
+
 **0.1.0 December 26, 2011**  
 * Fixed Date Scheme
 
