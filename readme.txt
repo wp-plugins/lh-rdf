@@ -3,7 +3,7 @@ Contributors: shawfactor
 Donate link: http://localhero.biz/plugins/lh-rdf/
 Tags: feed, feeds, rdf, localhero, sioc, skos, foaf
 Requires at least: 3.0
-Tested up to: 3.2
+Tested up to: 3.3.1
 Stable tag: trunk
 
 This plugin allows allows the publishing of RDF xml metadata from your weblog in a format compliant with the SIOC specification. Additionally wordpress specific post metadata is also published.
