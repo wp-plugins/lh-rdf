@@ -241,14 +241,17 @@ echo $extract;
 <rdfs:seeAlso rdf:resource="<?php echo get_author_posts_url($post->post_author); ?>?feed=lhrdf"/>
 </sioc:User>
 </sioc:has_creator>
+
 <?php
 $categories = get_the_category();
 $j = 0;
 while ($j < count($categories)) {
 
-echo "\t\t<sioc:topic><sioct:Category rdfs:label=\"".$categories[$j]->category_nicename."\" rdf:resource=\"".get_category_link($categories[$j]->cat_ID)."\">\n
+echo "\n<sioc:topic>
+<sioct:Category rdfs:label=\"".$categories[$j]->category_nicename."\" rdf:about=\"".get_category_link($categories[$j]->cat_ID)."\">
 <rdfs:seeAlso rdf:resource=\"".get_category_link($categories[$j]->cat_ID)."?feed=lhrdf\"/>
-</sioct:Category></sioc:topic>";
+</sioct:Category>
+</sioc:topic>\n";
 
 $j++;
 }
@@ -262,6 +265,28 @@ $tags = array_values($tags);
 }
 
 if ($tags[0]){
+
+
+$j = 0;
+
+while ($j < count($tags)) {
+
+echo "\n<sioc:topic>
+<sioct:tag rdfs:label=\"".$tags[$j]->name."\" rdf:about=\"".get_tag_link($tags[$j]->term_id)."\">\n";
+
+echo "<rdfs:seeAlso rdf:resource=\"".get_tag_link($tags[$j]->term_id)."?feed=lhrdf\"/>\n";
+
+
+echo "</sioct:tag>
+</sioc:topic>\n\n";
+
+$j++;
+
+}
+
+
+
+
 
 $j = 0;
 
@@ -288,6 +313,7 @@ echo "</tag:taggedResource>\n</tag:RestrictedTagging>\n";
 $j++;
 
 }
+
 
 }
 
@@ -385,8 +411,21 @@ echo "<skos:broader><skos:Concept rdf:about=\"".get_category_link($category->cat
 
 echo "</skos:Concept>\n";
 
+} elseif (is_tag()){
+
+$tag = get_query_var('tag_id');
+
+$tag = get_tag($tag);
+
+?>
 
 
+<moat:Tag rdf:about="<?php echo get_tag_link($tag->term_id); ?>">
+<moat:name><?php echo $tag->name; ?></moat:name>
+</moat:Tag>
+
+
+<?php
 
 } else {
 
