@@ -318,7 +318,7 @@ $j++;
 }
 
 ?>
-<lh:db_id><?php echo $post->ID; ?></lh:db_id>
+<dcterms:identifier><?php echo $post->ID; ?></dcterms:identifier>
 <lh:post_type rdf:resource="<?php echo "http://codex.wordpress.org/Post_Types#".$post->post_type; ?>"/>
 <?php  if ( has_post_thumbnail()) {
 $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full');
@@ -503,7 +503,17 @@ $pageNumber = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 $per_page = get_query_var('posts_per_page');
 
-$pages =  $published_posts / $per_page;
+if (( function_exists('count_posts_and_pages')) && (!is_post_type_archive())){
+
+$published = count_posts_and_pages();
+
+} else {
+
+$published = $published_posts;
+
+}
+
+$pages =  $published / $per_page;
 
 $pages = ceil($pages);
 

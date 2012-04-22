@@ -24,6 +24,8 @@ LH RDF is inspired and to some extent based on the original wordpress SIOC expor
 
 == Changelog ==
 
+**0.1.3 April 22, 2012**  
+* Added dcterms identifier
 
 **0.1.2 March 02, 2012**  
 * Fixed RDf bug, added tag feed
