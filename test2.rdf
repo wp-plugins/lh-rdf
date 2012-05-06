@@ -1,0 +1,999 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:ore="http://www.openarchives.org/ore/terms/"
+  xmlns:admin="http://webns.net/mvcb/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:sioct="http://rdfs.org/sioc/types#"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:frbr="http://purl.org/vocab/frbr/core#"
+  xmlns:pav="http://swan.mindinformatics.org/ontologies/1.2/pav/"
+  xmlns:res="http://www.medsci.ox.ac.uk/vocab/researchers/0.1/"
+  xmlns:biro="http://purl.org/spar/biro/"
+  xmlns:escape-display="http://purl.utwente.nl/ns/escape-display.owl#"
+  xmlns:fabio="http://purl.org/spar/fabio/"
+  xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/">
+
+<foaf:Document rdf:about="">
+<rdf:type rdf:resource="http://www.openarchives.org/ore/terms/ResourceMap"/>
+<ore:describes rdf:resource="http://shawfactor.com#aggregation"/>
+<dc:title>Resource feed of Shawfactor</dc:title>
+<dcterms:created>1970-01-01T00:00:00Z</dcterms:created>
+<dcterms:modified>2012-05-03T07:48:58Z</dcterms:modified>
+<dcterms:creator rdf:resource="http://shawfactor.com/author/pete/"/>
+<dc:description>A SIOC profile describes the structure and contents of a weblog in  machine readable form. For more information please refer to http://sioc-project.org/.</dc:description>
+<foaf:primaryTopic rdf:resource="http://shawfactor.com"/>
+<admin:generatorAgent rdf:resource="http://localhero.biz/plugins/lh-rdf/"/>
+</foaf:Document>
+
+  <rdf:Description rdf:about="http://shawfactor.com#aggregation">
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+    <rdf:type rdf:resource="http://purl.org/info:eu-repo/semantics/EnhancedPublication"/>
+    <dcterms:title>Virtual Knowledge (2012) MIT Press</dcterms:title>
+    <ore:isDescribedBy rdf:resource=""/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/author/anne-beaulieu"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/author/bas-van-heur"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/author/charles-van-den-heuvel"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/author/clement-levallois"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/author/clifford-tatum"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/author/jan-kok"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/author/matthijs-kouw"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/author/nicholas-jankowski"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/author/paul-wouters"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/author/rebecca-moody"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/author/sally-wyatt"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/author/sarah-de-rijcke"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/author/smiljana-antonijevic"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/author/stefan-dormans"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/author/stephanie-steinmetz"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/author/victor-bekkers"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/author/admin"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/author/zuotian"/>
+    <ore:aggregates rdf:resource="http://www.surffoundation.nl/"/>
+    <ore:aggregates rdf:resource="http://ehumanities.nl/"/>
+    <ore:aggregates rdf:resource="http://virtualknowledgestudio.nl/"/>
+	<ore:aggregates rdf:resource="http://shawfactor.com"/>
+  </rdf:Description>
+
+<rdf:Description rdf:about="http://shawfactor.com">
+<rdf:type rdf:resource="http://purl.org/spar/fabio/WebSite"/>
+<rdf:type rdf:resource="http://rdfs.org/sioc/ns#Site"/>
+<dc:title>Shawfactor</dc:title>
+<dc:description>Website: Shawfactor</dc:description>
+<sioc:link rdf:resource="http://localhero.biz/"/>
+<sioc:host_of rdf:resource="http://shawfactor.com/#posts"/>
+<sioc:host_of rdf:resource="http://shawfactor.com/places/"/>
+<sioc:host_of rdf:resource="http://shawfactor.com/actor/"/>
+</rdf:Description>
+
+
+
+
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/author/anne-beaulieu">
+    <foaf:name>Anne Beaulieu</foaf:name>
+    <foaf:familyName>Beaulieu</foaf:familyName>
+    <foaf:givenName>Anne</foaf:givenName>
+    <foaf:mbox>annebeau@xs4all.nl</foaf:mbox>
+    <foaf:homepage>http://annebeaulieu.wordpress.com/</foaf:homepage>
+    <res:biography>&lt;p&gt;Dr. Anne Beaulieu works at the &lt;a href=&quot;http://www.rug.nl/gesp/index&quot;&gt;Groningen Energy and Sustainability Programme&lt;/a&gt; of the University of Groningen, The Netherlands. Before that, she was Senior Research Fellow at the Virtual Knowledge Studio for the Humanities and Social Sciences (VKS) of the Royal Academy of Arts and Sciences in Amsterdam. She has studied the development and consequences of imaging and databasing technologies for biomedical knowledge, including an ethnographic study of brain imaging in neuroscience in the course of her PhD, entitled ‘The Space inside the Skull: Digital Representations, Brain Mapping and Cognitive Neuroscience in the Decade of the Brain‘. Her research follows two main lines: the study of the use of databases and networks in knowledge creation, and the development of new ethnographic approaches to cultural and social phenomena in mediated settings. Together with Sarah de Rijcke (Leiden University), she recently pursued an ethnographic study of knowledge production around databases of images on the web entitled &lt;a href=&quot;http://networkrealism.wordpress.com/&quot;&gt;Network Realism&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;</res:biography>
+    <rdf:type rdf:resource="http://www.medsci.ox.ac.uk/vocab/researchers/0.1/Researcher"/>
+    <pav:authors rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-1"/>
+    <pav:authors rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-2"/>
+    <pav:authors rdf:nodeID="reference26"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/author/bas-van-heur">
+    <foaf:name>Bas van Heur</foaf:name>
+    <foaf:familyName>van Heur</foaf:familyName>
+    <foaf:givenName>Bas</foaf:givenName>
+    <foaf:mbox>b.vanheur@maastrichtuniversity.nl</foaf:mbox>
+    <foaf:homepage>http://www.fdcw.unimaas.nl/staff/default.asp?id=309</foaf:homepage>
+    <res:biography>&lt;div&gt;&lt;p&gt;&lt;span style=&quot;font-family: Arial; font-size: small;&quot;&gt;I am a post-doctoral researcher at the  Maastricht Virtual Knowledge Studio within the Department of Technology  and Society Studies, Faculty of Arts and Social Sciences, Maastricht  University. Broadly speaking, my main research interest is in the  politics of urban development and the role of research in engaging with  and analyzing urban development strategies and their effects. I have  published on creative/cultural industries, music networks, conflict and  the politics of scale, cultural political economy, small cities, the  digitization of heritage, urban laboratories, and the built environment  of higher education and research.&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;span style=&quot;font-family: Arial; font-size: small;&quot;&gt;After doing my BA and MA in Cultural  History at Utrecht University and the Humboldt University in Berlin, I  started my PhD in Media and Communications at Goldsmiths College,  University of London. Relocating to Berlin, I was a DFG-Fellow at the  Center for Metropolitan Studies and received my PhD from the Department  of Earth Sciences of the Free University in Berlin. I have also taught  at Utrecht University and Goldsmiths College and now teach courses on BA  and MA level within the Faculty of Arts and Social Sciences of  Maastricht University. Before coming to university, I completed  Intermediate Vocational Training (MBO) and one year of Higher Vocational  Training (HBO) in building construction. In addition to my academic  work, I try to maintain active connections with the cultural sector as  well as policy makers through consultancy work and the organization of  and participation in workshops and other events.&lt;/span&gt;&lt;/p&gt;</res:biography>
+    <foaf:img rdf:resource="http://thebook.virtualknowledgestudio.nl/wp-content/uploads/avatars/11/1304953141-bpthumb.jpg"/>
+    <rdf:type rdf:resource="http://www.medsci.ox.ac.uk/vocab/researchers/0.1/Researcher"/>
+    <pav:authors rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-2"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/author/charles-van-den-heuvel">
+    <foaf:name>Charles van den Heuvel</foaf:name>
+    <foaf:familyName>van den Heuvel</foaf:familyName>
+    <foaf:givenName>Charles</foaf:givenName>
+    <foaf:mbox>charles.van.den.heuvel@huygensinstituut.knaw.nl</foaf:mbox>
+    <rdf:type rdf:resource="http://www.medsci.ox.ac.uk/vocab/researchers/0.1/Researcher"/>
+    <pav:authors rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-4"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/author/clement-levallois">
+    <foaf:name>Clement Levallois</foaf:name>
+    <foaf:familyName>Levallois</foaf:familyName>
+    <foaf:givenName>Clement</foaf:givenName>
+    <foaf:mbox>clevallois@rsm.nl</foaf:mbox>
+    <foaf:homepage>http://www.clementlevallois.net</foaf:homepage>
+    <foaf:img rdf:resource="http://thebook.virtualknowledgestudio.nl/wp-content/uploads/avatars/33/1310816780-bpthumb.jpg"/>
+    <rdf:type rdf:resource="http://www.medsci.ox.ac.uk/vocab/researchers/0.1/Researcher"/>
+    <pav:authors rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-6"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/author/clifford-tatum">
+    <foaf:name>Clifford Tatum</foaf:name>
+    <foaf:familyName>Tatum</foaf:familyName>
+    <foaf:givenName>Clifford</foaf:givenName>
+    <foaf:mbox>clifford@tatum.cc</foaf:mbox>
+    <foaf:homepage>http://www.tatum.cc</foaf:homepage>
+    <res:biography>&lt;p&gt;Clifford Tatum is project manager of Academic Careers Understood through Measurement and Norms (&lt;a href=&quot;http://research-acumen.eu/&quot;&gt;ACUMEN&lt;/a&gt;), at Leiden University - Centre for Science and Technology Studies (&lt;a href=&quot;http://socialsciences.leiden.edu/cwts&quot;&gt;CWTS&lt;/a&gt;). ACUMEN is a European research collaboration that addresses discrepancies between the broader social and economic functions of scientific and scholarly research in all fields of the sciences, social sciences and the humanities, and the dominant criteria for evaluating performance of individual researchers. Tatum’s PhD research, also at Leiden University, examines the emerging role of openness in conjunction with socio-technological interventions in scholarly communication. When not in Leiden, Tatum can usually be found at the &lt;a href=&quot;http://ehumanities.nl/&quot;&gt;eHumanities Group&lt;/a&gt; (KNAW) in Amsterdam, where he is Digital Scholarship Fellow. His current projects with the eHumanities Group include design and development of Enhanced Publication websites for a set of traditionally published books (&lt;a href=&quot;http://ep-books.ehumanities.nl/&quot;&gt;Semantic WORDS&lt;/a&gt;) and a portal interface for diverse eHumanities tools and resources (&lt;a href=&quot;http://alfalab.ehumanities.nl/&quot;&gt;AlfaLab-Live&lt;/a&gt;).&lt;/p&gt;</res:biography>
+    <foaf:img rdf:resource="http://thebook.virtualknowledgestudio.nl/wp-content/uploads/avatars/27/1303991010-bpthumb.jpg"/>
+    <rdf:type rdf:resource="http://www.medsci.ox.ac.uk/vocab/researchers/0.1/Researcher"/>
+    <pav:authors rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+    <pav:authors rdf:nodeID="reference15"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/author/jan-kok">
+    <foaf:name>Jan Kok</foaf:name>
+    <foaf:familyName>Kok</foaf:familyName>
+    <foaf:givenName>Jan</foaf:givenName>
+    <foaf:mbox>j.kok@let.ru.nl</foaf:mbox>
+    <res:biography>&lt;p&gt;Prof. dr. Jan Kok (1959) studied history at the Free University of Amsterdam. In the past years, Jan has worked on the creation of datahubs and collaboratories in social and economic history. He was a member of the &lt;a href=&quot;http://www.virtualknowledgestudio.nl/&quot;&gt;Virtual Knowledge Studio&lt;/a&gt;, and now participates in the e-Humanities Group of the Royal Netherlands Academy of Arts and Sciences (KNAW). At the International Institute of Social History he takes part in the management of CLIO-INFRA, a large project collecting and standardizing global data on inequality and development.&lt;/p&gt;&lt;p&gt;Jan's own research deals with various aspects of the life course. His projects include social and geographical mobility, the impact of kinship ties on individual life choices, partner selection, family formation and households.&lt;br /&gt;Since 1 December 2010, Jan Kok is professor in Comparative History of the Life Course at &lt;a href=&quot;http://www.ru.nl/hlcs/programma's/history_after_the/&quot;&gt;Radboud University Nijmegen&lt;/a&gt;. Jan is also employed as visiting professor at the &lt;a href=&quot;http://soc.kuleuven.be/web/home/6/27/nl/&quot;&gt;Center for Sociological Research&lt;/a&gt; of the Katholieke Universiteit Leuven. Finally, he is active as one of the research directors of the &lt;a href=&quot;http://www.hum.leiden.edu/posthumus/&quot;&gt;NW Posthumus Institute&lt;/a&gt; (the postgraduate school for social and economic history, and as co-editor of the &lt;a href=&quot;http://www.elsevier.com/wps/find/journaldescription.cws_home/620196/description#description&quot;&gt;History of the Family. An International Quarterly&lt;/a&gt;.&lt;/p&gt;</res:biography>
+    <foaf:img rdf:resource="http://thebook.virtualknowledgestudio.nl/wp-content/uploads/avatars/31/1303457109-bpthumb.jpg"/>
+    <rdf:type rdf:resource="http://www.medsci.ox.ac.uk/vocab/researchers/0.1/Researcher"/>
+    <pav:authors rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-8"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/author/matthijs-kouw">
+    <foaf:name>Matthijs Kouw</foaf:name>
+    <foaf:familyName>Kouw</foaf:familyName>
+    <foaf:givenName>Matthijs</foaf:givenName>
+    <foaf:mbox>m.kouw@maastrichtuniversity.nl</foaf:mbox>
+    <res:biography>&lt;div&gt;&lt;p&gt;I am currently working as a PhD Candidate at the  Maastricht Virtual Knowledge Studio  within the Department of Technology  and Society Studies, Faculty of  Arts and Social Sciences, Maastricht  University.&lt;/p&gt;&lt;p&gt;In my PhD research I ask how simulations and models enable  knowledge of risks, and to what extent their use introduces or enhances  vulnerabilities in technological cultures. To that end, I study epistemological, historical, institutional, and socio-political aspect of simulation practice. The empirical focus of the dissertation is water management in the Netherlands, where I studied the use of simulations and models in hydrology (hydraulic engineering and flood  monitoring), geotechnical engineering (soil mechanics and dike failure  mechanisms), and ecology (participatory water quality modeling).&lt;/p&gt;&lt;p&gt;In broader terms, by research interests are the influence of technologies on the production of knowledge, history, sociology, and philosophy of science, materialism (e.g. Deleuze-Guattari, Delanda, Alliez, Stengers), software studies, craft, and various topics in 'continental' philosophy (e.g. critical theories of technology, Nietzsche, Sloterdijk, etc. etc.) I did my MA in Philosophy in Amsterdam and Berlin, after which I did my MSc in Science and Technology Studies in Amsterdam. During my studies and before embarking on the PhD journey, I worked in software development.&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;</res:biography>
+    <foaf:img rdf:resource="http://thebook.virtualknowledgestudio.nl/wp-content/uploads/avatars/19/1305022187-bpthumb.jpg"/>
+    <rdf:type rdf:resource="http://www.medsci.ox.ac.uk/vocab/researchers/0.1/Researcher"/>
+    <pav:authors rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-4"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/author/nicholas-jankowski">
+    <foaf:name>Nicholas Jankowski</foaf:name>
+    <foaf:familyName>Jankowski</foaf:familyName>
+    <foaf:givenName>Nicholas</foaf:givenName>
+    <foaf:mbox>nickjan@xs4all.nl</foaf:mbox>
+    <foaf:homepage>http://ehumanities.nl/</foaf:homepage>
+    <res:biography>&lt;p&gt;Nicholas W. Jankowski is Visiting Fellow at the Virtual Knowledge Studio for the Humanities and Social Sciences (&lt;a href=&quot;http://www.virtualknowledgestudio.nl/&quot;&gt;VKS&lt;/a&gt;) in the Netherlands. He recently edited &lt;em&gt;&lt;a href=&quot;http://www.routledge.com/books/E-Research-isbn9780415990288&quot;&gt;e-Research: Transformation in Scholarly Practice&lt;/a&gt; &lt;/em&gt;(Routledge, June 2009) and in the introductory chapter Jankowski considers some of the changes ongoing in formal scholarly communication&lt;em&gt;. &lt;/em&gt;He is initiator and co-editor of the Sage Publications journal &lt;em&gt;New Media &amp;amp; Society&lt;/em&gt; and editor of the Hampton Press book series &lt;em&gt;&lt;a href=&quot;http://www.euricom.si/monographs/&quot;&gt;Euricom Monographs: New Media and Democracy&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;</res:biography>
+    <foaf:img rdf:resource="http://thebook.virtualknowledgestudio.nl/wp-content/uploads/avatars/29/1303991503-bpthumb.jpg"/>
+    <rdf:type rdf:resource="http://www.medsci.ox.ac.uk/vocab/researchers/0.1/Researcher"/>
+    <pav:authors rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+    <pav:authors rdf:nodeID="reference9"/>
+    <pav:authors rdf:nodeID="reference29"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/author/paul-wouters">
+    <foaf:name>Paul Wouters</foaf:name>
+    <foaf:familyName>Wouters</foaf:familyName>
+    <foaf:givenName>Paul</foaf:givenName>
+    <foaf:mbox>wouters.paul57@gmail.com</foaf:mbox>
+    <foaf:img rdf:resource="http://thebook.virtualknowledgestudio.nl/wp-content/uploads/avatars/9/1305190117-bpthumb.jpg"/>
+    <rdf:type rdf:resource="http://www.medsci.ox.ac.uk/vocab/researchers/0.1/Researcher"/>
+    <pav:authors rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-1"/>
+    <pav:authors rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-6"/>
+    <pav:authors rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-8"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/author/rebecca-moody">
+    <foaf:name>Rebecca Moody</foaf:name>
+    <foaf:familyName>Moody</foaf:familyName>
+    <foaf:givenName>Rebecca</foaf:givenName>
+    <foaf:mbox>moody@fsw.eur.nl</foaf:mbox>
+    <res:biography>&lt;p&gt;Rebecca Moody (1981) studied political science, and specifically the field of international relations at the University of Leiden. In June 2005 she obtained her Masters degree on the basis of her thesis on coalition formation strategies in the United Nations Security Council.&lt;/p&gt;&lt;p&gt;In September 2005 she has started her PhD project regarding the influence of Geographical Information Systems on policy design and agenda-setting at the department of Public Administration at the Erasmus University in Rotterdam. She specifically focuses on how forms of ICT such as Geographical Information Systems can help or hinder issues from reaching the political agenda and how processes of policy design might be altered by the use of Geographical Information Systems. Rebecca has obtained the degree of PhD on the basis of this research in February 2010.&lt;/p&gt;&lt;p&gt;Furthermore, in 2007 she has cooperated in an NWO funded research on the influence of Web 2.0 technologies on processes of micro mobilization. In this project it was researched how, individuals, hoping to gain political attention for their issue, used Web 2.0 technologies to attain their goal. The project focuses on the relation between traditional and new media in these processes.&lt;/p&gt;&lt;p&gt;In January 2010 Rebecca started her post doc position at the Erasmus Studio. In her research she will focus on visual culture. New technologies for distributing but also creating visual images can have a profound impact on the way public policy is made. This impact, whether it is present, and if so, in which way, will be researched. Next to the new technologies also traditional technologies for creating and distributing visual images will be looked at. The aim of the research is to find how these technologies influence public policy making. The relation between government and citizens will be looked at but also the relation between experts and scholars among each other, as well as in relationship to the government.&lt;/p&gt;</res:biography>
+    <rdf:type rdf:resource="http://www.medsci.ox.ac.uk/vocab/researchers/0.1/Researcher"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/author/sally-wyatt">
+    <foaf:name>Sally Wyatt</foaf:name>
+    <foaf:familyName>Wyatt</foaf:familyName>
+    <foaf:givenName>Sally</foaf:givenName>
+    <foaf:mbox>sally.wyatt@ehumanities.knaw.nl</foaf:mbox>
+    <foaf:homepage>http://ehumanities.nl</foaf:homepage>
+    <res:biography>&lt;p&gt;Sally Wyatt is Programme Leader of the &lt;a href=&quot;http://ehumanities.nl&quot;&gt;e-Humanities Group&lt;/a&gt;, Royal Netherlands Academy of Arts &amp;amp; Sciences (KNAW), Director of WTMC (&lt;a href=&quot;http://www.wtmc.nl&quot;&gt;Wetenschap, Technologie en Moderne Cultuur&lt;/a&gt;), Netherlands Graduate Research School of Science, Technology and Modern Culture, and Professor of &lt;a href=&quot;http://www.fdcw.org/maastrichtvks/&quot;&gt;Digital Cultures in Development&lt;/a&gt;, Maastricht University.  She has almost 30 years experience in teaching and research about technology policy and about the relationship between technological and social change. She has worked at the Universities of Sussex, Brighton, East London and Amsterdam as well as at the British Economic and Social Research Council (ESRC). She co-ordinated PhD training in the Dutch Research School for Science, Technology and Modern Culture (WTMC) between 2005-10. She was President of EASST (European Association for the Study of Science and Technology) between 2001-4. Recently, she has worked on the internet and social exclusion and the ways in which people incorporate the internet into their practices for finding health information. Together with Andrew Webster, she is editor of a book series, Health, Technology and Society (Palgrave Macmillan).&lt;/p&gt;</res:biography>
+    <foaf:img rdf:resource="http://thebook.virtualknowledgestudio.nl/wp-content/uploads/avatars/3/1304408671-bpthumb.jpg"/>
+    <rdf:type rdf:resource="http://www.medsci.ox.ac.uk/vocab/researchers/0.1/Researcher"/>
+    <pav:authors rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-1"/>
+    <pav:authors rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-3"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/author/sarah-de-rijcke">
+    <foaf:name>Sarah de Rijcke</foaf:name>
+    <foaf:familyName>de Rijcke</foaf:familyName>
+    <foaf:givenName>Sarah</foaf:givenName>
+    <foaf:mbox>sarahprive@gmail.com</foaf:mbox>
+    <foaf:homepage>http://www.sarahderijcke.nl</foaf:homepage>
+    <res:biography>&lt;p&gt;dr. Sarah de Rijcke is assistant professor at the Center for Science and Technology Studies (CWTS, Leiden University). She has a background in pychology, history of science, and science and technology studies (STS).&lt;/p&gt;&lt;p&gt;Put very broadly, Sarah investigates the ways in which authoritative knowledge emerges and is valued as such. At CWTS, her work focuses on the impact of research evaluation and quantitative measurement techniques on the primary process of knowledge production.&lt;/p&gt;&lt;p&gt;Sarah worked as a post-doctoral researcher at the Virtual Knowledge Studio in Amsterdam from April 2009 until March 2011. Together with Anne  Beaulieu, she worked on a project called Network Realism: Making Knowledge from Images in Digital Infrastructures. The project investigated databases of visual images on the web. Leading questions for the post-doc research were: through which practices do images come to be things to be acted upon? How are these interactive practices learned by users and producers of databases of images? What is the place of this new kind of knowing in daily life and contemporary culture? The ethnographic study of interactions with databases provided insight into the specific ways in which users and producers come to know through networked images, in contrast to other forms of visual knowing.&lt;/p&gt;&lt;p&gt;Sarah received her PhD (with honors) from the University of Groningen, the Netherlands. The dissertation focused on different visual ways of knowing the brain, in relation to changing notions of objectivity. De Rijcke was a pre-doctoral research fellow at the Max Planck Institute for the History of Science in 2007.  She has published in several peer-reviewed journals, including History of the Human Sciences, Interdisciplinary Science Reviews, Library Trends and Theory &amp;amp; Psychology (with Anne Beaulieu), and the Journal of the History of the Neurosciences.  While working on her PhD, Sarah also worked as a lecturer.&lt;/p&gt;&lt;p&gt;Sarah was a visiting research fellow at the University of California San Diego, department of communication studies in 2010, and at the Max Planck Institute for the History of Science in 2007. She is a member of the editorial board of Interdisciplinary Science Reviews.&lt;/p&gt;</res:biography>
+    <rdf:type rdf:resource="http://www.medsci.ox.ac.uk/vocab/researchers/0.1/Researcher"/>
+    <pav:authors rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-2"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/author/smiljana-antonijevic">
+    <foaf:name>Smiljana Antonijević</foaf:name>
+    <foaf:familyName>Antonijević</foaf:familyName>
+    <foaf:givenName>Smiljana</foaf:givenName>
+    <foaf:mbox>smiljana@gmail.com</foaf:mbox>
+    <foaf:homepage>http://www.smiljana.net</foaf:homepage>
+    <res:biography>Smiljana Antonijević is Assistant Professor of Culture and Technology at Roskilde University, and a research fellow at e-Humanities Group of the Royal Netherlands Academy of Arts and Sciences.   She holds a PhD in Communication/New Media Studies and MA in Social Anthropology from the University of Minnesota-Twin Cities.   Her research intersects the areas of communication, culture, and technology focusing on issues such as scholarly collaboration in virtual environments (MIT Press, forthcoming); digital humanities (Palgrave Macmillan, forthcoming,); nonverbal communication and affective computing (Routledge, forthcoming,); trust in online interaction (Fondazione Rinascimento Digitale, 2009); psychological aspects of blogging (Sage, 2008); digital rhetoric (Sage, 2008); new media use in a state of crisis (Peter Lang, 2004). For a detailed account please see www.smiljana.net</res:biography>
+    <foaf:img rdf:resource="http://thebook.virtualknowledgestudio.nl/wp-content/uploads/avatars/15/1323316290-bpthumb.jpg"/>
+    <rdf:type rdf:resource="http://www.medsci.ox.ac.uk/vocab/researchers/0.1/Researcher"/>
+    <pav:authors rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-3"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/author/stefan-dormans">
+    <foaf:name>Stefan Dormans</foaf:name>
+    <foaf:familyName>Dormans</foaf:familyName>
+    <foaf:givenName>Stefan</foaf:givenName>
+    <foaf:mbox>s.dormans@fm.ru.nl</foaf:mbox>
+    <foaf:homepage>http://www.ru.nl/fm/dormans</foaf:homepage>
+    <res:biography>&lt;p&gt;Stefan Dormans (Heerlen, 1976) studied Human Geography at the Radboud University Nijmegen. In the period 2001-2007, he was both a junior lecturer and a PhD-student in urban and narrative geographies at the Human Geography department of the Radboud University Nijmegen. His dissertation entailed a narrative analysis of urban tales from two medium-sized Dutch cities. From 2008 until 2010, Stefan worked as a postdoc researcher on academic collaboration at the Virtual Knowledge Studio for the Humanities and Social Sciences (VKS) of the Royal Netherlands Academy of Arts and Sciences (KNAW). Since September 2009, Stefan works as an Assistant Professor at the Planning department of the Radboud University Nijmegen. Currently, his main reserach project is on the Slow Food movement.&lt;/p&gt;</res:biography>
+    <foaf:img rdf:resource="http://thebook.virtualknowledgestudio.nl/wp-content/uploads/avatars/17/1303458739-bpthumb.jpg"/>
+    <rdf:type rdf:resource="http://www.medsci.ox.ac.uk/vocab/researchers/0.1/Researcher"/>
+    <pav:authors rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-3"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/author/stephanie-steinmetz">
+    <foaf:name>Stephanie Steinmetz</foaf:name>
+    <foaf:familyName>Steinmetz</foaf:familyName>
+    <foaf:givenName>Stephanie</foaf:givenName>
+    <foaf:mbox>s.m.steinmetz@uva.nl</foaf:mbox>
+    <foaf:homepage>http://www.eur.nl/erasmusstudio/people/erasmus_studio_staff/s_steinmetz_stephanie/</foaf:homepage>
+    <res:biography>&lt;p&gt;﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿Since October 2010 I am an assistant professor of Sociology at the University of Amsterdam. I am also working as a senior researcher at the Erasmus Studio Rotterdam. Before joining the sociology department at the UvA, I was a post-doc researcher in the project “Improving web survey methodology for social and cultural research” at the Erasmus University Rotterdam where I have studied methodological issues concerning web surveys. &lt;br /&gt;After graduation in 2000, I undertook research  in the framework of the EU-funded project ‘Female employment and family formation in Europe’ (FENICs) at the University of Erlangen-Nuremberg and at the Institute for Demographics in Barcelona (CED). From 2004 until 2008 I have worked at the Mannheim Centre for European Social Research (MZES, Germany) on my PhD thesis “The Contextual Challenges of Occupational Sex Segregation - Deciphering Cross-National Differences in Europe“. During that time I was also involved in a research project concerning ethnic educational inequality among young migrants in Germany and Israel (German Israeli Research Consortium). &lt;br /&gt;My main research interests are quantitative and qualitative research methods, social stratification, gender and educational inequalities, and comparative labour market research.&lt;br /&gt;I am a member of the EU-founded COST Action ‘WEBDATANET: Web-based data collection – methodological challenges, solutions and implementations’ and the Dutch eHumanities group, the Research Committees on ‘Social Stratification and Mobility’ (RC28) and on ‘Logic and Methodology in Sociology’ (RC33) of the International Sociological Association.&lt;/p&gt;</res:biography>
+    <rdf:type rdf:resource="http://www.medsci.ox.ac.uk/vocab/researchers/0.1/Researcher"/>
+    <pav:authors rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-6"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/author/victor-bekkers">
+    <foaf:name>Victor Bekkers</foaf:name>
+    <foaf:familyName>Bekkers</foaf:familyName>
+    <foaf:givenName>Victor</foaf:givenName>
+    <foaf:mbox>bekkers@fsw.eur.nl</foaf:mbox>
+    <res:biography>&lt;p&gt;Prof. Dr. V.J.J.M. Bekkers (1963) is professor of public administration at Erasmus University Rotterdam. He holds the chair on the empirical study of public policy and public policy processes.  He is also academic director of the Center of Public Innovation. &lt;br /&gt;Furthermore he is research director of the department of public administration.He studied political science and public administration at Nijmegen University where he has got his degree with honors (1987). He obtained his Ph.D. from Tilburg University. His research interests are related to the introduction and use of new information and communication technologies in the policy processes within public administration and the innovation challenges which emerge in its slipstream.&lt;/p&gt;</res:biography>
+    <rdf:type rdf:resource="http://www.medsci.ox.ac.uk/vocab/researchers/0.1/Researcher"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/author/admin">
+    <foaf:name>clifford </foaf:name>
+    <foaf:givenName>clifford</foaf:givenName>
+    <foaf:mbox>cliffordtatum@gmail.com</foaf:mbox>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <foaf:make rdf:resource="http://thebook.virtualknowledgestudio.nl"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/author/zuotian">
+    <foaf:name>zuotian</foaf:name>
+    <foaf:mbox>zuotiantatum@live.com</foaf:mbox>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <foaf:make rdf:resource="http://thebook.virtualknowledgestudio.nl"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-1">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/BookChapter"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+    <dcterms:title>Chapter 1: Introduction – Virtual Knowledge</dcterms:title>
+    <dcterms:issued>2011-04-08T11:19:56Z</dcterms:issued>
+    <dcterms:modified>2011-07-14T15:34:23Z</dcterms:modified>
+    <dcterms:abstract>The widespread diffusion of digital technologies has played a key role in drawing attention to the importance of information and knowledge for a variety ...</dcterms:abstract>
+    <frbr:partOf rdf:nodeID="book"/>
+    <dcterms:creator>Sally Wyatt</dcterms:creator>
+    <dcterms:creator>Andrea Scharnhorst</dcterms:creator>
+    <dcterms:creator>Anne Beaulieu</dcterms:creator>
+    <dcterms:creator>Paul Wouters</dcterms:creator>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/sally-wyatt"/>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/andrea-scharnhorst"/>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/anne-beaulieu"/>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/paul-wouters"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-2">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/BookChapter"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+    <dcterms:title>Chapter 2: Authority and Expertise in New Sites of Knowledge Production</dcterms:title>
+    <dcterms:issued>2011-04-08T11:20:09Z</dcterms:issued>
+    <dcterms:modified>2011-06-15T12:20:13Z</dcterms:modified>
+    <dcterms:abstract>This chapter examines how the creation of knowledge, as a form of cultural production and consumption, has been reshaped by new media practices. Much has ...</dcterms:abstract>
+    <frbr:partOf rdf:nodeID="book"/>
+    <dcterms:creator>Anne Beaulieu</dcterms:creator>
+    <dcterms:creator>Sarah de Rijcke</dcterms:creator>
+    <dcterms:creator>Bas van Heur</dcterms:creator>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/anne-beaulieu"/>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/sarah-de-rijcke"/>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/bas-van-heur"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/wp-content/uploads/Tokyo-280810.ppt">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Image"/>
+    <dcterms:issued>2011-05-06T09:12:48Z</dcterms:issued>
+    <dcterms:modified>2011-05-06T09:12:48Z</dcterms:modified>
+    <dcterms:format>application/vnd.ms-powerpoint</dcterms:format>
+    <ore:isAggregatedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-3"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-3">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/BookChapter"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+    <dcterms:title>Chapter 3: Working in virtual knowledge: Affective labor in scholarly collaboration</dcterms:title>
+    <dcterms:issued>2011-04-08T11:20:33Z</dcterms:issued>
+    <dcterms:modified>2011-06-15T10:35:08Z</dcterms:modified>
+    <dcterms:abstract>Scholarly work, especially in the humanities and social sciences, is often seen as solitary. The lone, creative individual, reading and writing while sitting ...</dcterms:abstract>
+    <frbr:partOf rdf:nodeID="book"/>
+    <dcterms:creator>Smiljana Antonijević</dcterms:creator>
+    <dcterms:creator>Stefan Dormans</dcterms:creator>
+    <dcterms:creator>Sally Wyatt</dcterms:creator>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/smiljana-antonijevic"/>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/stefan-dormans"/>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/sally-wyatt"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/wp-content/uploads/Tokyo-280810.ppt"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-4">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/BookChapter"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+    <dcterms:title>Chapter 4: Exploring Uncertainty in Knowledge Representations: Classifications, Simulations and Models of the World</dcterms:title>
+    <dcterms:issued>2011-04-08T11:20:38Z</dcterms:issued>
+    <dcterms:modified>2011-06-15T10:37:34Z</dcterms:modified>
+    <dcterms:abstract>“The world is not a solid continent of facts sprinkled by a few lakes of uncertainties, but a vast ocean of uncertainties speckled by a few islands of ...</dcterms:abstract>
+    <frbr:partOf rdf:nodeID="book"/>
+    <dcterms:creator>Matthijs Kouw</dcterms:creator>
+    <dcterms:creator>Charles van den Heuvel</dcterms:creator>
+    <dcterms:creator>Andrea Scharnhorst</dcterms:creator>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/matthijs-kouw"/>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/charles-van-den-heuvel"/>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/andrea-scharnhorst"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-6">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/BookChapter"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+    <dcterms:title>Chapter 6: Sloppy data floods or precise social science methodologies? Dilemmas in the transition to data-intensive research in sociology and economics</dcterms:title>
+    <dcterms:issued>2011-04-08T11:21:09Z</dcterms:issued>
+    <dcterms:modified>2011-06-15T10:42:39Z</dcterms:modified>
+    <dcterms:abstract>What are the implications of data-intensive research for social sciences? In an influential editorial, Chris Anderson from the magazine Wired predicted ...</dcterms:abstract>
+    <frbr:partOf rdf:nodeID="book"/>
+    <dcterms:creator>Clement Levallois</dcterms:creator>
+    <dcterms:creator>Stephanie Steinmetz</dcterms:creator>
+    <dcterms:creator>Paul Wouters</dcterms:creator>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/clement-levallois"/>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/stephanie-steinmetz"/>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/paul-wouters"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/wp-content/uploads/Figure-1-adapted-eResearch-figure.png">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Image"/>
+    <dcterms:title>Components of e-Research</dcterms:title>
+    <dcterms:issued>2011-06-15T22:16:21Z</dcterms:issued>
+    <dcterms:modified>2011-06-15T22:16:21Z</dcterms:modified>
+    <dcterms:format>image/png</dcterms:format>
+    <dcterms:description>(adapted version of Jankowski, 2009, 8)</dcterms:description>
+    <ore:isAggregatedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/wp-content/uploads/Figure-8-Nelsons-Notion-of-Evolutionary-List-File.png">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Image"/>
+    <dcterms:title>Figure 8: Nelson's Notion of Evolutionary List File</dcterms:title>
+    <dcterms:issued>2011-06-15T22:09:42Z</dcterms:issued>
+    <dcterms:modified>2011-06-15T22:09:42Z</dcterms:modified>
+    <dcterms:format>image/png</dcterms:format>
+    <dcterms:description>Source: Nelson (1965, 12)</dcterms:description>
+    <ore:isAggregatedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/wp-content/uploads/Figure-7-Diagram-of-Openness-Framework.png">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Image"/>
+    <dcterms:title>Figure 7: Diagram of Openness Framework (Tatum 2010)</dcterms:title>
+    <dcterms:issued>2011-06-15T22:02:03Z</dcterms:issued>
+    <dcterms:modified>2011-06-15T22:02:03Z</dcterms:modified>
+    <dcterms:format>image/png</dcterms:format>
+    <ore:isAggregatedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/BookChapter"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+    <dcterms:title>Chapter 7: Openness in Scholarly Communication: Conceptual Framework and Challenges to Innovation</dcterms:title>
+    <dcterms:issued>2011-04-08T11:21:21Z</dcterms:issued>
+    <dcterms:modified>2011-06-15T22:18:24Z</dcterms:modified>
+    <dcterms:abstract>Across the domains of scholarship, expectations are high for development of “new forms of scientific discovery and scholarly research” previously considered ...</dcterms:abstract>
+    <frbr:partOf rdf:nodeID="book"/>
+    <dcterms:creator>Clifford Tatum</dcterms:creator>
+    <dcterms:creator>Nicholas Jankowski</dcterms:creator>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/clifford-tatum"/>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/nicholas-jankowski"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/wp-content/uploads/Figure-1-adapted-eResearch-figure.png"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/wp-content/uploads/Figure-8-Nelsons-Notion-of-Evolutionary-List-File.png"/>
+    <ore:aggregates rdf:resource="http://thebook.virtualknowledgestudio.nl/wp-content/uploads/Figure-7-Diagram-of-Openness-Framework.png"/>
+    <biro:references rdf:nodeID="reference1"/>
+    <biro:references rdf:nodeID="reference2"/>
+    <biro:references rdf:nodeID="reference3"/>
+    <biro:references rdf:nodeID="reference4"/>
+    <biro:references rdf:nodeID="reference5"/>
+    <biro:references rdf:nodeID="reference6"/>
+    <biro:references rdf:nodeID="reference7"/>
+    <biro:references rdf:nodeID="reference8"/>
+    <biro:references rdf:nodeID="reference9"/>
+    <biro:references rdf:nodeID="reference10"/>
+    <biro:references rdf:nodeID="reference11"/>
+    <biro:references rdf:nodeID="reference12"/>
+    <biro:references rdf:nodeID="reference13"/>
+    <biro:references rdf:nodeID="reference14"/>
+    <biro:references rdf:nodeID="reference15"/>
+    <biro:references rdf:nodeID="reference16"/>
+    <biro:references rdf:nodeID="reference17"/>
+    <biro:references rdf:nodeID="reference18"/>
+    <biro:references rdf:nodeID="reference19"/>
+    <biro:references rdf:nodeID="reference20"/>
+    <biro:references rdf:nodeID="reference21"/>
+    <biro:references rdf:nodeID="reference22"/>
+    <biro:references rdf:nodeID="reference23"/>
+    <biro:references rdf:nodeID="reference24"/>
+    <biro:references rdf:nodeID="reference25"/>
+    <biro:references rdf:nodeID="reference26"/>
+    <biro:references rdf:nodeID="reference27"/>
+    <biro:references rdf:nodeID="reference28"/>
+    <biro:references rdf:nodeID="reference29"/>
+    <biro:references rdf:nodeID="reference30"/>
+    <biro:references rdf:nodeID="reference31"/>
+    <biro:references rdf:nodeID="reference32"/>
+    <biro:references rdf:nodeID="reference33"/>
+    <biro:references rdf:nodeID="reference34"/>
+    <biro:references rdf:nodeID="reference35"/>
+    <biro:references rdf:nodeID="reference36"/>
+    <biro:references rdf:nodeID="reference37"/>
+    <biro:references rdf:nodeID="reference38"/>
+    <biro:references rdf:nodeID="reference39"/>
+    <biro:references rdf:nodeID="reference40"/>
+    <biro:references rdf:nodeID="reference41"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-8">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/BookChapter"/>
+    <rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+    <dcterms:title>Chapter 8: Visionary Technologies: Shaping Research Agendas in Family History</dcterms:title>
+    <dcterms:issued>2011-04-08T11:25:37Z</dcterms:issued>
+    <dcterms:modified>2011-06-15T11:01:35Z</dcterms:modified>
+    <frbr:partOf rdf:nodeID="book"/>
+    <dcterms:creator>Jan Kok</dcterms:creator>
+    <dcterms:creator>Paul Wouters</dcterms:creator>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/jan-kok"/>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/paul-wouters"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://www.surffoundation.nl/">
+    <rdf:type>http://xmlns.com/foaf/0.1/Organization</rdf:type>
+    <dcterms:title>SURFfoundation</dcterms:title>
+    <escape-display:funds rdf:resource="http://thebook.virtualknowledgestudio.nl"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://ehumanities.nl/">
+    <rdf:type>http://xmlns.com/foaf/0.1/Organization</rdf:type>
+    <dcterms:title>e-Humanities Group</dcterms:title>
+    <escape-display:funds rdf:resource="http://thebook.virtualknowledgestudio.nl"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://virtualknowledgestudio.nl/">
+    <rdf:type>http://xmlns.com/foaf/0.1/Organization</rdf:type>
+    <dcterms:title>Virtual Knowledge Studio</dcterms:title>
+    <escape-display:funds rdf:resource="http://thebook.virtualknowledgestudio.nl"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference1">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/WebPage"/>
+    <dcterms:title>SHERPA/RoMEO</dcterms:title>
+    <fabio:hasURL>http://www.sherpa.ac.uk/projects/sherparomeo.html</fabio:hasURL>
+    <fabio:hasAccessDate>2011-05-19 12:46:10</fabio:hasAccessDate>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference2">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+    <dcterms:creator>William Garvey</dcterms:creator>
+    <dcterms:creator>Nan Lin</dcterms:creator>
+    <dcterms:creator>Carnot Nelson</dcterms:creator>
+    <dcterms:creator>Kazuo Tomita</dcterms:creator>
+    <fabio:hasPublicationYear>1972</fabio:hasPublicationYear>
+    <dcterms:title>Research studies in patterns of scientific communication: II. The role of the national meeting in scientific and technical communication</dcterms:title>
+    <fabio:abstract>We describe the results of a comprehensive study of scientific/technical communication associated with eleven national meetings which were sponsored by nine physical-, social- and engineering-science disciplines. Three groups of meeting participants were studied: authors (persons who presented papers) attendants (sample of persons who were present at these paper-presentations), and requestors (sample of persons who requested copies of these papers). The results showed that the national meeting is the first public announcement of a large portion of current research findings in any discipline and much of the information-exchange behavior encountered at the meeting is intrinsically exploratory. The meeting presentation itself usually constitutes an interim report since most material presented there ultimately finds its way into the journal literature. Some discussion is presented of the relationship of the information-exchange activities to characteristics of meeting participants.</fabio:abstract>
+    <frbr:partOf>Information Storage and Retrieval</frbr:partOf>
+    <prism:volume>8</prism:volume>
+    <prism:issueIdentifier>4</prism:issueIdentifier>
+    <prism:startingPage>159</prism:startingPage>
+    <prism:endingPage>169</prism:endingPage>
+    <fabio:hasShortTitle>Research studies in patterns of scientific communication</fabio:hasShortTitle>
+    <fabio:hasURL>http://www.sciencedirect.com.offcampus.lib.washington.edu/science/article/B6X2J-465CWJ3-3M/2/a33ebbb3dab4842cafc2286410754526</fabio:hasURL>
+    <fabio:hasAccessDate>2010-10-14 09:28:08</fabio:hasAccessDate>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference3">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/BookChapter"/>
+    <dcterms:creator>Joseph Turow</dcterms:creator>
+    <dcterms:creator>Lokman Tsui</dcterms:creator>
+    <dcterms:creator>Alexander Halavais</dcterms:creator>
+    <fabio:hasPublicationYear>2008</fabio:hasPublicationYear>
+    <dcterms:title>The Hyperlink as Organizing Principle</dcterms:title>
+    <frbr:partOf>The hyperlinked society: questioning connections in the digital age</frbr:partOf>
+    <dcterms:publisher>University of Michigan Press</dcterms:publisher>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference4">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/WebPage"/>
+    <dcterms:creator>IETF</dcterms:creator>
+    <dcterms:title>The Internet Engineering Task Force</dcterms:title>
+    <prism:publicationDate>2010</prism:publicationDate>
+    <fabio:hasURL>http://www.ietf.org/about/standards-process.html</fabio:hasURL>
+    <fabio:hasAccessDate>2010-03-25</fabio:hasAccessDate>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference5">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/Book"/>
+    <dcterms:creator>William Garvey</dcterms:creator>
+    <fabio:hasPublicationYear>1979</fabio:hasPublicationYear>
+    <dcterms:title>Communication, the Essence of Science: Facilitating Information Exchange Among Librarians, Scientists, Engineers, and Students</dcterms:title>
+    <dcterms:publisher>Pergamon</dcterms:publisher>
+    <prism:isbn>0080222544</prism:isbn>
+    <fabio:hasShortTitle>Communication, the Essence of Science</fabio:hasShortTitle>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference6">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/Book"/>
+    <dcterms:creator>Kathleen Fitzpatrick</dcterms:creator>
+    <dcterms:title>Planned Obsolescence: Publishing, Technology, and the Future of the Academy</dcterms:title>
+    <dcterms:publisher>New York Univ. Press</dcterms:publisher>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference7">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+    <dcterms:creator>Vannevar Bush</dcterms:creator>
+    <fabio:hasPublicationYear>1995</fabio:hasPublicationYear>
+    <dcterms:title>As We May Think - Atlantic Monthly July 1945</dcterms:title>
+    <frbr:partOf>The Journal of Electronic Publishing</frbr:partOf>
+    <prism:volume>1</prism:volume>
+    <prism:issueIdentifier>2</prism:issueIdentifier>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference8">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/Book"/>
+    <dcterms:creator>Henry Chesbrough</dcterms:creator>
+    <dcterms:creator>Wim Vanhaverbeke</dcterms:creator>
+    <dcterms:creator>Joel West</dcterms:creator>
+    <dcterms:creator>Henry West</dcterms:creator>
+    <fabio:hasPublicationYear>2006</fabio:hasPublicationYear>
+    <dcterms:title>Open Innovation: Researching a New paradigm</dcterms:title>
+    <prism:startingPage>373</prism:startingPage>
+    <prism:isbn>0199290725, 9780199290727</prism:isbn>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference9">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+    <dcterms:creator>Nicholas Jankowski</dcterms:creator>
+    <dcterms:creator>Martine Van Selm</dcterms:creator>
+    <fabio:hasPublicationYear>2000</fabio:hasPublicationYear>
+    <dcterms:title>Traditional news media online: An examination of added values</dcterms:title>
+    <frbr:partOf>Communications: European Journal of Communication Research</frbr:partOf>
+    <prism:volume>25</prism:volume>
+    <prism:issueIdentifier>1</prism:issueIdentifier>
+    <prism:startingPage>85</prism:startingPage>
+    <prism:endingPage>102</prism:endingPage>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/nicholas-jankowski"/>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference10">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+    <dcterms:creator>J. Fry</dcterms:creator>
+    <fabio:hasPublicationYear>2006</fabio:hasPublicationYear>
+    <dcterms:title>Scholarly Research and Information Practices: A Domain Analytic Approach</dcterms:title>
+    <fabio:abstract>This paper deals with information needs, seeking, searching, and uses within scholarly communities by introducing theory from the field of science and technology studies. In particular it contributes to the domain-analytic approach in information science by showing that Whitley's theory of 'mutual dependence' and 'task uncertainty' can be used as an explanatory framework in understanding similarity and difference in information practices across intellectual fields. Based on qualitative case studies of three specialist scholarly communities across the physical sciences, applied sciences, social sciences and arts and humanities, this paper extends Whitley's theory into the realm of information communication technologies. The paper adopts a holistic approach to information practices by recognising the interrelationship between the traditions of informal and formal scientific communication and how it shapes digital outcomes across intellectual fields. The findings show that communities inhabiting fields with a high degree of 'mutual dependence' coupled with a low degree of 'task uncertainty' are adept at coordinating and controlling channels of communication and will readily co-produce field-based digital information resources, whereas communities that inhabit fields characterised by the opposite cultural configuration, a low degree of 'mutual dependence' coupled with a high degree of 'task uncertainty', are less successful in commanding control over channels of communication and are less concerned with co-producing field-based digital resources and integrating them into their epistemic and social structures. These findings have implications for the culturally sensitive development and provision of academic digital resources such as digital libraries and web-based subject portals.</fabio:abstract>
+    <frbr:partOf>Inf. Process. Manage.</frbr:partOf>
+    <prism:volume>42</prism:volume>
+    <prism:issueIdentifier>1</prism:issueIdentifier>
+    <prism:startingPage>299</prism:startingPage>
+    <prism:endingPage>316</prism:endingPage>
+    <fabio:hasShortTitle>Scholarly research and information practices</fabio:hasShortTitle>
+    <fabio:hasURL>http://portal.acm.org/citation.cfm?id=1138816</fabio:hasURL>
+    <fabio:hasAccessDate>2009-11-26 13:29:06</fabio:hasAccessDate>
+    <prism:keywords>computer-mediated communication, domain-analysis, information practices, scientific collaboration, scientific communication, writing in the disciplines</prism:keywords>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference11">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+    <dcterms:creator>Alexandra Juhasz</dcterms:creator>
+    <dcterms:title>Learning the 5 Lessons of YouTube: After Trying to Teach There, I Don’t Believe the Hype</dcterms:title>
+    <frbr:partOf>International Journal of Learning and Media</frbr:partOf>
+    <fabio:hasURL>http://ijlm.net/knowinganddoing/10.1162/ijlm.2009.00002</fabio:hasURL>
+    <fabio:hasAccessDate>2010-10-13</fabio:hasAccessDate>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference12">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/WebPage"/>
+    <dcterms:creator>W3C</dcterms:creator>
+    <dcterms:title>The World Wide Web Consortium</dcterms:title>
+    <prism:publicationDate>2010</prism:publicationDate>
+    <fabio:hasURL>http://www.w3.org/</fabio:hasURL>
+    <fabio:hasAccessDate>2010-03-25</fabio:hasAccessDate>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference13">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/MovingImage"/>
+    <dcterms:creator>Michael Wesch</dcterms:creator>
+    <fabio:hasPublicationYear>2007</fabio:hasPublicationYear>
+    <dcterms:title>Web 2.0 ... The Machine is Us/ing Us</dcterms:title>
+    <prism:publicationDate>2007</prism:publicationDate>
+    <fabio:hasURL>http://www.youtube.com/watch?v=6gmP4nk0EOE</fabio:hasURL>
+    <fabio:hasAccessDate>2007-02-22 23:45:29</fabio:hasAccessDate>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference14">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/Book"/>
+    <dcterms:creator>John Willinsky</dcterms:creator>
+    <fabio:hasPublicationYear>2006</fabio:hasPublicationYear>
+    <dcterms:title>The Access Principle: The Case for Open Access to Research and Scholarship</dcterms:title>
+    <dcterms:publisher>The MIT Press</dcterms:publisher>
+    <prism:isbn>0262232421</prism:isbn>
+    <fabio:hasShortTitle>The Access Principle</fabio:hasShortTitle>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference15">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+    <dcterms:creator>Clifford Tatum</dcterms:creator>
+    <fabio:hasPublicationYear>2005</fabio:hasPublicationYear>
+    <dcterms:title>Deconstructing Google bombs: A breach of symbolic power or just a goofy prank?</dcterms:title>
+    <frbr:partOf>First Monday</frbr:partOf>
+    <prism:volume>10</prism:volume>
+    <prism:issueIdentifier>10</prism:issueIdentifier>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/clifford-tatum"/>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference16">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/BookChapter"/>
+    <dcterms:creator>Henry Chesbrough</dcterms:creator>
+    <dcterms:creator>Wim Vanhaverbeke</dcterms:creator>
+    <dcterms:creator>Joel West</dcterms:creator>
+    <dcterms:creator>Tim Simcoe</dcterms:creator>
+    <fabio:hasPublicationYear>2006</fabio:hasPublicationYear>
+    <dcterms:title>Open Standards and Intellectual Property Rights</dcterms:title>
+    <frbr:partOf>Open innovation: Research a New Paradigm</frbr:partOf>
+    <dcterms:publisher>Oxford University Press</dcterms:publisher>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference17">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/Book"/>
+    <dcterms:creator>Michèle Lamont</dcterms:creator>
+    <fabio:hasPublicationYear>2009</fabio:hasPublicationYear>
+    <dcterms:title>How professors think</dcterms:title>
+    <dcterms:publisher>Harvard University Press</dcterms:publisher>
+    <prism:startingPage>340</prism:startingPage>
+    <prism:isbn>0674032667, 9780674032668</prism:isbn>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference18">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+    <dcterms:creator>Wanda Orlikowski</dcterms:creator>
+    <fabio:hasPublicationYear>1992</fabio:hasPublicationYear>
+    <dcterms:title>The Duality of Technology: Rethinking the Concept of Technology in Organizations</dcterms:title>
+    <frbr:partOf>Organization Science</frbr:partOf>
+    <prism:volume>3</prism:volume>
+    <prism:issueIdentifier>3</prism:issueIdentifier>
+    <prism:startingPage>398</prism:startingPage>
+    <prism:endingPage>427</prism:endingPage>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference19">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+    <dcterms:creator>Jean-Claude Bradley</dcterms:creator>
+    <dcterms:title>Open Notebook Science Using Blogs and Wikis</dcterms:title>
+    <frbr:partOf>Nature Precedings</frbr:partOf>
+    <fabio:hasURL>http://precedings.nature.com/documents/39/version/1</fabio:hasURL>
+    <fabio:hasAccessDate>2010-10-14 09:23:22</fabio:hasAccessDate>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference20">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/ReportDocument"/>
+    <dcterms:creator>ACLS</dcterms:creator>
+    <fabio:hasPublicationYear>2006</fabio:hasPublicationYear>
+    <dcterms:title>Our Cultural Commonwealth: The report of the American Council of Learned Societies Commission on Cyberinfrastructure for the Humanities and Social Sciences</dcterms:title>
+    <prism:publicationDate>2006</prism:publicationDate>
+    <frbr:place>American Council of Learned Societies</frbr:place>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference21">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/ReportDocument"/>
+    <dcterms:creator>Diane Harley</dcterms:creator>
+    <dcterms:creator>Sophia Acord</dcterms:creator>
+    <dcterms:creator>Sarah Earl-Novell</dcterms:creator>
+    <dcterms:creator>Shannon Lawrence</dcterms:creator>
+    <dcterms:creator>C. King</dcterms:creator>
+    <fabio:hasPublicationYear>2010</fabio:hasPublicationYear>
+    <dcterms:title>Assessing the Future Landscape of Scholarly Communication: An Exploration of Faculty Values and Needs in Seven Disciplines</dcterms:title>
+    <prism:publicationDate>January 2010</prism:publicationDate>
+    <frbr:place>Center for Studies in Higher Education, UC Berkeley</frbr:place>
+    <fabio:hasURL>http://escholarship.org/uc/cshe_fsc</fabio:hasURL>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference22">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+    <dcterms:creator>James Hendler</dcterms:creator>
+    <fabio:hasPublicationYear>2007</fabio:hasPublicationYear>
+    <dcterms:title>Reinventing Academic Publishing-Part 1</dcterms:title>
+    <fabio:abstract>The nature of academic publishing is changing, and computer scientists need to lead the way.</fabio:abstract>
+    <frbr:partOf>IEEE Intelligent Systems</frbr:partOf>
+    <prism:volume>22</prism:volume>
+    <prism:issueIdentifier>5</prism:issueIdentifier>
+    <prism:startingPage>2</prism:startingPage>
+    <prism:endingPage>3</prism:endingPage>
+    <prism:keywords>academic publishing, artificial intelligence, peer review, semantic web</prism:keywords>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference23">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+    <dcterms:creator>Eric Hippel</dcterms:creator>
+    <dcterms:creator>Georg Krogh</dcterms:creator>
+    <fabio:hasPublicationYear>2003</fabio:hasPublicationYear>
+    <dcterms:title>Open Source Software and the &quot;Private-Collective&quot; Innovation Model: Issues for Organization Science</dcterms:title>
+    <fabio:abstract>Currently, two models of innovation are prevalent in organization science. The &quot;private investment&quot; model assumes returns to the innovator result from private goods and efficient regimes of intellectual property protection. The &quot;collective action&quot; model assumes that under conditions of market failure, innovators collaborate in order to produce a public good. The phenomenon of open source software development shows that users program to solve their own as well as shared technical problems, and freely reveal their innovations without appropriating private returns from selling the software. In this paper, we propose that open source software development is an exemplar of a compound &quot;private-collective&quot; model of innovation that contains elements of both the private investment and the collective action models and can offer society the &quot;best of both worlds&quot; under many conditions. We describe a new set of research questions this model raises for scholars in organization science. We offer some details regarding the types of data available for open source projects in order to ease access for researchers who are unfamiliar with these, and also offer some advice on conducting empirical studies on open source software development processes.</fabio:abstract>
+    <frbr:partOf>ORGANIZATION SCIENCE</frbr:partOf>
+    <prism:volume>14</prism:volume>
+    <prism:issueIdentifier>2</prism:issueIdentifier>
+    <prism:startingPage>209</prism:startingPage>
+    <prism:endingPage>223</prism:endingPage>
+    <fabio:hasShortTitle>Open Source Software and the &quot;Private-Collective&quot; Innovation Model</fabio:hasShortTitle>
+    <fabio:hasURL>http://orgsci.journal.informs.org/cgi/content/abstract/14/2/209</fabio:hasURL>
+    <fabio:hasAccessDate>2010-03-25 06:45:11</fabio:hasAccessDate>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference24">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+    <dcterms:creator>Kathleen Gray</dcterms:creator>
+    <dcterms:creator>Celia Thompson</dcterms:creator>
+    <dcterms:creator>Rosemary Clerehan</dcterms:creator>
+    <dcterms:creator>Judithe Sheard</dcterms:creator>
+    <dcterms:creator>Margaret Hamilton</dcterms:creator>
+    <fabio:hasPublicationYear>2008</fabio:hasPublicationYear>
+    <dcterms:title>Web 2.0 authorship: Issues of referencing and citation for academic integrity</dcterms:title>
+    <frbr:partOf>The Internet and Higher Education</frbr:partOf>
+    <prism:volume>11</prism:volume>
+    <prism:issueIdentifier>2</prism:issueIdentifier>
+    <prism:startingPage>112</prism:startingPage>
+    <prism:endingPage>118</prism:endingPage>
+    <fabio:hasShortTitle>Web 2.0 authorship</fabio:hasShortTitle>
+    <fabio:hasURL>http://www.bibsonomy.org/bibtex/2915a26701f766d36ccb7e14a7b94f3c8/pecim7af</fabio:hasURL>
+    <fabio:hasAccessDate>2010-10-14 09:28:44</fabio:hasAccessDate>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference25">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+    <dcterms:creator>Jenny Fry</dcterms:creator>
+    <dcterms:creator>Sanna Talja</dcterms:creator>
+    <fabio:hasPublicationYear>2007</fabio:hasPublicationYear>
+    <dcterms:title>The intellectual and social organization of academic fields and the shaping of digital resources</dcterms:title>
+    <fabio:abstract>This paper looks at disciplinary differences in the production, relevance, and use of three predominant genres of informal scholarly communication on the internet: academic mailing lists; scholarly homepages, and scholar-produced decentralized digital resources. The aim is to contribute to the development of a theoretical framework for understanding and explaining disciplinary differences in the shaping of networked resources. We apply Whitley's theory of the intellectual and social organization of academic fields to explain variation in forms and types of digital resources across fields. The paper extends Whitley's theory by applying his key domain analytic concepts task uncertainty' and mutual dependence' to explain scholarly communication practices in the digital realm. The empirical data spans seven intellectual fields across the natural sciences, health sciences, humanities, and social sciences. The analysis shows that, while there are similarities in the scholarly production of information genres on the internet, Whitley's theory helps in identifying and understanding the diversity and heterogeneity of electronic communication fora across fields.</fabio:abstract>
+    <frbr:partOf>Journal of Information Science</frbr:partOf>
+    <prism:volume>33</prism:volume>
+    <prism:issueIdentifier>2</prism:issueIdentifier>
+    <prism:startingPage>115</prism:startingPage>
+    <prism:endingPage>133</prism:endingPage>
+    <fabio:hasURL>http://jis.sagepub.com/cgi/content/abstract/33/2/115</fabio:hasURL>
+    <fabio:hasAccessDate>2009-11-26 13:25:22</fabio:hasAccessDate>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference26">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+    <dcterms:creator>Anne Beaulieu</dcterms:creator>
+    <dcterms:creator>Elena Simakova</dcterms:creator>
+    <fabio:hasPublicationYear>2006</fabio:hasPublicationYear>
+    <dcterms:title>Textured Connectivity: an ethnographic approach to understanding the timescape of hyperlinks</dcterms:title>
+    <frbr:partOf>Cybermetrics</frbr:partOf>
+    <prism:volume>10</prism:volume>
+    <prism:issueIdentifier>1</prism:issueIdentifier>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/anne-beaulieu"/>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference27">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/ReportDocument"/>
+    <dcterms:creator>BOAI</dcterms:creator>
+    <fabio:hasPublicationYear>2002</fabio:hasPublicationYear>
+    <dcterms:title>Budapest Open Access Initiative</dcterms:title>
+    <prism:publicationDate>2002</prism:publicationDate>
+    <fabio:hasURL>http://www.soros.org/openaccess</fabio:hasURL>
+    <fabio:hasAccessDate>2010-01-18 21:31:23</fabio:hasAccessDate>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference28">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/Book"/>
+    <dcterms:creator>Henry Chesbrough</dcterms:creator>
+    <fabio:hasPublicationYear>2006</fabio:hasPublicationYear>
+    <dcterms:title>Open Innovation: the New Imperative for Creating and Profiting from Technology</dcterms:title>
+    <dcterms:publisher>Harvard Business Press</dcterms:publisher>
+    <prism:startingPage>270</prism:startingPage>
+    <prism:isbn>9781578518371</prism:isbn>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference29">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/BookChapter"/>
+    <dcterms:creator>Nicholas Jankowski</dcterms:creator>
+    <fabio:hasPublicationYear>2009</fabio:hasPublicationYear>
+    <dcterms:title>The contours and challenges of e-research</dcterms:title>
+    <frbr:partOf>E-Research: Transformation in Scholarly Practice</frbr:partOf>
+    <dcterms:publisher>Routledge</dcterms:publisher>
+    <pav:authoredBy rdf:resource="http://thebook.virtualknowledgestudio.nl/author/nicholas-jankowski"/>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference30">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/ConferencePaper"/>
+    <dcterms:creator>Richard Johnson</dcterms:creator>
+    <fabio:hasPublicationYear>2004</fabio:hasPublicationYear>
+    <dcterms:title>The Future of Scholarly Communication in the Humanities: Adaptation or Transformation?</dcterms:title>
+    <fabio:abstract>The paper suggests that the disaggregation of the core&lt;br /&gt; functions of scholarly publication will inevitably change&lt;br /&gt; communication in the humanities.</fabio:abstract>
+    <prism:publicationDate>2004</prism:publicationDate>
+    <fabio:hasURL>http://eprints.rclis.org/7608/1/SPARC_CELJ_paper_2004.pdf</fabio:hasURL>
+    <fabio:hasAccessDate>2009-10-07 07:58:44</fabio:hasAccessDate>
+    <prism:keywords>BE. Information economics.,</prism:keywords>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference31">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/Book"/>
+    <dcterms:creator>Joseph Turow</dcterms:creator>
+    <dcterms:creator>Lokman Tsui</dcterms:creator>
+    <fabio:hasPublicationYear>2008</fabio:hasPublicationYear>
+    <dcterms:title>The hyperlinked society: questioning connections in the digital age</dcterms:title>
+    <dcterms:publisher>University of Michigan Press</dcterms:publisher>
+    <prism:startingPage>330</prism:startingPage>
+    <prism:isbn>9780472050437</prism:isbn>
+    <fabio:hasShortTitle>The hyperlinked society</fabio:hasShortTitle>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference32">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/Book"/>
+    <dcterms:creator>Gottfried Vossen</dcterms:creator>
+    <dcterms:creator>Stephan Hagemann</dcterms:creator>
+    <fabio:hasPublicationYear>2007</fabio:hasPublicationYear>
+    <dcterms:title>Unleashing Web 2.0: From Concepts to Creativity</dcterms:title>
+    <dcterms:publisher>Morgan Kaufmann</dcterms:publisher>
+    <prism:isbn>0123740347</prism:isbn>
+    <fabio:hasShortTitle>Unleashing Web 2.0</fabio:hasShortTitle>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference33">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/Book"/>
+    <dcterms:creator>Richard Whitley</dcterms:creator>
+    <fabio:hasPublicationYear>2000</fabio:hasPublicationYear>
+    <dcterms:title>The Intellectual and Social Organization of the Sciences</dcterms:title>
+    <dcterms:publisher>Oxford University Press, USA</dcterms:publisher>
+    <prism:edition>2</prism:edition>
+    <prism:isbn>0199240450</prism:isbn>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference34">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/WebPage"/>
+    <dcterms:creator>Hans Roosendaal</dcterms:creator>
+    <dcterms:creator>Peter Geurts</dcterms:creator>
+    <dcterms:title>Forces and functions in scientific communication: an analysis of their interplay</dcterms:title>
+    <prism:publicationDate>1997</prism:publicationDate>
+    <fabio:hasURL>http://doc.utwente.nl/60395/</fabio:hasURL>
+    <fabio:hasAccessDate>2009-10-07 07:53:06</fabio:hasAccessDate>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference35">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/Book"/>
+    <dcterms:creator>Eric Raymond</dcterms:creator>
+    <fabio:hasPublicationYear>2001</fabio:hasPublicationYear>
+    <dcterms:title>The Cathedral &amp; the Bazaar: Musings on Linux and Open Source by an Accidental Revolutionary</dcterms:title>
+    <dcterms:publisher>Safari Books Online</dcterms:publisher>
+    <prism:edition>Revised Edition</prism:edition>
+    <prism:startingPage>241</prism:startingPage>
+    <prism:isbn>0596001088</prism:isbn>
+    <fabio:hasShortTitle>The Cathedral &amp; the Bazaar</fabio:hasShortTitle>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference36">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+    <dcterms:creator>Anastasia Kavada</dcterms:creator>
+    <fabio:hasPublicationYear>2010</fabio:hasPublicationYear>
+    <dcterms:title>Email lists and participatory democracy in the European Social Forum</dcterms:title>
+    <frbr:partOf>Media, Culture &amp; Society</frbr:partOf>
+    <prism:volume>32</prism:volume>
+    <prism:issueIdentifier>3</prism:issueIdentifier>
+    <prism:startingPage>355</prism:startingPage>
+    <prism:endingPage>372</prism:endingPage>
+    <fabio:hasURL>http://mcs.sagepub.com/content/32/3/355.short</fabio:hasURL>
+    <fabio:hasAccessDate>2010-09-28 10:03:32</fabio:hasAccessDate>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference37">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/Book"/>
+    <dcterms:creator>Robert Merton</dcterms:creator>
+    <dcterms:creator>Norman Storer</dcterms:creator>
+    <fabio:hasPublicationYear>1979</fabio:hasPublicationYear>
+    <dcterms:title>The sociology of science</dcterms:title>
+    <dcterms:publisher>University of Chicago Press</dcterms:publisher>
+    <prism:startingPage>639</prism:startingPage>
+    <prism:isbn>0226520927, 9780226520926</prism:isbn>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference38">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+    <dcterms:creator>Michael Nentwich</dcterms:creator>
+    <fabio:hasPublicationYear>2005</fabio:hasPublicationYear>
+    <dcterms:title>Cyberscience: Modelling ICT-induced changes of the scholarly communication system</dcterms:title>
+    <frbr:partOf>Information, Communication &amp; Society</frbr:partOf>
+    <prism:volume>8</prism:volume>
+    <prism:issueIdentifier>4</prism:issueIdentifier>
+    <prism:startingPage>542</prism:startingPage>
+    <fabio:hasShortTitle>Cyberscience</fabio:hasShortTitle>
+    <fabio:hasURL>http://www.informaworld.com/10.1080/13691180500418451</fabio:hasURL>
+    <fabio:hasAccessDate>2010-03-31 23:06:28</fabio:hasAccessDate>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference39">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/ReportDocument"/>
+    <dcterms:creator>William Arms</dcterms:creator>
+    <dcterms:creator>Ronald Larsen</dcterms:creator>
+    <fabio:hasPublicationYear>2007</fabio:hasPublicationYear>
+    <dcterms:title>The Future of Scholarly Communication: Building the Infrastructure for Cyberscholarship</dcterms:title>
+    <prism:publicationDate>September 26, 2007</prism:publicationDate>
+    <frbr:place>National Science Foundation &amp; British Joint Information Systems Committee</frbr:place>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference40">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/Book"/>
+    <dcterms:creator>Henry William Chesbrough</dcterms:creator>
+    <fabio:hasPublicationYear>2006</fabio:hasPublicationYear>
+    <dcterms:title>Open innovation: The New Imperative for Creating and Profiting from Technology</dcterms:title>
+    <frbr:place>Cambridge, MA</frbr:place>
+    <dcterms:publisher>Harvard Business Press</dcterms:publisher>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:nodeID="reference41">
+    <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+    <dcterms:creator>Jenny Fry</dcterms:creator>
+    <fabio:hasPublicationYear>2006</fabio:hasPublicationYear>
+    <dcterms:title>Scholarly research and information practices: A domain analytic approach</dcterms:title>
+    <frbr:partOf>Information Processing and Management </frbr:partOf>
+    <prism:volume>42</prism:volume>
+    <prism:issueIdentifier>1</prism:issueIdentifier>
+    <prism:startingPage>299</prism:startingPage>
+    <prism:endingPage>316</prism:endingPage>
+    <biro:isReferencedBy rdf:resource="http://thebook.virtualknowledgestudio.nl/table-of-contents/chapter-7"/>
+  </rdf:Description>
+
+</rdf:RDF>

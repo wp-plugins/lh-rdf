@@ -4,7 +4,7 @@ Plugin Name: LH RDF
 Plugin URI: http://localhero.biz/plugins/lh-rdf/
 Description: Adds a semantic/SIOC RDF feed to Wordpress
 Author: shawfactor
-Version: 0.13
+Version: 0.14
 Author URI: http://shawfactor.com/
 
 == Changelog ==
@@ -35,6 +35,8 @@ Author URI: http://shawfactor.com/
 * Fixed RDF bug, added Tag feed
 = 0.13 =
 * Added dcterms identifier
+= 0.14 =
+* Added openarchives and Incontext visualisation support
 
 
 

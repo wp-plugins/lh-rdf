@@ -433,13 +433,42 @@ $tag = get_tag($tag);
 ?>
 
 <foaf:Document rdf:about="">
-<dc:title>SIOC Site profile for <?php bloginfo_rss('name'); ?></dc:title>
+<rdf:type rdf:resource="http://www.openarchives.org/ore/terms/ResourceMap"/>
+<ore:describes rdf:resource="<?php bloginfo_rss("url") ?>#aggregation"/>
+<dc:title>Resource feed of <?php bloginfo_rss('name'); ?></dc:title>
+<dcterms:created><?php $args = array(
+    'numberposts'     => 1,
+    'orderby'         => 'post_date',
+    'order'           => 'ASC'
+); 
+
+$firstpost = get_posts( $args );
+
+echo mysql2date('Y-m-d\TH:i:s\Z', $firstpost[0]->post_date_gmt, false); 
+
+?></dcterms:created>
+<dcterms:modified><?php echo mysql2date('Y-m-d\TH:i:s\Z', get_lastpostmodified('GMT'), false); ?></dcterms:modified>
+<dcterms:creator rdf:resource="<?php echo get_author_posts_url('1'); ?>"/>
 <dc:description>A SIOC profile describes the structure and contents of a weblog in  machine readable form. For more information please refer to http://sioc-project.org/.</dc:description>
 <foaf:primaryTopic rdf:resource="<?php bloginfo_rss("url") ?>"/>
 <admin:generatorAgent rdf:resource="http://localhero.biz/plugins/lh-rdf/"/>
 </foaf:Document>
 
-<sioc:Site rdf:about="<?php bloginfo_rss("url") ?>">
+<rdf:Description rdf:about="<?php bloginfo_rss("url") ?>#aggregation">
+<rdf:type rdf:resource="http://purl.org/info:eu-repo/semantics/EnhancedPublication"/>
+<rdf:type rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+<dcterms:title>Agregation of <?php bloginfo_rss('name'); ?></dcterms:title>
+<ore:isDescribedBy rdf:resource=""/>
+<?php while (have_posts()): the_post(); ?>
+<ore:aggregates rdf:resource="<?php the_permalink_rss() ?>" />
+<?php endwhile;  ?>
+<ore:aggregates rdf:resource="<?php bloginfo_rss("url") ?>" /> 
+<ore:aggregates rdf:resource="<?php bloginfo_rss("url") ?>/#categories" />
+</rdf:Description>
+
+<rdf:Description rdf:about="<?php bloginfo_rss("url") ?>">
+<rdf:type rdf:resource="http://purl.org/spar/fabio/WebSite"/>
+<rdf:type rdf:resource="http://rdfs.org/sioc/ns#Site"/>
 <dc:title><?php bloginfo_rss('name'); ?></dc:title>
 <dc:description>Website: <?php bloginfo_rss('name'); ?></dc:description>
 <sioc:link rdf:resource="http://localhero.biz/"/>
@@ -458,7 +487,7 @@ echo "<sioc:host_of rdf:resource=\"".get_bloginfo('url')."/".$post_type->has_arc
 }
 ?>
 
-</sioc:Site>
+</rdf:Description>
 
 <?php
  foreach ($post_types  as $post_type ) {
@@ -481,17 +510,12 @@ echo get_bloginfo('url')."/#posts";
 }
 
 ?>">
-<?php rewind_posts(); while (have_posts()): the_post(); ?>
-<sioc:container_of>
-<sioc:Post rdf:about="<?php the_permalink_rss() ?>" dcterms:modified="<?php echo mysql2date('D, d M Y H:i:s +0000', the_modified_time('Y-m-d H:i:s', true), false); ?>">
-<rdfs:seeAlso rdf:resource="<?php bloginfo_rss('url'); echo "/?p=".$post->ID."&amp;feed=lhrdf";
-if (get_query_var('post_type')){ echo "&amp;post_type=".get_query_var('post_type'); } ?>"/>
-</sioc:Post>
-</sioc:container_of>
+<?php 
+$post_type = get_query_var('post_type');
+rewind_posts(); while (have_posts()): the_post(); ?>
+<sioc:container_of rdf:resource="<?php the_permalink_rss() ?>" />
 <?php endwhile;  ?>
 <?php 
-
-$post_type = get_query_var('post_type');
 
 if (!$post_type){ $post_type = "post"; }
 
@@ -546,6 +570,27 @@ $j++;
 
 ?>
 </sioc:Forum>
+
+<?php 
+
+
+rewind_posts(); while (have_posts()): the_post(); ?>
+<?php 
+
+if (!$post_type || $post_type == "post" || $post_type == "page" ){
+
+include('type-post.php');
+
+} elseif ($post_type == "lh-place"){
+
+include('type-lh-place.php');
+
+}
+
+
+?>
+<?php endwhile;  ?>
+
 
 
 <skos:ConceptScheme rdf:about="<?php bloginfo_rss("url") ?>/#categories">

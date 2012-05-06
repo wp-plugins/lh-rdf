@@ -24,6 +24,9 @@ LH RDF is inspired and to some extent based on the original wordpress SIOC expor
 
 == Changelog ==
 
+**0.1.4 May 05, 2012**  
+* Added openarchives and Incontext
+
 **0.1.3 April 22, 2012**  
 * Added dcterms identifier
 
