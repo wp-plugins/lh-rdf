@@ -1,3 +1,13 @@
+<?php
+
+
+define('WP_USE_THEMES', false);
+
+/** Loads the WordPress Environment and Template */
+include("../../../wp-blog-header.php");
+
+?>
+
 <html>
 <head>
 <title>InContext Visualization</title>
@@ -17,7 +27,7 @@
 <!-- Visualizer example code -->
 <script type="text/javascript">
 // initialize the visualizer
-var app = new VisualizerApp("visualizer_canvas", "http://shawfactor.com#aggregation",
+var app = new VisualizerApp("visualizer_canvas", "<?php bloginfo_rss("url") ?>#aggregation",
 { // configuration options, see the configuration options documentation page for more information
 					debug: true,
 					maxWidth: 800,
