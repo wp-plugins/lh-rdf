@@ -174,7 +174,7 @@ echo mysql2date('Y-m-d\TH:i:s\Z', $firstpost[0]->post_date_gmt, false);
 <dc:title><?php bloginfo_rss('name'); ?></dc:title>
 <dc:description>Website: <?php bloginfo_rss('name'); ?></dc:description>
 <sioc:link rdf:resource="http://localhero.biz/"/>
-<sioc:host_of rdf:resource="<?php bloginfo_rss("url") ?>/#posts"/>
+<sioc:host_of rdf:resource="<?php bloginfo_rss("url") ?>/#posts" />
 <?php
 $args = array(
   'public'   => true,
@@ -184,7 +184,7 @@ $output = 'objects';
 $post_types = get_post_types($args,$output);
   foreach ($post_types  as $post_type ) {
 if ($post_type->has_archive){
-echo "<sioc:host_of rdf:resource=\"".get_bloginfo('url')."/".$post_type->has_archive."/\" />";
+echo "<sioc:host_of rdf:resource=\"".get_bloginfo('url')."/".$post_type->has_archive."/\"  />";
 }
 }
 ?>
@@ -195,8 +195,10 @@ echo "<sioc:host_of rdf:resource=\"".get_bloginfo('url')."/".$post_type->has_arc
  foreach ($post_types  as $post_type ) {
 if ($post_type->has_archive){
 echo "<sioc:Forum rdf:about=\"".get_bloginfo('url')."/".$post_type->has_archive."/\" >
-<rdfs:seeAlso rdf:resource=\"".get_bloginfo('url')."/".$post_type->has_archive."/?feed=lhrdf\"/>
-</sioc:Forum>";
+<rdfs:seeAlso rdf:resource=\"".get_bloginfo('url')."/".$post_type->has_archive."/?feed=lhrdf\"/>";
+?><rdfs:label><?php bloginfo_rss('name');
+echo " ".$post_type->has_archive; ?></rdfs:label><?php
+echo "</sioc:Forum>";
 }
 }
 ?>
@@ -206,13 +208,14 @@ echo "<sioc:Forum rdf:about=\"".get_bloginfo('url')."/".$post_type->has_archive.
 <sioc:Forum rdf:about="<?php
 if (get_query_var('post_type')){ 
 $post_type = get_query_var('post_type');
-echo get_post_type_archive_link($post_type); 
+echo get_post_type_archive_link($post_type)."\">";
+?><rdfs:label><?php bloginfo_rss('name');
+echo get_post_type_archive_link($post_type) ?></rdfs:label><?php
 } else {
-echo get_bloginfo('url')."/#posts";
+echo get_bloginfo('url')."/#posts\">";
+?><rdfs:label><?php bloginfo_rss('name'); ?> Posts</rdfs:label><?php
 }
 
-?>">
-<?php 
 $post_type = get_query_var('post_type');
 rewind_posts(); while (have_posts()): the_post(); ?>
 <sioc:container_of rdf:resource="<?php the_permalink_rss() ?>" />

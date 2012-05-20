@@ -33,7 +33,7 @@ var app = new VisualizerApp("visualizer_canvas", "<?php bloginfo_rss("url") ?>#a
 					maxWidth: 800,
 					dataUrl: "/?feed=lhrdf&lh_rdf_extend=yes",
 schemaUrl: "incontext/rdf_schema.php",
-titleProperties: ["http://purl.org/dc/elements/1.1/title", "http://purl.org/dc/terms/title", "http://xmlns.com/foaf/0.1/name", "http://www.w3.org/2004/02/skos/core#prefLabel", "http://xmlns.com/foaf/0.1/accountName"],
+titleProperties: ["http://purl.org/dc/elements/1.1/title", "http://purl.org/dc/terms/title", "http://xmlns.com/foaf/0.1/name", "http://www.w3.org/2004/02/skos/core#prefLabel", "http://xmlns.com/foaf/0.1/accountName", "http://www.w3.org/2000/01/rdf-schema#label"],
 					dontShowProperties: ["http://www.openarchives.org/ore/terms/isDescribedBy", "http://purl.utwente.nl/ns/escape-system.owl#resourceUri"],
 					annotationTypeId: "http://purl.utwente.nl/ns/escape-annotations.owl#RelationAnnotation",
 					objectAnnotationTypeId: "http://purl.utwente.nl/ns/escape-annotations.owl#object",
