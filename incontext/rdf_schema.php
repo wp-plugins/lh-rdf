@@ -2887,10 +2887,90 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 	</rdf:Description>
 
 
-<rdf:Description rdf:about="http://purl.utwente.nl/ns/escape-pubtypes.owl#Article">
+<rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme">
 <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-<rdfs:comment>Article or an editorial published in a journal</rdfs:comment>
-<rdfs:label>Article</rdfs:label>
-  </rdf:Description>
+<rdfs:label>Concept Scheme</rdfs:label>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://rdfs.org/sioc/ns#UserAccount">
+<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+<rdfs:label xml:lang="en">User Account</rdfs:label>
+<rdfs:comment xml:lang="en">A user account in an online community site.</rdfs:comment>
+<rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/OnlineAccount"/>
+<rdfs:isDefinedBy rdf:resource="http://rdfs.org/sioc/ns#"/>
+<owl:disjointWith rdf:resource="http://rdfs.org/sioc/ns#Container"/>
+<owl:disjointWith rdf:resource="http://rdfs.org/sioc/ns#Item"/>
+<owl:disjointWith rdf:resource="http://rdfs.org/sioc/ns#Role"/>
+<owl:disjointWith rdf:resource="http://rdfs.org/sioc/ns#Space"/>
+<owl:disjointWith rdf:resource="http://rdfs.org/sioc/ns#Usergroup"/>
+</rdf:Description>
+
+
+
+<rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#hasTopConcept">
+<rdfs:label xml:lang="en">has top concept</rdfs:label>
+<rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+<skos:definition xml:lang="en">Relates, by convention, a concept scheme to a concept which is topmost in the broader/narrower concept hierarchies for that scheme, providing an entry point to these hierarchies.</skos:definition>
+<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+<rdfs:domain rdf:resource="#ConceptScheme"/>
+<rdfs:range rdf:resource="#Concept"/>
+<owl:inverseOf rdf:resource="#topConceptOf"/>
+<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#topConceptOf">
+<rdfs:label xml:lang="en">is top concept in scheme</rdfs:label>
+<rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+<skos:definition xml:lang="en">Relates a concept to the concept scheme that it is a top level concept of.</skos:definition><!-- S3 -->
+<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+<rdfs:subPropertyOf rdf:resource="#inScheme"/>
+<owl:inverseOf rdf:resource="#hasTopConcept"/>
+<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+<rdfs:domain rdf:resource="#Concept"/>
+<rdfs:range rdf:resource="#ConceptScheme"/>
+</rdf:Description>
+
+<owl:ObjectProperty rdf:about="http://rdfs.org/sioc/ns#topic">
+<rdfs:label xml:lang="en">has topic</rdfs:label>
+<rdfs:comment xml:lang="en">A topic of interest, linking to the appropriate URI, e.g. in the Open Directory Project or of a SKOS category.</rdfs:comment>
+<rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/subject"/>
+<owl:inverseOf rdf:resource="http://localhero.biz#topic_inverse"/>
+<rdfs:isDefinedBy rdf:resource="http://rdfs.org/sioc/ns#"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://rdfs.org/sioc/ns#has_creator">
+  <rdfs:label xml:lang="en">has creator</rdfs:label>
+  <owl:inverseOf rdf:resource="http://rdfs.org/sioc/ns#creator_of"/>
+  <rdfs:comment xml:lang="en">This is the UserAccount that made this resource.</rdfs:comment>
+  <rdfs:range rdf:resource="http://rdfs.org/sioc/ns#UserAccount"/>
+  <rdfs:isDefinedBy rdf:resource="http://rdfs.org/sioc/ns#"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://rdfs.org/sioc/ns#creator_of">
+  <rdfs:label xml:lang="en">creator of</rdfs:label>
+  <owl:inverseOf rdf:resource="http://rdfs.org/sioc/ns#has_creator"/>
+  <rdfs:comment xml:lang="en">A resource that the UserAccount is a creator of.</rdfs:comment>
+  <rdfs:domain rdf:resource="http://rdfs.org/sioc/ns#UserAccount"/>
+  <rdfs:isDefinedBy rdf:resource="http://rdfs.org/sioc/ns#"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://localhero.biz#topic_inverse">
+<rdfs:label xml:lang="en">is topic in</rdfs:label>
+<owl:inverseOf rdf:resource="http://rdfs.org/sioc/ns#topic"/>
+</owl:ObjectProperty>
+
+<owl:Class rdf:about="http://rdfs.org/sioc/types#Tag">
+<rdfs:label xml:lang="en">Tag</rdfs:label>
+<rdfs:comment xml:lang="en">Tag is used on the object of sioc:topic to indicate that this resource is a tag on a site.</rdfs:comment>
+<rdfs:isDefinedBy rdf:resource="http://rdfs.org/sioc/types#"/>
+</owl:Class>
+
+<owl:Class rdf:about="http://rdfs.org/sioc/ns#Post">
+<rdfs:label xml:lang="en">Post</rdfs:label>
+<rdfs:comment xml:lang="en">An article or message that can be posted to a Forum.</rdfs:comment>
+<rdfs:subClassOf rdf:resource="http://rdfs.org/sioc/ns#Item"/>
+<rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+<rdfs:isDefinedBy rdf:resource="http://rdfs.org/sioc/ns#"/>
+</owl:Class>
 
 </rdf:RDF>

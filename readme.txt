@@ -1,7 +1,7 @@
 === LH RDF ===
 Contributors: shawfactor
 Donate link: http://localhero.biz/plugins/lh-rdf/
-Tags: feed, feeds, rdf, localhero, sioc, skos, foaf
+Tags: feed, feeds, rdf, localhero, sioc, skos, foaf, semantic web
 Requires at least: 3.0
 Tested up to: 3.3.1
 Stable tag: trunk
@@ -23,6 +23,9 @@ LH RDF is inspired and to some extent based on the original wordpress SIOC expor
 3. To enable pretty permlinks (e.g. `http://example.com/feed/lhrdf/`), go to Permalinks in the Setting menu and Save.
 
 == Changelog ==
+
+**0.1.5 May 19, 2012**  
+* Added flag to publish extended RDF
 
 **0.1.4 May 05, 2012**  
 * Added openarchives and Incontext

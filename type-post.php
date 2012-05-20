@@ -1,5 +1,4 @@
 <rdf:Description rdf:about="<?php the_permalink_rss() ?>">
-<rdf:type rdf:resource="http://purl.utwente.nl/ns/escape-pubtypes.owl#Article"/>
 <rdf:type rdf:resource="http://rdfs.org/sioc/ns#Post"/>
 <sioc:link rdf:resource="<?php the_permalink_rss() ?>"/>
 <sioc:has_container rdf:resource="<?php
@@ -29,24 +28,20 @@ $extract = lh_extractImages($post->post_content, $post_uri);
 echo $extract;
 
 ?>
-
-
-<sioc:has_creator>
-<sioc:User rdf:about="<?php echo get_author_posts_url($post->post_author); ?>" rdfs:label="<?php echo get_author_name($post->post_author); ?>">
-<rdfs:seeAlso rdf:resource="<?php echo get_author_posts_url($post->post_author); ?>?feed=lhrdf"/>
-</sioc:User>
-</sioc:has_creator>
-
+<sioc:has_creator rdf:resource="<?php echo get_author_posts_url($post->post_author); ?>" />
 <?php
 $categories = get_the_category();
 $j = 0;
 while ($j < count($categories)) {
 
-echo "\n<sioc:topic>
-<sioct:Category rdfs:label=\"".$categories[$j]->category_nicename."\" rdf:about=\"".get_category_link($categories[$j]->cat_ID)."\">
-<rdfs:seeAlso rdf:resource=\"".get_category_link($categories[$j]->cat_ID)."?feed=lhrdf\"/>
-</sioct:Category>
-</sioc:topic>\n";
+echo "<sioc:topic rdf:resource=\"".get_category_link($categories[$j]->cat_ID)."\"/>\n";
+
+$post_taxonomy_Array[] = $categories[$j]->cat_ID;
+
+$post_taxonomy_Array = array_unique($post_taxonomy_Array);
+
+sort($post_taxonomy_Array);
+
 
 $j++;
 }
@@ -66,14 +61,14 @@ $j = 0;
 
 while ($j < count($tags)) {
 
-echo "\n<sioc:topic>
-<sioct:tag rdfs:label=\"".$tags[$j]->name."\" rdf:about=\"".get_tag_link($tags[$j]->term_id)."\">\n";
+echo "<sioc:topic rdf:resource=\"".get_tag_link($tags[$j]->term_id)."\"/>\n";
 
-echo "<rdfs:seeAlso rdf:resource=\"".get_tag_link($tags[$j]->term_id)."?feed=lhrdf\"/>\n";
+$post_taxonomy_Array[] = $tags[$j]->term_id;
 
+$post_taxonomy_Array = array_unique($post_taxonomy_Array);
 
-echo "</sioct:tag>
-</sioc:topic>\n\n";
+sort($post_taxonomy_Array);
+
 
 $j++;
 
@@ -87,23 +82,7 @@ $j = 0;
 
 while ($j < count($tags)) {
 
-echo "<tag:RestrictedTagging>\n<tag:taggedResource rdf:about=\"";
-
-the_permalink_rss();
-
-echo "\">\n";
-
-echo "<tag:associatedTag rdf:resource=\"".get_tag_link($tags[$j]->term_id)."\"/>\n";
-
-echo "<foaf:maker rdf:resource=\"".get_author_posts_url($post->post_author)."\"/>\n";
-
-if (function_exists('lhrdf_register_activation_hook')){
-
-echo "<moat:tagMeaning rdf:resource=\"".get_bloginfo('url')."/dereferencer/taxonomy/tag/".$tags[$j]->name."/".get_the_author_meta('user_nicename',$post->post_author)."\"/>\n";
-
-}
-
-echo "</tag:taggedResource>\n</tag:RestrictedTagging>\n";
+echo "<tag:Tagging rdf:resource=\"".get_bloginfo('url')."/dereferencer/taxonomy/tag/".$tags[$j]->name."/".get_the_author_meta('user_nicename',$post->post_author)."\"/>\n";
 
 $j++;
 
@@ -125,5 +104,18 @@ if (!$lh_format){ $lh_format = "standard";}
 echo "http://codex.wordpress.org/Post_Formats#".$lh_format;
 ?>"/>
 <?php do_action('rdf_item'); ?>
-
 </rdf:Description>
+
+<rdf:Description rdf:about="<?php echo get_author_posts_url($post->post_author); ?>">
+<sioc:creator_of rdf:resource="<?php the_permalink_rss() ?>"/>
+</rdf:Description>
+
+<?php
+$post_author_Array[] = $post->post_author;
+
+$post_author_Array = array_unique($post_author_Array);
+
+sort($post_author_Array);
+
+?>
+

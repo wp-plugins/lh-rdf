@@ -5,142 +5,13 @@
  * @package WordPress
  */
 
-/**
- * get the flickr ID of an image
- **/	
-
-function lh_getImageID($input){
-	
-	if (preg_match('/flickr\.com\/photos\/.*\/(\d+)/', $input, $img_id)){
-		return $img_id[1];
-		}
-	if(preg_match('/flickr\.com\/photos\/.*\/(\d+)\/.*/', $input, $img_id)){
-		return $img_id[1];
-		}
-	if(preg_match('/static\.flickr\.com\/.*\/(\d+)_.*/', $input, $img_id)){
-		return $img_id[1];
-		}
-	if (preg_match('/(\d+)/', $input, $img_id)){
-		return $img_id[0];
-	}
-	else{
-		//echo "no img id can be found for ".$input;	
-		return -1;
-	}
-}
 
 
-
-/**
- * returns flickr photopage of an flickr image
- **/	
-	
-function lh_getPhotopage($src){	
-	global $flickrKey;
-		# find out if input src was already the photopage 
-		preg_match('/flickr\.com\/photos\/.*\/(\d+)/', $src, $img_id);
-		if($img_id[1])
-			return $src;
-		
-		#  if not get id from url
-		$id = lh_getImageID($src);
-		
-		# call flickr API to get photopage belonging to id 
-		if($id != -1){
-			$params = array(
-				'api_key'	=> $flickrKey,
-				'method'	=> 'flickr.photos.getInfo',
-				'photo_id'	=> $id,
-				'format'	=> 'php_serial',
-			);
-			$encoded_params = array();
-			foreach ($params as $k => $v){
-				$encoded_params[] = urlencode($k).'='.urlencode($v);
-			}
-							
-			$url = "http://api.flickr.com/services/rest/?".implode('&', $encoded_params);
-			$rsp = file_get_contents($url);
-			$rsp_obj = unserialize($rsp);
-			if ($rsp_obj['stat'] == 'ok'){
-				$photo_urls = $rsp_obj['photo']['urls'];
-				foreach ($photo_urls as $i => $v){
-					if($v[0]['type'] == 'photopage')
-						return $v[0]['_content'];
-				}
-			}
-			//else{ echo "flickr API call failed";}	
-		}
-}
-
-
-
-
-/**
- * extracts images from post content
- **/
-
-function lh_extractImages($content, $uri) {
-		if ( false === $content )
-				return '';
-		$host = parse_url($uri);
-		$pattern = '/<img ([^>]*)src=(\"|\')([^<>]+?\.(png|jpeg|jpg|jpe|gif))[^<>\'\"]*(\2)([^>\/]*)\/*>/is';
-		preg_match_all($pattern, $content, $matches);
-		if (empty($matches[0]) )
-				return '';
-		$sources = array();
-			
-		foreach ($matches[3] as $src) {
-				// if no http in url
-				if(strpos($src, 'http') === false){
-					// if it doesn't have a relative uri
-					if( strpos($src, '../') === false && strpos($src, './') === false && strpos($src, '/') === 0)
-						$src = 'http://'.str_replace('//','/', $host['host'].'/'.$src);
-					else
-						$src = 'http://'.str_replace('//','/', $host['host'].'/'.dirname($host['path']).'/'.$src);
-				}	
-				//if the pic comes from flickr
-				if(preg_match('/flickr\.com/i', $src)){
-					$flickr_img_page = "";
-					$flickr_img_page = lh_getPhotopage($src);
-					if($flickr_img_page != ""){
-						$flickr2rdf='http://www.kanzaki.com/works/2005/imgdsc/flickr2rdf?u='.$flickr_img_page;
-						$rdf .= "\n\t" . '<sioc:embeds><foaf:Image rdf:about="'.clean_url($src) .'"><rdfs:seeAlso rdf:resource="'.$flickr2rdf.'" /></foaf:Image></sioc:embeds>';
-					}
-				}
-				else
-					$rdf .= "\n\t" . '<sioc:embeds foaf:Image="' . clean_url($src) . '"/>';
-				}
-			return $rdf;
-}
-
-
-
-/**
- * extracts links from post content
- **/
-
-function lh_extractLinks( $html ) {
-    $rdf = '';
-    preg_match_all ('/<a\b([^>]+)>(.*?)<\/a>/ims', $html, $out, PREG_SET_ORDER);
-    foreach ($out as $val) {
-        if ( preg_match ( '/href\s*=\s*"([^"]*)"/ims', $val[1], $anchor ) ) {
-            if ( preg_match( '/type\s*=\s*"application\/rdf\+xml/i', $val[1]) ) {
-                $rdf .= "\n\t" . '<rdfs:seeAlso rdf:resource="' . wp_specialchars(trim($anchor[1]),1) . '" rdfs:label="' . apply_filters( 'the_title_rss', apply_filters( 'the_title', wp_specialchars($val[2],1))) . '"/>';
-            } else {
-                $rdf .= "\n\t" . '<sioc:links_to rdf:resource="' . wp_specialchars(trim($anchor[1]),1) . '" rdfs:label="' . apply_filters( 'the_title_rss', apply_filters( 'the_title', wp_specialchars($val[2],1))) . '"/>';
-            }
-        }
-    }
-    return $rdf;
-}
+include('function_library.php');
 
 
 
 if ( is_singular() ){
-
-} elseif (is_author()){
-
-} elseif (is_category()){
 
 } else {
 
@@ -205,134 +76,20 @@ if ( is_singular() ){
 <admin:generatorAgent rdf:resource="http://localhero.biz/plugins/lh-rdf/"/>
 </foaf:Document>
 
-<sioc:Post rdf:about="<?php the_permalink_rss() ?>">
-<sioc:link rdf:resource="<?php the_permalink_rss() ?>"/>
-<sioc:has_container rdf:resource="<?php
-if (get_query_var('post_type')){ 
-$post_type = get_query_var('post_type');
-echo get_post_type_archive_link( $post_type );
-} else {
-bloginfo_rss("url");
-echo "/#posts";
-}
-?>"/>
-<dc:title><?php the_title_rss() ?></dc:title>
-<dc:date><?php echo mysql2date('Y-m-d\TH:i:s\Z', get_lastpostmodified('GMT'), false); ?></dc:date>
-<dcterms:created><?php echo mysql2date('D, d M Y H:i:s +0000', get_post_time('Y-m-d H:i:s', true), false); ?></dcterms:created>
-<sioc:content><![CDATA[<?php the_excerpt_rss() ?>]]></sioc:content>
-<?php if ( strlen( $post->post_content ) > 0 ){ ?>
-<content:encoded><![CDATA[<?php $content = apply_filters('the_content', $post->post_content);
-echo $content;
- ?>]]></content:encoded>
-<?php } else  { ?>
-<content:encoded><![CDATA[<?php the_excerpt_rss() ?>]]></content:encoded>
-<?php } 
-$extract = lh_extractLinks($post->post_content);
-echo $extract;
-$post_uri = htmlspecialchars(get_permalink() );
-$extract = lh_extractImages($post->post_content, $post_uri);
-echo $extract;
+<?php 
 
-?>
+if (!$post_type || $post_type == "post" || $post_type == "page" ){
 
+include('type-post.php');
 
-<sioc:has_creator>
-<sioc:User rdf:about="<?php echo get_author_posts_url($post->post_author); ?>" rdfs:label="<?php echo get_author_name($post->post_author); ?>">
-<rdfs:seeAlso rdf:resource="<?php echo get_author_posts_url($post->post_author); ?>?feed=lhrdf"/>
-</sioc:User>
-</sioc:has_creator>
+} elseif ($post_type == "lh-place"){
 
-<?php
-$categories = get_the_category();
-$j = 0;
-while ($j < count($categories)) {
-
-echo "\n<sioc:topic>
-<sioct:Category rdfs:label=\"".$categories[$j]->category_nicename."\" rdf:about=\"".get_category_link($categories[$j]->cat_ID)."\">
-<rdfs:seeAlso rdf:resource=\"".get_category_link($categories[$j]->cat_ID)."?feed=lhrdf\"/>
-</sioct:Category>
-</sioc:topic>\n";
-
-$j++;
-}
-
-$tags = get_the_tags();
-
-if (is_array($tags)){
-
-$tags = array_values($tags);
-
-}
-
-if ($tags[0]){
-
-
-$j = 0;
-
-while ($j < count($tags)) {
-
-echo "\n<sioc:topic>
-<sioct:tag rdfs:label=\"".$tags[$j]->name."\" rdf:about=\"".get_tag_link($tags[$j]->term_id)."\">\n";
-
-echo "<rdfs:seeAlso rdf:resource=\"".get_tag_link($tags[$j]->term_id)."?feed=lhrdf\"/>\n";
-
-
-echo "</sioct:tag>
-</sioc:topic>\n\n";
-
-$j++;
+include('type-lh-place.php');
 
 }
 
 
 
-
-
-$j = 0;
-
-while ($j < count($tags)) {
-
-echo "<tag:RestrictedTagging>\n<tag:taggedResource rdf:about=\"";
-
-the_permalink_rss();
-
-echo "\">\n";
-
-echo "<tag:associatedTag rdf:resource=\"".get_tag_link($tags[$j]->term_id)."\"/>\n";
-
-echo "<foaf:maker rdf:resource=\"".get_author_posts_url($post->post_author)."\"/>\n";
-
-if (function_exists('lhrdf_register_activation_hook')){
-
-echo "<moat:tagMeaning rdf:resource=\"".get_bloginfo('url')."/dereferencer/taxonomy/tag/".$tags[$j]->name."/".get_the_author_meta('user_nicename',$post->post_author)."\"/>\n";
-
-}
-
-echo "</tag:taggedResource>\n</tag:RestrictedTagging>\n";
-
-$j++;
-
-}
-
-
-}
-
-?>
-<dcterms:identifier><?php echo $post->ID; ?></dcterms:identifier>
-<lh:post_type rdf:resource="<?php echo "http://codex.wordpress.org/Post_Types#".$post->post_type; ?>"/>
-<?php  if ( has_post_thumbnail()) {
-$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full');
- ?>
-<lh:post_thumbnail rdf:resource="<?php echo $large_image_url[0]; ?>"/>
-<?php } ?>
-<lh:Post_Formats rdf:resource="<?php $lh_format = get_post_format($post->ID);
-if (!$lh_format){ $lh_format = "standard";}
-echo "http://codex.wordpress.org/Post_Formats#".$lh_format;
-?>"/>
-<?php do_action('rdf_item'); ?>
-
-</sioc:Post>
-<?php
 
 } elseif (is_author()){
 
@@ -348,68 +105,19 @@ echo "http://codex.wordpress.org/Post_Formats#".$lh_format;
 </foaf:Document>
 <?php
 $authordata = get_userdata($post->post_author);
-?>
-
-<foaf:Person rdf:about="<?php echo get_author_posts_url($post->post_author); ?>#foaf">
-<foaf:mbox_sha1sum><?php if (function_exists('sha1')){
-$sha1 = sha1('mailto:' . $authordata->user_email);
-} else if (function_exists('mhash')){
-$sha1 = bin2hex(mhash(MHASH_SHA1, 'mailto:' . $authordata->user_email));
-}
-echo $sha1; ?></foaf:mbox_sha1sum>
-<foaf:homepage rdf:resource="<?php echo $authordata->user_url; ?>"/>
-<foaf:holdsAccount rdf:resource="<?php echo get_author_posts_url($post->post_author); ?>"/>
-</foaf:Person>
-
-<sioc:User rdf:about="<?php echo get_author_posts_url($post->post_author); ?>">
-<foaf:accountName><?php echo $authordata->user_nicename; ?></foaf:accountName>
-<sioc:name><?php echo $authordata->display_name; ?></sioc:name>
-<lh:post_author><?php echo $post->post_author; ?></lh:post_author >
-
-</sioc:User>
 
 
-<?php
+
+include('author.php');
 
 
 } elseif (is_category()){
 
-
 $category = get_category_by_path(get_query_var('category_name'),false);
 
-//print_r($category);
+$post_taxonomy = get_term( $category->cat_ID, "category");
 
-
-echo "\n<skos:Concept rdf:about=\"".get_category_link($category->cat_ID)."\"><skos:prefLabel xml:lang=\"en\">".$category->name."</skos:prefLabel><skos:scopeNote>".$category->category_description."</skos:scopeNote>";
-
-$subcategories = get_categories('parent='.$category->cat_ID); 
-
-$i = 0;
-
-while ($i < count($subcategories)) {
-
-echo "<skos:narrower>
-<skos:Concept rdf:about=\"".get_category_link($subcategories[$i]->cat_ID)."\"><rdfs:seeAlso rdf:resource=\"".get_category_link($subcategories[$i]->cat_ID)."?feed=lhrdf\"/></skos:Concept>
-</skos:narrower>";
-
-
-$i++;
-
-}
-
-if ($category->category_parent){
-
-echo "<skos:broader><skos:Concept rdf:about=\"".get_category_link($category->category_parent)."\"><rdfs:seeAlso rdf:resource=\"".get_category_link($category->category_parent)."?feed=lhrdf\"/></skos:Concept></skos:broader>";
-
-}
-
-?>
-
-<skos:inScheme rdf:resource="<?php bloginfo_rss("url") ?>/#categories"/>
-
-<?php
-
-echo "</skos:Concept>\n";
+include('taxonomy-category.php');
 
 } elseif (is_tag()){
 
@@ -417,15 +125,9 @@ $tag = get_query_var('tag_id');
 
 $tag = get_tag($tag);
 
-?>
+$post_taxonomy = get_term( $tag->term_id, "post_tag");
 
-
-<moat:Tag rdf:about="<?php echo get_tag_link($tag->term_id); ?>">
-<moat:name><?php echo $tag->name; ?></moat:name>
-</moat:Tag>
-
-
-<?php
+include('taxonomy-tag.php');
 
 } else {
 
@@ -577,6 +279,8 @@ $j++;
 rewind_posts(); while (have_posts()): the_post(); ?>
 <?php 
 
+if ($_GET["lh_rdf_extend"]){
+
 if (!$post_type || $post_type == "post" || $post_type == "page" ){
 
 include('type-post.php');
@@ -587,49 +291,25 @@ include('type-lh-place.php');
 
 }
 
-
-?>
-<?php endwhile;  ?>
-
-
-
-<skos:ConceptScheme rdf:about="<?php bloginfo_rss("url") ?>/#categories">
-<dc:title><?php bloginfo_rss('name'); ?></dc:title>
-<dc:description><?php bloginfo_rss('description') ?></dc:description>
-<dc:creator><?php the_author_meta( 'nickname', '1' ); ?> </dc:creator>
-<dc:date><?php echo mysql2date('Y-m-d\TH:i:s\Z', get_lastpostmodified('GMT'), false); ?></dc:date>
-<dc:language>en</dc:language>
-
-<?php
-
-$categories = get_categories(array(
-	'parent' => 0,
-) ); 
-
-$j = 0;
-
-while ($j < count($categories)) {
-
+} else {
 
 ?>
 
-<skos:hasTopConcept>
-<skos:Concept rdf:about="<?php echo get_category_link($categories[$j]->cat_ID);
-?>"><rdfs:seeAlso rdf:resource="<?php echo get_category_link($categories[$j]->cat_ID);
-?>?feed=lhrdf"/></skos:Concept></skos:hasTopConcept>
+<rdf:Description rdf:about="<?php the_permalink_rss() ?>">
+<rdfs:seeAlso rdf:resource="<?php bloginfo_rss('url'); echo "/?p=".$post->ID."&amp;feed=lhrdf";
+if (get_query_var('post_type')){ echo "&amp;post_type=".get_query_var('post_type'); } ?>"/>
+</rdf:Description>
 
 <?php
 
-$j++;
 
 }
-
 ?>
+<?php endwhile; 
 
-</skos:ConceptScheme>
+include('concept-scheme.php');
 
-<?php
-
+include('extended-content.php');
 
 }
 
