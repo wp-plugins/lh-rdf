@@ -6,7 +6,7 @@ Requires at least: 3.0
 Tested up to: 3.3.1
 Stable tag: trunk
 
-This plugin allows allows the publishing of RDF xml metadata from your weblog in a format compliant with the SIOC specification. Additionally wordpress specific post metadata is also published.
+This plugin publishes your weblog as RDF XML mapping WordPress objects to the major ontologies. 
 
 == Description ==
 
@@ -15,6 +15,15 @@ Once activated the plugin adds a new type of feed that can be subscribed to. E.G
 [LocalHero]: http://localhero.biz/
 
 LH RDF is inspired and to some extent based on the original wordpress SIOC exporter: http://sioc-project.org/wordpress.
+
+Ontologies exposed in the RDF output include:
+
+* RDF: Resource Description Framework Ontology;
+* SIOC: Semantically-Interlinked Online Communities Ontology;
+* OAI-ORE Vocabulary for Resource Aggregation;
+* DCTerms: Dublin Core Metadata Ontology;
+* FOAF: Friend of a Friend Ontology;
+* SKOS: Simple Knowledge Organization System Ontology;
 
 == Installation ==
 
