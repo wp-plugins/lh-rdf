@@ -3,7 +3,7 @@ Contributors: shawfactor
 Donate link: http://localhero.biz/plugins/lh-rdf/
 Tags: feed, feeds, rdf, localhero, sioc, skos, foaf, semantic web
 Requires at least: 3.0
-Tested up to: 3.3.1
+Tested up to: 3.6
 Stable tag: trunk
 
 This plugin publishes your weblog as RDF XML mapping WordPress objects to the major ontologies. 
@@ -29,9 +29,12 @@ Ontologies exposed in the RDF output include:
 
 1. Upload the entire `lh-rdf` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. To enable pretty permlinks (e.g. `http://example.com/feed/lhrdf/`), go to Permalinks in the Setting menu and Save.
+3. To enable pretty permalinks (e.g. `http://example.com/feed/lhrdf/`), go to Permalinks in the Setting menu and Save.
 
 == Changelog ==
+
+**0.1.6 January 12, 2013**  
+* Fixed Auto discovery bug
 
 **0.1.5 May 19, 2012**  
 * Added flag to publish extended RDF

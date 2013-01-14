@@ -4,7 +4,7 @@ Plugin Name: LH RDF
 Plugin URI: http://localhero.biz/plugins/lh-rdf/
 Description: Adds a semantic/SIOC RDF feed to Wordpress
 Author: shawfactor
-Version: 0.15
+Version: 0.16
 Author URI: http://shawfactor.com/
 
 == Changelog ==
@@ -39,6 +39,8 @@ Author URI: http://shawfactor.com/
 * Added openarchives and Incontext visualisation support
 = 0.15 =
 * Added flag to publish extended RDF
+= 0.16 =
+* Fixed Auto discovery bug
 
 
 
@@ -138,10 +140,14 @@ $base_mid .= "?feed=lhrdf";
 
 $post_type = get_query_var('post_type');
 
-$base_mid = get_post_type_archive_link($post_type);
+if ($post_type[0] != "post"){
+
+$base_mid = get_post_type_archive_link($post_type[0]);
 
 $base_mid .= "?feed=lhrdf";
 
+
+}
 
 }
 
@@ -217,7 +223,7 @@ function lh_rdf_pages($wp_query) {
 
 if ($_GET["lh_rdf_pages"]){
 
-		$wp_query->set('post_type', array( 'page' ));
+		//$wp_query->set('post_type', array( 'page' ));
 
 }
 }
