@@ -33,6 +33,9 @@ Ontologies exposed in the RDF output include:
 
 == Changelog ==
 
+**0.1.7 January 14, 2013**  
+* Added Visualiser shortcode
+
 **0.1.6 January 12, 2013**  
 * Fixed Auto discovery bug
 

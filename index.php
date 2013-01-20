@@ -4,7 +4,7 @@ Plugin Name: LH RDF
 Plugin URI: http://localhero.biz/plugins/lh-rdf/
 Description: Adds a semantic/SIOC RDF feed to Wordpress
 Author: shawfactor
-Version: 0.16
+Version: 0.17
 Author URI: http://shawfactor.com/
 
 == Changelog ==
@@ -41,6 +41,8 @@ Author URI: http://shawfactor.com/
 * Added flag to publish extended RDF
 = 0.16 =
 * Fixed Auto discovery bug
+= 0.17 =
+* Added visualiser shortcode
 
 
 
@@ -229,6 +231,44 @@ if ($_GET["lh_rdf_pages"]){
 }
 
 add_action('pre_get_posts', 'lh_rdf_pages');
+
+
+
+
+
+
+
+
+function lh_rdf_print_incontext_visualiser(){
+
+?>
+
+<script id="lh_rdf_visualiser_options" type="text/javascript" 
+data-lh_rdf_visualiser_aggregation_var="<?php bloginfo('url'); ?>#aggregation"
+data-lh_rdf_visualiser_schemaurl_var="<?php echo plugins_url( '' , __FILE__ );  ?>/incontext/rdf_schema.php" 
+data-lh_rdf_visualiser_dataurl_var="<?php bloginfo('url'); ?>/?feed=lhrdf&lh_rdf_extend=yes" src="<?php echo plugins_url( '' , __FILE__ );  ?>/incontext/scripts/visualiser_init.js"> 
+</script>
+
+<?php
+
+}
+
+
+function lh_rdf_incontext_visualiser_short_func( $atts ) {
+	extract( shortcode_atts( array(
+		'foo' => 'something',
+		'bar' => 'something else',
+	), $atts ) );
+
+add_action('wp_footer', 'lh_rdf_print_incontext_visualiser');
+
+
+return "<div id=\"visualizer_canvas\"></div>";
+
+}
+
+add_shortcode( 'lh_rdf_incontext_visualiser_short', 'lh_rdf_incontext_visualiser_short_func' );
+
 
 
 
