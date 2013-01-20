@@ -6,7 +6,6 @@
  */
 
 
-
 include('function_library.php');
 
 
@@ -82,9 +81,9 @@ if (!$post_type || $post_type == "post" || $post_type == "page" ){
 
 include('type-post.php');
 
-} elseif ($post_type == "lh-place"){
+} else {
 
-include('type-lh-place.php');
+include('type-lh-untyped.php');
 
 }
 
@@ -187,11 +186,43 @@ if ($post_type->has_archive){
 echo "<sioc:host_of rdf:resource=\"".get_bloginfo('url')."/".$post_type->has_archive."/\"  />";
 }
 }
+
+$args = array(
+'parent' => 0
+); 
+$pages = get_pages($args); 
+
+foreach ($pages  as $page ){
+
+
+echo "<sioc:host_of rdf:resource=\"".get_permalink($page->ID)."\"  />";
+
+
+}
+
+
+
+
+
 ?>
 
 </rdf:Description>
 
 <?php
+
+foreach ($pages  as $page ){
+
+echo "<rdf:Description rdf:about=\"".get_permalink($page->ID)."\">
+<rdfs:seeAlso rdf:resource=\"".get_permalink($page->ID)."?feed=lhrdf\"  />
+</rdf:Description>";
+
+
+
+}
+
+
+
+
  foreach ($post_types  as $post_type ) {
 if ($post_type->has_archive){
 echo "<sioc:Forum rdf:about=\"".get_bloginfo('url')."/".$post_type->has_archive."/\" >

@@ -27,6 +27,26 @@ $post_uri = htmlspecialchars(get_permalink() );
 $extract = lh_extractImages($post->post_content, $post_uri);
 echo $extract;
 
+if (is_page()){
+
+$args = array(
+'parent' => $post->ID,
+'child_of' => $post->ID
+); 
+$pages = get_pages($args); 
+
+foreach ($pages  as $page ){
+
+
+echo "<sioc:host_of rdf:resource=\"".get_permalink($page->ID)."\"  />";
+
+
+}
+
+
+}
+
+
 ?>
 <sioc:has_creator rdf:resource="<?php echo get_author_posts_url($post->post_author); ?>" />
 <?php
@@ -105,6 +125,49 @@ echo "http://codex.wordpress.org/Post_Formats#".$lh_format;
 ?>"/>
 <?php do_action('rdf_item'); ?>
 </rdf:Description>
+
+<?php
+
+
+if ( function_exists('lh_relationships_return_unique_sparql_object_by_post_ID')){
+
+$objects = lh_relationships_return_unique_sparql_object_by_post_ID($post->guid);
+
+foreach ($objects as $object ){
+
+echo "<rdf:Description rdf:about=\"".get_permalink($object->objectid)."\">
+<rdfs:seeAlso rdf:resource=\"".get_permalink($object->objectid)."?feed=lhrdf\"  />
+</rdf:Description>";
+
+}
+
+
+
+}
+
+
+
+if (is_page()){
+
+$args = array(
+'parent' => $post->ID,
+'child_of' => $post->ID
+); 
+$pages = get_pages($args); 
+
+foreach ($pages  as $page ){
+
+echo "<rdf:Description rdf:about=\"".get_permalink($page->ID)."\">
+<rdfs:seeAlso rdf:resource=\"".get_permalink($page->ID)."?feed=lhrdf\"  />
+</rdf:Description>";
+
+
+}
+
+
+}
+
+?>
 
 <rdf:Description rdf:about="<?php echo get_author_posts_url($post->post_author); ?>">
 <sioc:creator_of rdf:resource="<?php the_permalink_rss() ?>"/>
