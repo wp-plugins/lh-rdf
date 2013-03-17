@@ -33,6 +33,12 @@ Ontologies exposed in the RDF output include:
 
 == Changelog ==
 
+**0.2.0 March 15, 2013**  
+* Image attachment support
+
+**0.1.9 January 30, 2013**  
+* Mbox email hash
+
 **0.1.8 January 18, 2013**  
 * Better page  handling
 

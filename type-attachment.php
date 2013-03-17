@@ -1,7 +1,11 @@
 <rdf:Description rdf:about="<?php the_permalink_rss() ?>">
+<?php $mime = get_post_mime_type(); 
+if ($mime == "image/jpeg"){ ?>
+<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Image"/>
+<?php } else { ?>
 <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+<?php } ?>
 <foaf:name><?php the_title_rss() ?></foaf:name>
-<foaf:type><?php echo $post_type; ?></foaf:type>
 <?php do_action('rdf_item'); ?>
 </rdf:Description>
 <?php
