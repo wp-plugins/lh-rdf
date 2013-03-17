@@ -142,6 +142,20 @@ function lh_rdf_curPageURL(){
  return $pageURL;
 }
 
-
+function lh_rdf_get_email_sha1($email) {
+	# Based on get_foaf_output_email_property by Morten Frederiksen
+	
+	$sha1 = '';
+	# Try to calculate SHA1 hash of email URI.
+	if (function_exists('sha1'))
+		$sha1 = sha1('mailto:' . $email);
+	else if (function_exists('mhash'))
+		$sha1 = bin2hex(mhash(MHASH_SHA1, 'mailto:' . $email));
+	
+	if ('' != $sha1 )
+			return $sha1;
+	else
+			return '';
+}
 
 ?>
