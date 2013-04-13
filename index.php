@@ -131,7 +131,7 @@ $sTarFileName 	= 'easyrdf.tar.gz';
 
 }
 
-register_activation_hook(__FILE__, 'lh_rdf_install_easyrdf' );
+//register_activation_hook(__FILE__, 'lh_rdf_install_easyrdf' );
 
 
 
