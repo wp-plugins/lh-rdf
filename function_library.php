@@ -158,4 +158,83 @@ function lh_rdf_get_email_sha1($email) {
 			return '';
 }
 
+function lh_rdf_serialize_lh_rdf_array($postid) {
+
+//echo "postid is".$postid;
+
+$rdfarray = get_post_meta($postid, "lh_rdf_array", true);
+
+//print_r($rdfarray);
+
+if ($rdfarray != ""){
+
+if ( function_exists('lh_relationships_return_compliant_namespace')){
+
+
+$lhrdfnamespaces = lh_relationships_return_compliant_namespace();
+
+
+$j = 0;
+
+while ($j < count($lhrdfnamespaces)) {
+
+$prefix = $lhrdfnamespaces[$j]->prefix;
+
+
+$namespaces[$prefix] = $lhrdfnamespaces[$j]->namespace;
+
+
+$j++;
+
+}
+
+} else {
+
+/* custom namespace prefixes */
+$namesaces = array(
+  'rss' => 'http://purl.org/rss/1.0/',
+  'rdf' => 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+  'dc' => 'http://purl.org/dc/elements/1.1/',
+  'sy' => 'http://purl.org/rss/1.0/modules/syndication/',
+  'admin' => 'http://webns.net/mvcb/',
+  'content' => 'http://purl.org/rss/1.0/modules/content/',
+  'lh' => 'http://localhero.biz/namespace/lhero/',
+  'skos' => 'http://www.w3.org/2004/02/skos/core#',
+  'rdfs' => 'http://www.w3.org/2000/01/rdf-schema#',
+  'sioc' => 'http://rdfs.org/sioc/ns#',
+  'tag' => 'http://www.holygoat.co.uk/owl/redwood/0.1/tags/',
+  'moat' => 'http://moat-project.org/ns#',
+  'foaf' => 'http://xmlns.com/foaf/0.1/',
+  'dcterms' => 'http://purl.org/dc/terms/',
+  'sioct' => 'http://rdfs.org/sioc/types#',
+  'wgs84' => 'http://www.w3.org/2003/01/geo/wgs84_pos#'
+);
+
+
+}
+
+
+
+$conf = array('ns' => $namespaces);
+
+$ser = ARC2::getRDFXMLSerializer($conf);
+
+
+if ($ser){
+
+/* Serialize a resource index */
+$doc = $ser->getSerializedIndex($rdfarray, 1);
+
+echo $doc;
+
+
+
+}
+
+}
+
+}
+
+
+
 ?>

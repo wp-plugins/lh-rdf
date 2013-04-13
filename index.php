@@ -4,7 +4,7 @@ Plugin Name: LH RDF
 Plugin URI: http://localhero.biz/plugins/lh-rdf/
 Description: Adds a semantic/SIOC RDF feed to Wordpress
 Author: shawfactor
-Version: 0.20
+Version: 0.21
 Author URI: http://shawfactor.com/
 
 == Changelog ==
@@ -51,6 +51,8 @@ Author URI: http://shawfactor.com/
 * Mbox email hash
 = 0.20 =
 * Image attachment support
+= 0.21 =
+* Added rdf/json output using easyrdf
 
 
 License:
@@ -67,9 +69,73 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+define('LH_RDF_PLUGIN_DIR', dirname(__FILE__));
+define('LH_RDF_EASYRDF_URL', 'https://github.com/njh/easyrdf/tarball/master');
+
+function lh_rdf_install_easyrdf(){
+
+if (file_exists(LH_RDF_PLUGIN_DIR . '/arc/ARC2.php') || class_exists('ARC2')) {
+
+return true;
+
+}
+
+
+if (!is_writable(LH_RDF_PLUGIN_DIR)) {
+
+return false;
+
+}
+
+$sDir = getcwd();
+chdir(LH_RDF_PLUGIN_DIR);
+
+// download Easyrdf
+$sTarFileName 	= 'easyrdf.tar.gz';
+
+	$sCmd 			= 'wget --no-check-certificate -T 2 -t 1 -O ' . $sTarFileName . ' ' . LH_RDF_EASYRDF_URL . ' 2>&1';
+	$aOutput 		= array();
+	exec($sCmd, $aOutput, $iResult);
+	if ($iResult != 0) {
+		chdir($sDir);
+		return false;
+	}
+
+	// untar the file
+	$sCmd 		= 'tar -xvzf ' . $sTarFileName . ' 2>&1';
+	$aOutput 	= array();
+	exec($sCmd, $aOutput, $iResult);
+	if ($iResult != 0) {
+		chdir($sDir);
+		return false;
+	}
+
+	// delete old arc direcotry and tar file
+	@rmdir('arc');
+	@unlink($sTarFileName);
+
+	// rename the ARC2 folder to arc
+	$sCmd		= 'mv semsol-arc2-* arc 2>&1';
+	$aOutput 	= array();
+	exec($sCmd, $aOutput, $iResult);
+	if ($iResult != 0) {
+		chdir($sDir);
+		return false;
+	}
+	
+	chdir($sDir);
+	return true;
+
+
+
+
+}
+
+register_activation_hook(__FILE__, 'lh_rdf_install_easyrdf' );
+
+
 
 function LH_rdf_output_rdf_xml() {
-
 
 load_template(dirname(__FILE__) . '/feed-lhrdf.php');
 
@@ -79,6 +145,13 @@ load_template(dirname(__FILE__) . '/feed-lhrdf.php');
 if ($_GET[feed]){
 
 remove_filter('template_redirect', 'redirect_canonical');
+
+}
+
+if ($_GET[feed] == "lhrdf"){
+
+
+remove_filter('the_permalink_rss', 'lh_hum_permalink');
 
 }
 
@@ -123,26 +196,10 @@ function LH_rdf_get_link() {
  
 global $post;
 	
-$base_mid = "http://$_SERVER[HTTP_HOST]";
-
-$base_mid .= "/";
-
-$base_mid .= "?feed=lhrdf";
-
 if ( is_singular() ){
-
-$base_mid .= "&p=".$post->ID;
-
-if (get_query_var('post_type')){ 
-
-$base_mid .= "&post_type=".get_query_var('post_type');
-
-} elseif (is_page()){
-
 
 $base_mid = get_permalink()."?feed=lhrdf";
 
-}
 
 } elseif (is_author()){
 
@@ -150,20 +207,17 @@ $base_mid = get_author_posts_url($post->post_author);
 
 $base_mid .= "?feed=lhrdf";
 
-} elseif (get_query_var('post_type')){ 
+} else { 
 
-$post_type = get_query_var('post_type');
+$base_mid = "http://$_SERVER[HTTP_HOST]";
 
-if ($post_type[0] != "post"){
-
-$base_mid = get_post_type_archive_link($post_type[0]);
+$base_mid .= "/";
 
 $base_mid .= "?feed=lhrdf";
 
 
 }
 
-}
 
 return $base_mid;
 

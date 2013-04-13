@@ -129,6 +129,13 @@ echo "http://codex.wordpress.org/Post_Formats#".$lh_format;
 <?php
 
 
+if ( function_exists('lh_rdf_serialize_lh_rdf_array')){
+
+lh_rdf_serialize_lh_rdf_array($post->ID);
+
+}
+
+
 if ( function_exists('lh_relationships_return_unique_sparql_object_by_post_ID')){
 
 $objects = lh_relationships_return_unique_sparql_object_by_post_ID($post->guid);

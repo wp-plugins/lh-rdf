@@ -10,11 +10,13 @@ This plugin publishes your weblog as RDF XML mapping WordPress objects to the ma
 
 == Description ==
 
-Once activated the plugin adds a new type of feed that can be subscribed to. E.G. http://example.com/?feed=lhrdf or http://example.com/feed/lhrdf/ containing semantic content. It has been developed for use in [LocalHero][].
+Once activated the plugin adds a new type of feed that can be subscribed to. E.G. http://example.com/?feed=lhrdf or http://example.com/feed/lhrdf/ containing semantic content.
+
+To output the feed in other triple formats just add the get variable lhrd=format to the query string E.G. http://example.com/?feed=lhrdf&lhrdf=json.
+
+It has been developed for use in [LocalHero][].
 
 [LocalHero]: http://localhero.biz/
-
-LH RDF is inspired and to some extent based on the original wordpress SIOC exporter: http://sioc-project.org/wordpress.
 
 Ontologies exposed in the RDF output include:
 
@@ -32,6 +34,9 @@ Ontologies exposed in the RDF output include:
 3. To enable pretty permalinks (e.g. `http://example.com/feed/lhrdf/`), go to Permalinks in the Setting menu and Save.
 
 == Changelog ==
+
+**0.2.1 April 12, 2013**  
+* Added Easyrdf output parsing
 
 **0.2.0 March 15, 2013**  
 * Image attachment support
