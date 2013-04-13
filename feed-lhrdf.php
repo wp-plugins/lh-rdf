@@ -10,6 +10,7 @@ include('function_library.php');
 
 
 
+
 if ( is_singular() ){
 
 } else {
@@ -25,16 +26,24 @@ header("HTTP/1.0 404 Not Found");
 }
 
 
+if ($_GET[lhrdf]){
 
+include('lib/EasyRdf.php');
+
+ob_start(); 
+
+} else {
 
 header('Content-Type: ' . feed_content_type('rdf') . '; charset=' . get_option('blog_charset'), true);
 
+}
+
 echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
-<?php if (function_exists('LH_relationships_add_compliant_rdf_namespace')) { 
+<?php if (function_exists('lh_relationships_add_compliant_rdf_namespace')) { 
 
 echo "\n<rdf:RDF\n";
 
-LH_relationships_add_compliant_rdf_namespace();
+lh_relationships_add_compliant_rdf_namespace();
 
 echo ">";
 
@@ -353,3 +362,38 @@ include('extended-content.php');
 
 ?>
 </rdf:RDF>
+
+
+<?php
+
+
+
+if ($_GET[lhrdf]){
+
+$out = ob_get_contents();
+
+ob_end_clean();
+
+$graph = new EasyRdf_Graph();
+$graph->parse($out,"rdfxml");
+$data = $graph->serialise($_GET[lhrdf]);
+
+if ($_GET[lhrdf] == "json"){
+
+
+header("Content-Type: application/rdf+json");
+
+
+} else {
+
+header("Content-Type:text/plain");
+
+}
+
+echo $data;
+
+
+}
+
+
+?>
