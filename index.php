@@ -4,7 +4,7 @@ Plugin Name: LH RDF
 Plugin URI: http://localhero.biz/plugins/lh-rdf/
 Description: Adds a semantic/SIOC RDF feed to Wordpress
 Author: shawfactor
-Version: 0.21
+Version: 0.22
 Author URI: http://shawfactor.com/
 
 == Changelog ==
@@ -53,6 +53,8 @@ Author URI: http://shawfactor.com/
 * Image attachment support
 = 0.21 =
 * Added rdf/json output using easyrdf
+= 0.22 =
+* Fixed Visualiser
 
 
 License:
@@ -309,11 +311,12 @@ function lh_rdf_print_incontext_visualiser(){
 
 ?>
 
-<script id="lh_rdf_visualiser_options" type="text/javascript" 
-data-lh_rdf_visualiser_aggregation_var="<?php bloginfo('url'); ?>#aggregation"
-data-lh_rdf_visualiser_schemaurl_var="<?php echo plugins_url( '' , __FILE__ );  ?>/incontext/rdf_schema.php" 
-data-lh_rdf_visualiser_dataurl_var="<?php bloginfo('url'); ?>/?feed=lhrdf&lh_rdf_extend=yes" src="<?php echo plugins_url( '' , __FILE__ );  ?>/incontext/scripts/visualiser_init.js"> 
-</script>
+<!-- Visualizer CSS files -->
+<link type="text/css" href="<?php echo plugins_url( '' , __FILE__ );  ?>/context/visualizer.css" media="screen" rel="Stylesheet" /> 
+<link type="text/css" href="<?php echo plugins_url( '' , __FILE__ );  ?>/context/visualizer-skin.css" media="screen" rel="Stylesheet" /> 
+
+<script type="text/javascript" src="<?php echo plugins_url( '' , __FILE__ );  ?>/context/visualizer_compiled_min.js"></script>
+
 
 <?php
 
@@ -329,7 +332,11 @@ function lh_rdf_incontext_visualiser_short_func( $atts ) {
 add_action('wp_footer', 'lh_rdf_print_incontext_visualiser');
 
 
-return "<div id=\"visualizer_canvas\"></div>";
+return "<div id=\"visualizer_canvas\"
+data-lh_rdf_visualiser_aggregation_var=\"".get_bloginfo('url')."#aggregation\"
+data-lh_rdf_visualiser_schemaurl_var=\"".plugins_url( '' , __FILE__ )."/rdf_schema.php?lhrdf=json\" 
+data-lh_rdf_visualiser_dataurl_var=\"".get_bloginfo('url')."/?feed=lhrdf&lh_rdf_extend=yes&lhrdf=json\" 
+></div>";
 
 }
 

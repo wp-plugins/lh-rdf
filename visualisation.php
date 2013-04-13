@@ -16,6 +16,9 @@ include("../../../wp-blog-header.php");
 <!-- Visualizer IE6 CSS file -->
 <!--[if IE 6]>
 <script type="text/javascript" src="incontext/content/iepngfix_tilebg.js"></script>
+<script type="text/javascript" src="http://shawfactor.com/wp-includes/js/jquery/jquery.js?ver=1.8.3"></script>
+
+
 <link type="text/css" href="incontext/content/visualizer-ie6.css" rel="Stylesheet" />
 <![endif]-->
 </head>

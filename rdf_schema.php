@@ -1,7 +1,18 @@
 <?php
+
+if ($_GET[lhrdf]){
+
+include('lib/EasyRdf.php');
+
+ob_start(); 
+
+} else {
+
 header('Content-Type: application/rdf+xml; charset=UTF-8');
-header('Cache-Control: no-cache');
 echo '<?xml version="1.0" encoding="UTF-8"?>';
+
+}
+
 ?>
 
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -2974,3 +2985,32 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 </owl:Class>
 
 </rdf:RDF>
+
+<?php
+
+if ($_GET[lhrdf]){
+
+$out = ob_get_contents();
+
+ob_end_clean();
+
+$graph = new EasyRdf_Graph();
+$graph->parse($out,"rdfxml");
+$data = $graph->serialise($_GET[lhrdf]);
+
+if ($_GET[lhrdf] == "json"){
+
+
+header("Content-Type: application/rdf+json");
+
+
+} else {
+
+header("Content-Type:text/plain");
+
+}
+
+echo $data;
+
+}
+?>

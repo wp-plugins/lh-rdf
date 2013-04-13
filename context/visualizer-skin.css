@@ -3,10 +3,10 @@
 /* #visualizer_innercanvas */
 html body div.visualizer_canvas div#visualizer_innercanvas
 {
-  font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Sans-Serif;
-  font-size: 11px;
-  line-height: 15px;
-  background-color: #f0efeb;
+  font-family: Tahoma, Arial, Verdana, Helvetica, sans-serif;
+  font-size: 11.65px;
+  line-height: 17px;
+  background-color: #f7efd6;
   overflow: hidden;
 }
 
@@ -32,12 +32,12 @@ html body div.visualizer_canvas div#visualizer_innercanvas div.titlebar div.brea
 /* .titlebar */
 html body div.visualizer_canvas div#visualizer_innercanvas div.titlebar h2
 {  
-  font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Sans-Serif;
+  font-family: Georgia,Times New Roman;
   font-weight: normal;
   font-size: 17px;
-	line-height:20px;
+  line-height:20px;
   color: #414141;
-	cursor:pointer;
+  cursor:pointer;
 }
 html body div.visualizer_canvas div#visualizer_innercanvas div.titlebar h2 span.text {
 	border-bottom:1px solid #f0efeb;
@@ -59,7 +59,7 @@ html body div.visualizer_canvas div#visualizer_innercanvas div.titlebar h2.hover
 /* .centerobject */
 html body div.visualizer_canvas div#visualizer_innercanvas div.centerobject div.padding
 {
-  background-color: #6e84c0;
+  background-color: #99782F;
   
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -82,12 +82,12 @@ html body div.visualizer_canvas div#visualizer_innercanvas div.centerobject div.
 
 html body div.visualizer_canvas div#visualizer_innercanvas div.centerobject div.type
 {
-  color: #0f2356;
+  color: #3e3013;
 }
 
 html body div.visualizer_canvas div#visualizer_innercanvas div.centerobject div.property div.label
 {
-  color: #0f2356;
+  color: #372b11;
 }
 
 html body div.visualizer_canvas div#visualizer_innercanvas div.centerobject div.property div.value
@@ -114,15 +114,15 @@ html body div.visualizer_canvas div#visualizer_innercanvas div.centerobject a.ob
 	 color: #fff;  
   text-decoration: none;
 	
-	filter:progid:DXImageTransform.Microsoft.Gradient(Enabled=true, GradientType=0, StartColorStr='#8093C9', EndColorStr='#6174AA');
-	background: -moz-linear-gradient(top, #8093C9 0%, #8093C9 10%, #6174AA 100%); /* firefox */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#8093C9), color-stop(10%,#8093C9), color-stop(100%,#6174AA)); /* webkit */  
+	filter:progid:DXImageTransform.Microsoft.Gradient(Enabled=true, GradientType=0, StartColorStr='#ad8835', EndColorStr='#806427');
+	background: -moz-linear-gradient(top, #ad8835 0%, #ad8835 10%, #806427 100%); /* firefox */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ad8835), color-stop(10%,#ad8835), color-stop(100%,#806427)); /* webkit */  
 }
 
 html body div.visualizer_canvas div#visualizer_innercanvas div.centerobject a.objectLink:hover
 {
-		filter:progid:DXImageTransform.Microsoft.Gradient(Enabled=false, GradientType=0, StartColorStr='#8093C9', EndColorStr='#6174AA');
-    background: #8093C9;
+		filter:progid:DXImageTransform.Microsoft.Gradient(Enabled=false, GradientType=0, StartColorStr='#ad8835', EndColorStr='#ad8835');
+    background: #ad8835;
 }
 
 html body div.visualizer_canvas div#visualizer_innercanvas div.centerobject a.objectLink:hover span.externalLink {
@@ -157,7 +157,7 @@ html body div.visualizer_canvas div#visualizer_innercanvas div.centerobject a:ho
 /* .cloud */
 html body div.visualizer_canvas div#visualizer_innercanvas div.cloud fieldset
 {
-  border: 1px solid #b2bad0;
+  border: 1px solid #e1cd9d;
   
 	-webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -166,14 +166,14 @@ html body div.visualizer_canvas div#visualizer_innercanvas div.cloud fieldset
 
 html body div.visualizer_canvas div#visualizer_innercanvas div.cloud fieldset legend
 {
-  color: #47598c;
+  color: #99782f;
 	font-size:11px;
 }
 
 html body div.visualizer_canvas div#visualizer_innercanvas .object
 {
   cursor: pointer;
-  border: 1px solid #d4ddfa;
+  border: 1px solid #ebdcb6;
 	
 	-webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -231,7 +231,7 @@ html body div.visualizer_canvas div#visualizer_innercanvas .object div.type_icon
 
 html body div.visualizer_canvas div#visualizer_innercanvas .object div.type
 {
-  color: #6e84c0;
+  color: #99782f;
 }
 
 html body div.visualizer_canvas div#visualizer_innercanvas .object a
@@ -265,11 +265,11 @@ html body div.visualizer_canvas div#visualizer_innercanvas div.hover_popup.botto
 }
 
 html body div.visualizer_canvas div#visualizer_innercanvas div.breadcrumb_popup div.type {
-  color: #6e84c0;
+  color: #99782f;
 }
 
 html body div.visualizer_canvas div#visualizer_innercanvas div.bg_hover_popup {
-	background-color:#102356;
+	background-color:#99782f;
 	opacity: .2; /* Standard: FF gt 1.5, Opera, Safari */
 	filter: alpha(opacity=20); /* IE lt 8 */
 	-ms-filter: "alpha(opacity=20)"; /* IE 8 */
