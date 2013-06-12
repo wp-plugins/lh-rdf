@@ -126,6 +126,8 @@ echo "http://codex.wordpress.org/Post_Formats#".$lh_format;
 <?php do_action('rdf_item'); ?>
 </rdf:Description>
 
+<?php lh_rdf_single_hook(); ?>
+
 <?php
 
 
@@ -142,7 +144,8 @@ $objects = lh_relationships_return_unique_sparql_object_by_post_ID($post->guid);
 
 foreach ($objects as $object ){
 
-echo "<rdf:Description rdf:about=\"".get_permalink($object->objectid)."\">
+?>
+<rdf:Description rdf:about="<?php the_permalink_rss($object->objectid); echo "\">
 <rdfs:seeAlso rdf:resource=\"".get_permalink($object->objectid)."?feed=lhrdf\"  />
 </rdf:Description>";
 
@@ -176,9 +179,6 @@ echo "<rdf:Description rdf:about=\"".get_permalink($page->ID)."\">
 
 ?>
 
-<rdf:Description rdf:about="<?php echo get_author_posts_url($post->post_author); ?>">
-<sioc:creator_of rdf:resource="<?php the_permalink_rss() ?>"/>
-</rdf:Description>
 
 <?php
 $post_author_Array[] = $post->post_author;

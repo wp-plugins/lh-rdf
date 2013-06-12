@@ -4,6 +4,9 @@
  * get the flickr ID of an image
  **/	
 
+include('lib/EasyRdf.php');
+
+
 function lh_rdf_getImageID($input){
 	
 	if (preg_match('/flickr\.com\/photos\/.*\/(\d+)/', $input, $img_id)){
@@ -103,7 +106,7 @@ function lh_extractImages($content, $uri) {
 					}
 				}
 				else
-					$rdf .= "\n\t" . '<sioc:embeds foaf:Image="' . clean_url($src) . '"/>';
+					$rdf .= "\n\t" . '<sioc:embeds rdf:resource="' . clean_url($src) . '"/>';
 				}
 			return $rdf;
 }
@@ -122,7 +125,7 @@ function lh_extractLinks( $html ) {
             if ( preg_match( '/type\s*=\s*"application\/rdf\+xml/i', $val[1]) ) {
                 $rdf .= "\n\t" . '<rdfs:seeAlso rdf:resource="' . wp_specialchars(trim($anchor[1]),1) . '" rdfs:label="' . apply_filters( 'the_title_rss', apply_filters( 'the_title', wp_specialchars($val[2],1))) . '"/>';
             } else {
-                $rdf .= '<sioc:links_to rdf:resource="' . wp_specialchars(trim($anchor[1]),1) . '" rdfs:label="' . apply_filters( 'the_title_rss', apply_filters( 'the_title', wp_specialchars($val[2],1))) . '"/>';
+                $rdf .= '<sioc:links_to rdf:resource="' . wp_specialchars(trim($anchor[1]),1) . '"/>';
 $rdf .= "\n";
             }
         }
@@ -163,6 +166,8 @@ function lh_rdf_serialize_lh_rdf_array($postid) {
 //echo "postid is".$postid;
 
 $rdfarray = get_post_meta($postid, "lh_rdf_array", true);
+
+
 
 //print_r($rdfarray);
 
@@ -214,8 +219,13 @@ $namesaces = array(
 }
 
 
+if (file_exists(LH_TOOLS_PLUGIN_DIR . '/arc/ARC2.php') ) {
+
+
+include_once(LH_TOOLS_PLUGIN_DIR . '/arc/ARC2.php');
 
 $conf = array('ns' => $namespaces);
+
 
 $ser = ARC2::getRDFXMLSerializer($conf);
 
@@ -227,9 +237,22 @@ $doc = $ser->getSerializedIndex($rdfarray, 1);
 
 echo $doc;
 
-
+}
 
 }
+
+//EasyRdf_Namespace::delete('geo'); 
+//EasyRdf_Namespace::set('wgs84', 'http://www.w3.org/2003/01/geo/wgs84_pos#');
+
+//$graph = new EasyRdf_Graph();
+//$graph->parse($rdfarray,"php");
+//print_r($rdfarray);
+//$data = EasyRdf_Serialiser_RdfXml::serialise($graph,"rdfxml");
+
+//$data = $graph->serialise("rdfxml");
+
+echo $data;
+ 
 
 }
 

@@ -28,8 +28,6 @@ header("HTTP/1.0 404 Not Found");
 
 if ($_GET[lhrdf]){
 
-include('lib/EasyRdf.php');
-
 ob_start(); 
 
 } else {
@@ -50,22 +48,26 @@ echo ">";
 
 } else { ?>
 <rdf:RDF
-	xmlns:rss="http://purl.org/rss/1.0/"
- 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
- 	xmlns:dc="http://purl.org/dc/elements/1.1/"
- 	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns:sioc="http://rdfs.org/sioc/ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+	xmlns:moat="http://moat-project.org/ns#"
+	xmlns:lh="http://localhero.biz/namespace/lhero/"
  	xmlns:admin="http://webns.net/mvcb/"
  	xmlns:content="http://purl.org/rss/1.0/modules/content/"
-	xmlns:lh="http://localhero.biz/namespace/lhero/"
-	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:sioc="http://rdfs.org/sioc/ns#"
-	xmlns:tag="http://www.holygoat.co.uk/owl/redwood/0.1/tags/"
-	xmlns:moat="http://moat-project.org/ns#"
-	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+ 	xmlns:dc="http://purl.org/dc/elements/1.1/"
 	xmlns:dcterms="http://purl.org/dc/terms/"
 	xmlns:sioct="http://rdfs.org/sioc/types#"
-	<?php do_action('rdf_ns'); ?>
+	xmlns:tag="http://www.holygoat.co.uk/owl/redwood/0.1/tags/"
+	xmlns:rss="http://purl.org/rss/1.0/"
+	xmlns:georss="http://www.georss.org/georss"
+	xmlns:wgs84="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	xmlns:xfn="http://vocab.sindice.com/xfn#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:ore="http://www.openarchives.org/ore/terms/"
+ 	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
 >
 
 <?php
