@@ -76,9 +76,6 @@ echo ">";
 if ( is_singular() ){
 ?>
 
-<!-- sioc_type = post -->
-
-
 <foaf:Document rdf:about="<?php echo htmlspecialchars(lh_rdf_curPageURL()); ?>">
 <dc:title>SIOC Post profile for "LocalHero Beta"</dc:title>
 <dc:description>A SIOC profile describes the structure and contents of a weblog in a machine readable form. For more information please refer to http://sioc-project.org/.</dc:description>
@@ -88,15 +85,22 @@ if ( is_singular() ){
 
 <?php 
 
-if (!$post_type || $post_type == "post" || $post_type == "page" ){
+if (!$post->post_type || $post->post_type == "post" || $post->post_type == "page" ){
+
+echo "<!-- sioc_type = post -->";
 
 include('type-post.php');
 
-} elseif ($post_type == "attachment" ){
+} elseif ($post->post_type == "attachment" ){
+
+echo "<!-- attachment -->";
 
 include('type-attachment.php');
 
 } else {
+
+echo "<!-- untyped -->";
+
 
 include('type-lh-untyped.php');
 

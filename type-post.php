@@ -123,6 +123,22 @@ $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full')
 if (!$lh_format){ $lh_format = "standard";}
 echo "http://codex.wordpress.org/Post_Formats#".$lh_format;
 ?>"/>
+<?php
+
+$args = array( 'post_type' => 'attachment', 'numberposts' => null, 'post_status' => null, 'post_parent' => $post->ID ); 
+
+$attachments = get_posts($args);
+
+
+if ($attachments) {
+foreach ($attachments as $attachment) {
+echo "<sioc:attachment rdf:resource=\"".$attachment->guid."\"/>\n";
+}
+}
+
+?>
+
+
 <?php do_action('rdf_item'); ?>
 </rdf:Description>
 
@@ -156,6 +172,24 @@ foreach ($objects as $object ){
 }
 
 
+$args = array( 'post_type' => 'attachment', 'numberposts' => null, 'post_status' => null, 'post_parent' => $post->ID ); 
+
+$attachments = get_posts($args);
+
+if ($attachments) {
+foreach ($attachments as $attachment) {
+
+echo "\n<rdf:Description rdf:about=\"".$attachment->guid."\">
+<rdfs:seeAlso rdf:resource=\"".get_attachment_link( $attachment->ID)."?feed=lhrdf\"  />
+</rdf:Description>\n";
+
+}
+}
+
+
+
+
+
 
 if (is_page()){
 
@@ -167,9 +201,9 @@ $pages = get_pages($args);
 
 foreach ($pages  as $page ){
 
-echo "<rdf:Description rdf:about=\"".get_permalink($page->ID)."\">
+echo "\n<rdf:Description rdf:about=\"".get_permalink($page->ID)."\">
 <rdfs:seeAlso rdf:resource=\"".get_permalink($page->ID)."?feed=lhrdf\"  />
-</rdf:Description>";
+</rdf:Description>\n";
 
 
 }

@@ -1,6 +1,7 @@
 <rdf:Description rdf:about="<?php the_permalink_rss() ?>">
 <?php $mime = get_post_mime_type(); 
-if ($mime == "image/jpeg"){ ?>
+
+if ($mime == "image/jpeg" || $mime == "image/gif"){ ?>
 <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Image"/>
 <?php } else { ?>
 <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
