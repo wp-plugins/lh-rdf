@@ -85,22 +85,27 @@ if ( is_singular() ){
 
 <?php 
 
-if (!$post->post_type || $post->post_type == "post" || $post->post_type == "page" ){
+if (!$post->post_type || $post->post_type == "post" ){
 
-echo "<!-- sioc_type = post -->";
+echo "<!-- sioc_type = post -->\n";
 
 include('type-post.php');
 
+} elseif ($post->post_type == "page" ){
+
+echo "<!-- page -->\n";
+
+include('type-page.php');
+
 } elseif ($post->post_type == "attachment" ){
 
-echo "<!-- attachment -->";
+echo "<!-- attachment -->\n";
 
 include('type-attachment.php');
 
 } else {
 
-echo "<!-- untyped -->";
-
+echo "<!-- untyped -->\n";
 
 include('type-lh-untyped.php');
 
@@ -334,13 +339,29 @@ rewind_posts(); while (have_posts()): the_post(); ?>
 
 if ($_GET["lh_rdf_extend"]){
 
-if (!$post_type || $post_type == "post" || $post_type == "page" ){
+if (!$post->post_type || $post->post_type == "post" ){
+
+echo "<!-- sioc_type = post -->\n";
 
 include('type-post.php');
 
-} elseif ($post_type == "lh-place"){
+} elseif ($post->post_type == "page" ){
 
-include('type-lh-place.php');
+echo "<!-- page -->\n";
+
+include('type-page.php');
+
+} elseif ($post->post_type == "attachment" ){
+
+echo "<!-- attachment -->\n";
+
+include('type-attachment.php');
+
+} else {
+
+echo "<!-- untyped -->\n";
+
+include('type-lh-untyped.php');
 
 }
 
@@ -367,10 +388,7 @@ include('extended-content.php');
 }
 
 ?>
-</rdf:RDF>
-
-
-<?php
+</rdf:RDF><?php
 
 
 
