@@ -106,7 +106,7 @@ function lh_extractImages($content, $uri) {
 					}
 				}
 				else
-					$rdf .= "\n\t" . '<sioc:embeds rdf:resource="' . clean_url($src) . '"/>';
+					$rdf .= "\n".'<sioc:embeds rdf:resource="' . clean_url($src) . '"/>'."\n";
 				}
 			return $rdf;
 }

@@ -1,5 +1,6 @@
 <rdf:Description rdf:about="<?php the_permalink_rss() ?>">
 <rdf:type rdf:resource="http://rdfs.org/sioc/ns#Post"/>
+<rdf:type rdf:resource="<?php echo "http://localhero.biz/uri/localhero-namespace/type_".$post->post_type; ?>"/>
 <sioc:link rdf:resource="<?php the_permalink_rss() ?>"/>
 <sioc:has_container rdf:resource="<?php
 if (get_query_var('post_type')){ 
@@ -13,14 +14,11 @@ echo "/#posts";
 <dc:title><?php the_title_rss() ?></dc:title>
 <dc:date><?php echo mysql2date('Y-m-d\TH:i:s\Z', get_lastpostmodified('GMT'), false); ?></dc:date>
 <dcterms:created><?php echo mysql2date('D, d M Y H:i:s +0000', get_post_time('Y-m-d H:i:s', true), false); ?></dcterms:created>
-<sioc:content><![CDATA[<?php the_excerpt_rss() ?>]]></sioc:content>
-<?php if ( strlen( $post->post_content ) > 0 ){ ?>
+<sioc:content><![CDATA[<?php echo strip_tags($post->post_content); ?>]]></sioc:content>
 <content:encoded><![CDATA[<?php $content = apply_filters('the_content', $post->post_content);
 echo $content;
  ?>]]></content:encoded>
-<?php } else  { ?>
-<content:encoded><![CDATA[<?php the_excerpt_rss() ?>]]></content:encoded>
-<?php } 
+<?php  
 $extract = lh_extractLinks($post->post_content);
 echo $extract;
 $post_uri = htmlspecialchars(get_permalink() );
@@ -113,11 +111,10 @@ $j++;
 
 ?>
 <dcterms:identifier><?php echo $post->ID; ?></dcterms:identifier>
-<lh:post_type rdf:resource="<?php echo "http://codex.wordpress.org/Post_Types#".$post->post_type; ?>"/>
 <?php  if ( has_post_thumbnail()) {
-$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full');
+$thumbnail = get_post( get_post_thumbnail_id());
  ?>
-<lh:post_thumbnail rdf:resource="<?php echo $large_image_url[0]; ?>"/>
+<lh:post_thumbnail rdf:resource="<?php echo $thumbnail->guid; ?>"/>
 <?php } ?>
 <?php
 
@@ -156,16 +153,16 @@ $objects = lh_relationships_return_unique_sparql_object_by_post_ID($post->guid);
 
 foreach ($objects as $object ){
 
-?>
-<rdf:Description rdf:about="<?php the_permalink_rss($object->objectid); echo "\">
+$seealso = get_post($object->objectid);
+
+echo "<rdf:Description rdf:about=\"".$seealso->guid."\">
 <rdfs:seeAlso rdf:resource=\"".get_permalink($object->objectid)."?feed=lhrdf\"  />
-</rdf:Description>";
+</rdf:Description>\n\n";
 
 }
 
-
-
 }
+
 
 
 $args = array( 'post_type' => 'attachment', 'numberposts' => null, 'post_status' => null, 'post_parent' => $post->ID ); 
@@ -182,6 +179,20 @@ echo "\n<rdf:Description rdf:about=\"".$attachment->guid."\">
 }
 }
 
+
+if ( has_post_thumbnail()) {
+
+$thumbnail = get_post( get_post_thumbnail_id());
+
+if ($thumbnail->post_parent != $post->ID){
+
+echo "\n<rdf:Description rdf:about=\"".$thumbnail->guid."\">
+<rdfs:seeAlso rdf:resource=\"".get_attachment_link($thumbnail->ID)."?feed=lhrdf\"  />
+</rdf:Description>\n";
+
+}
+
+}
 
 
 
@@ -208,14 +219,3 @@ echo "\n<rdf:Description rdf:about=\"".get_permalink($page->ID)."\">
 }
 
 ?>
-
-
-<?php
-$post_author_Array[] = $post->post_author;
-
-$post_author_Array = array_unique($post_author_Array);
-
-sort($post_author_Array);
-
-?>
-

@@ -6,6 +6,7 @@ function lh_rdf_get_image_size_links() {
 
 	/* Get the intermediate image sizes and add the full size to the array. */
 	$sizes = get_intermediate_image_sizes();
+        $sizes[] = 'full';
 	/* Loop through each of the image sizes. */
 $i = 0;
 foreach ( $sizes as $size ) {
