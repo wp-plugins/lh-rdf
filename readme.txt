@@ -35,8 +35,12 @@ Ontologies exposed in the RDF output include:
 
 == Changelog ==
 
+**0.2.7 June 19, 2013**  
+* DC Abstract support
+
 **0.2.6 June 18, 2013**  
 * Various enhancements
+
 **0.2.5 June 14, 2013**  
 * Thumbnail enhancements
 

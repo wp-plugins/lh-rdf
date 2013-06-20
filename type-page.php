@@ -14,6 +14,7 @@ echo "/#posts";
 <dc:title><?php the_title_rss() ?></dc:title>
 <dc:date><?php echo mysql2date('Y-m-d\TH:i:s\Z', get_lastpostmodified('GMT'), false); ?></dc:date>
 <dcterms:created><?php echo mysql2date('D, d M Y H:i:s +0000', get_post_time('Y-m-d H:i:s', true), false); ?></dcterms:created>
+<dc:abstract><?php if ($post->post_excerpt){ echo $post->post_excerpt;  } else {  echo lh_rdf_truncate($post->post_content, "120");  } ?></dc:abstract>
 <sioc:content><![CDATA[<?php echo strip_tags($post->post_content); ?>]]></sioc:content>
 <content:encoded><![CDATA[<?php $content = apply_filters('the_content', $post->post_content);
 echo $content;

@@ -258,6 +258,25 @@ echo $data;
 
 }
 
-
+function lh_rdf_truncate($string,$min) {
+    $text = trim(strip_tags($string));
+    if(strlen($text)>$min) {
+        $blank = strpos($text,' ');
+        if($blank) {
+            # limit plus last word
+            $extra = strpos(substr($text,$min),' ');
+            $max = $min+$extra;
+            $r = substr($text,0,$max);
+            if(strlen($text)>=$max) $r=trim($r,'.').'...';
+        } else {
+            # if there are no spaces
+            $r = substr($text,0,$min).'...';
+        }
+    } else {
+        # if original length is lower than limit
+        $r = $text;
+    }
+    return $r;
+}
 
 ?>
