@@ -5,6 +5,8 @@ while ($j < count($post_taxonomy_Array)) {
 
 $sql = "SELECT b.taxonomy FROM ".$wpdb->prefix."terms a, ".$wpdb->prefix."term_taxonomy b WHERE a.term_id = b.term_id AND a.term_id = '".$post_taxonomy_Array[$j]."'";
 
+global $wpdb;
+
 $results = $wpdb->get_results($sql);
 
 $post_taxonomy = get_term( $post_taxonomy_Array[$j], $results[0]->taxonomy);

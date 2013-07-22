@@ -4,8 +4,6 @@
  * get the flickr ID of an image
  **/	
 
-include('lib/EasyRdf.php');
-
 
 function lh_rdf_getImageID($input){
 	
@@ -278,5 +276,142 @@ function lh_rdf_truncate($string,$min) {
     }
     return $r;
 }
+
+function lh_rdf_create_datadump(){
+
+
+$xml = '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; 
+
+if (function_exists('lh_relationships_return_compliant_namespace')) { 
+
+$xml .= "\n<rdf:RDF\n";
+
+$lhrdfnamespaces = lh_relationships_return_compliant_namespace();
+
+
+
+$j = 0;
+
+while ($j < count($lhrdfnamespaces)) {
+
+$xml .= "xmlns:".$lhrdfnamespaces[$j]->prefix."=\"".$lhrdfnamespaces[$j]->namespace."\"\n";
+
+$j++;
+
+}
+
+$xml .= ">\n";
+
+
+} else { 
+
+$xml .= "<rdf:RDF
+	xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"
+	xmlns:foaf=\"http://xmlns.com/foaf/0.1/\"
+	xmlns:sioc=\"http://rdfs.org/sioc/ns#\"
+	xmlns:rdfs=\"http://www.w3.org/2000/01/rdf-schema#\"
+	xmlns:skos=\"http://www.w3.org/2004/02/skos/core#\"
+	xmlns:moat=\"http://moat-project.org/ns#\"
+	xmlns:lh=\"http://localhero.biz/namespace/lhero/\"
+ 	xmlns:admin=\"http://webns.net/mvcb/\"
+ 	xmlns:content=\"http://purl.org/rss/1.0/modules/content/\"
+ 	xmlns:dc=\"http://purl.org/dc/elements/1.1/\"
+	xmlns:dcterms=\"http://purl.org/dc/terms/\"
+	xmlns:sioct=\"http://rdfs.org/sioc/types#\"
+	xmlns:tag=\"http://www.holygoat.co.uk/owl/redwood/0.1/tags/\"
+	xmlns:rss=\"http://purl.org/rss/1.0/\"
+	xmlns:georss=\"http://www.georss.org/georss\"
+	xmlns:wgs84=\"http://www.w3.org/2003/01/geo/wgs84_pos#\"
+	xmlns:xfn=\"http://vocab.sindice.com/xfn#\"
+	xmlns:owl=\"http://www.w3.org/2002/07/owl#\"
+	xmlns:ore=\"http://www.openarchives.org/ore/terms/\"
+ 	xmlns:sy=\"http://purl.org/rss/1.0/modules/syndication/\"
+	xmlns:sc:=\"http://sw.deri.org/2007/07/sitemapextension/scschema.xsd\"
+	xmlns:void:=\"http://rdfs.org/ns/void#\"
+
+
+>\n";
+
+} 
+
+$xml .= "<rdf:Description rdf:about=\"".get_bloginfo('url')."\">\n";
+
+$xml .= "<rdf:type rdf:resource=\"http://rdfs.org/ns/void#Dataset\" />\n";
+
+$args = array(
+    '_builtin'              => false
+); 
+
+$post_types = get_post_types($args); 
+
+$types = array_values($post_types);
+
+array_push($types, "post", "page", "attachment");
+
+$myquery['post_type'] =  $types;
+
+$myquery['post_status'] = array('publish', 'inherit');   
+
+$myquery['posts_per_page'] = '2000';   
+
+$allposts = query_posts($myquery);
+
+foreach( $allposts as $apost){
+
+
+$xml .= "<void:dataDump rdf:resource=\"".get_permalink($apost->ID)."?feed=lhrdf\"/>\n";
+
+} 
+
+
+$users = get_users();
+
+foreach( $users as $user){
+
+
+$xml .= "<void:dataDump rdf:resource=\"".get_author_posts_url($user->ID)."?feed=lhrdf\"/>\n";
+
+} 
+
+
+$categories = get_categories(); 
+
+foreach( $categories as $category){
+
+$xml .= "<void:dataDump rdf:resource=\"".get_category_link( $category->term_id)."?feed=lhrdf\"/>\n";
+
+}
+
+$tags = get_tags();
+
+foreach( $tags as $tag){
+
+$xml .= "<void:dataDump rdf:resource=\"".get_tag_link( $tag->term_id)."?feed=lhrdf\"/>\n";
+
+}
+
+$xml .= "</rdf:Description>\n";
+
+
+$xml .= "</rdf:RDF>";
+
+file_put_contents(LH_RDF_PLUGIN_DIR.'/index.rdf', $xml); 
+
+
+return $xml;
+
+}
+
+//Cron the run lh_rdf_create_datadump function so that this runs automatically
+
+
+if( !wp_next_scheduled( 'lh_rdf_hourly_event' ) ) {
+wp_schedule_event( time(), 'hourly', 'lh_rdf_hourly_event' );
+}
+
+add_action( 'lh_rdf_hourly_event', 'lh_rdf_create_datadump' );
+
+
+
 
 ?>

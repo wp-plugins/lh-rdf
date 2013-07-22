@@ -4,7 +4,7 @@ Plugin Name: LH RDF
 Plugin URI: http://localhero.biz/plugins/lh-rdf/
 Description: Adds a semantic/SIOC RDF feed to Wordpress
 Author: shawfactor
-Version: 0.27
+Version: 0.28
 Author URI: http://shawfactor.com/
 
 == Changelog ==
@@ -65,6 +65,8 @@ Author URI: http://shawfactor.com/
 * Various enhancements
 = 0.27 =
 * DC Abstract support
+= 0.28 =
+* File reorganisation and datadump
 
 
 
@@ -146,6 +148,10 @@ $sTarFileName 	= 'easyrdf.tar.gz';
 
 //register_activation_hook(__FILE__, 'lh_rdf_install_easyrdf' );
 
+
+include('library/lh-rdf-comments.php');
+
+include('library/function_library.php');
 
 
 function LH_rdf_output_rdf_xml() {
@@ -274,8 +280,8 @@ die();
 add_action('template_redirect', 'LH_rdf_get_control');
 
 
-
-function LH_rdf_sioc_link() {
+// Add sioc_link function to execute during a page HEAD section
+function lh_rdf_sioc_link() {
 	global $posts;
 	
 	if ( is_feed() ){
@@ -300,20 +306,16 @@ function LH_rdf_sioc_link() {
 	}
 }
 
+add_action('wp_head', 'lh_rdf_sioc_link');
 
-// Add sioc_link function to execute during a page HEAD section
-add_action('wp_head', 'LH_rdf_sioc_link');
 
-function lh_rdf_pages($wp_query) {
-
-if ($_GET["lh_rdf_pages"]){
-
-		//$wp_query->set('post_type', array( 'page' ));
-
-}
+// Add an rdf sitemap
+function lh_rdf_sitemap_link() {
+echo "<link rel=\"sitemap\" type=\"application/rdf+xml\" title=\"SIOC\" href=\"".plugins_url()."/lh-rdf/index.rdf\" />";
 }
 
-add_action('pre_get_posts', 'lh_rdf_pages');
+add_action('wp_head', 'lh_rdf_sitemap_link');
+
 
 
 

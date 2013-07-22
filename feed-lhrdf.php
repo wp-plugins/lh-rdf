@@ -6,9 +6,8 @@
  */
 
 
-include('function_library.php');
 
-
+include('lib/EasyRdf.php');
 
 
 if ( is_singular() ){
@@ -89,25 +88,25 @@ if (!$post->post_type || $post->post_type == "post" ){
 
 echo "<!-- sioc_type = post -->\n";
 
-include('type-post.php');
+include('templates/type-post.php');
 
 } elseif ($post->post_type == "page" ){
 
 echo "<!-- page -->\n";
 
-include('type-page.php');
+include('templates/type-page.php');
 
 } elseif ($post->post_type == "attachment" ){
 
 echo "<!-- attachment -->\n";
 
-include('type-attachment.php');
+include('templates/type-attachment.php');
 
 } else {
 
 echo "<!-- untyped -->\n";
 
-include('type-lh-untyped.php');
+include('templates/type-lh-untyped.php');
 
 }
 
@@ -131,7 +130,7 @@ $authordata = get_userdata($post->post_author);
 
 
 
-include('author.php');
+include('templates/author.php');
 
 
 } elseif (is_category()){
@@ -140,7 +139,7 @@ $category = get_category_by_path(get_query_var('category_name'),false);
 
 $post_taxonomy = get_term( $category->cat_ID, "category");
 
-include('taxonomy-category.php');
+include('templates/taxonomy-category.php');
 
 } elseif (is_tag()){
 
@@ -150,7 +149,15 @@ $tag = get_tag($tag);
 
 $post_taxonomy = get_term( $tag->term_id, "post_tag");
 
-include('taxonomy-tag.php');
+include('templates/taxonomy-tag.php');
+
+} elseif (get_query_var('msds_pif_cat')){ 
+
+
+echo "<!-- comment -->\n";
+
+include('templates/type-comment.php');
+
 
 } else {
 
@@ -343,25 +350,25 @@ if (!$post->post_type || $post->post_type == "post" ){
 
 echo "<!-- sioc_type = post -->\n";
 
-include('type-post.php');
+include('templates/type-post.php');
 
 } elseif ($post->post_type == "page" ){
 
 echo "<!-- page -->\n";
 
-include('type-page.php');
+include('templates/type-page.php');
 
 } elseif ($post->post_type == "attachment" ){
 
 echo "<!-- attachment -->\n";
 
-include('type-attachment.php');
+include('templates/type-attachment.php');
 
 } else {
 
 echo "<!-- untyped -->\n";
 
-include('type-lh-untyped.php');
+include('templates/type-lh-untyped.php');
 
 }
 
@@ -381,9 +388,9 @@ if (get_query_var('post_type')){ echo "&amp;post_type=".get_query_var('post_type
 ?>
 <?php endwhile; 
 
-include('concept-scheme.php');
+include('templates/concept-scheme.php');
 
-include('extended-content.php');
+include('templates/extended-content.php');
 
 }
 

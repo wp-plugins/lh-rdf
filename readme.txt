@@ -1,7 +1,7 @@
 === LH RDF ===
 Contributors: shawfactor
 Donate link: http://localhero.biz/plugins/lh-rdf/
-Tags: feed, feeds, rdf, localhero, sioc, skos, foaf, semantic web
+Tags: feed, feeds, rdf, localhero, sioc, skos, json, semantic web
 Requires at least: 3.0
 Tested up to: 3.6
 Stable tag: trunk
@@ -16,7 +16,7 @@ It has been developed for use in [LocalHero][].
 
 Once activated the plugin adds a new type of feed that can be subscribed to. E.G. http://localhero.biz/?feed=lhrdf or http://localhero.biz/feed/lhrdf/ containing semantic content.
 
-To output the feed in other triple formats just add the get variable lhrd=format to the query string E.G. http://localhero.biz/?feed=lhrdf&lhrdf=json.
+To output the feed in other triple formats just add the get variable lhrdf=format to the query string E.G. http://localhero.biz/?feed=lhrdf&lhrdf=json.
 
 Ontologies exposed in the RDF output include:
 
@@ -34,6 +34,9 @@ Ontologies exposed in the RDF output include:
 3. To enable pretty permalinks (e.g. `http://example.com/feed/lhrdf/`), go to Permalinks in the Setting menu and Save.
 
 == Changelog ==
+
+**0.2.8 July 19, 2013**  
+* File reorganisation and datadump
 
 **0.2.7 June 19, 2013**  
 * DC Abstract support
