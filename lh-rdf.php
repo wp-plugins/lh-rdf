@@ -4,7 +4,7 @@ Plugin Name: LH RDF
 Plugin URI: http://localhero.biz/plugins/lh-rdf/
 Description: Adds a semantic/SIOC RDF feed to Wordpress
 Author: shawfactor
-Version: 0.28
+Version: 0.29
 Author URI: http://shawfactor.com/
 
 == Changelog ==
@@ -67,6 +67,8 @@ Author URI: http://shawfactor.com/
 * DC Abstract support
 = 0.28 =
 * File reorganisation and datadump
+= 0.29 =
+* Fixed wordpress pings to allow for semantic pinging
 
 
 
@@ -365,6 +367,76 @@ do_action('lh_rdf_single_hook');
 
 }
 
+remove_action("publish_post", "generic_ping");
+
+
+
+function lh_rdf_weblog_ping($server = '', $permalink = false, $path = '') { 
+
+global $wp_version; 
+
+include_once(ABSPATH . WPINC . '/class-IXR.php'); 
+include_once(ABSPATH . WPINC . '/class-wp-http-ixr-client.php'); 
+
+// using a timeout of 3 seconds should be enough to cover slow servers 
+
+$client = new WP_HTTP_IXR_Client($server, ((!strlen(trim($path)) || ('/' == $path)) ? false : $path)); 
+
+$client->timeout = 3; 
+$client->useragent .= ' -- WordPress/'.$wp_version; 
+
+// when set to true, this outputs debug messages by itself 
+
+$client->debug = false; 
+
+$home = trailingslashit( home_url() ); 
+
+// the extendedPing format should be "blog name", "blog url", "check url" (post url), and "feed url",
+
+
+if ( !$client->query('weblogUpdates.extendedPing', get_option('blogname'), $home, $permalink, get_bloginfo('rss2_url') ) ){
+
+$client->query('weblogUpdates.ping', get_option('blogname'), $permalink."?feed=lhrdf");
+}
+
+} 
+
+
+function lh_rdf_generic_ping($post_id = 0) { 
+$services = get_option('ping_sites');
+$services = explode("\n", $services);
+
+foreach ( (array) $services as $service ) { 
+
+$service = trim($service);
+
+if ( '' != $service ){
+
+$permalink = get_permalink($post_id);
+
+lh_rdf_weblog_ping($service,$permalink);
+
+} 
+
+}
+
+return $post_id;
+
+}
+
+add_action("publish_post", "lh_rdf_generic_ping");
+
+add_action("publish_page", "lh_rdf_generic_ping");
+
+
+$post_data = array(
+'html' => $bar,
+'apikey' => 'e809f3f3d7b62944ae5ee410b3cb71bac3a6e17b',
+'url' => $foo->guid,
+'outputMode' => 'rdf'
+ );
+ 
+$result = wp_remote_post( $url, array( 'body' => $post_data ) );
 
 
 

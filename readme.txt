@@ -35,6 +35,9 @@ Ontologies exposed in the RDF output include:
 
 == Changelog ==
 
+**0.2.9 July 30, 2013**  
+* Fixed wordpress pings to allow for semantic pinging
+
 **0.2.8 July 19, 2013**  
 * File reorganisation and datadump
 
