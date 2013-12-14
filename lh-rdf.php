@@ -4,7 +4,7 @@ Plugin Name: LH RDF
 Plugin URI: http://localhero.biz/plugins/lh-rdf/
 Description: Adds a semantic/SIOC RDF feed to Wordpress
 Author: shawfactor
-Version: 0.29
+Version: 0.30
 Author URI: http://shawfactor.com/
 
 == Changelog ==
@@ -69,7 +69,8 @@ Author URI: http://shawfactor.com/
 * File reorganisation and datadump
 = 0.29 =
 * Fixed wordpress pings to allow for semantic pinging
-
+= 0.30 =
+*Fixed hard code title value
 
 
 License:
@@ -429,14 +430,6 @@ add_action("publish_post", "lh_rdf_generic_ping");
 add_action("publish_page", "lh_rdf_generic_ping");
 
 
-$post_data = array(
-'html' => $bar,
-'apikey' => 'e809f3f3d7b62944ae5ee410b3cb71bac3a6e17b',
-'url' => $foo->guid,
-'outputMode' => 'rdf'
- );
- 
-$result = wp_remote_post( $url, array( 'body' => $post_data ) );
 
 
 
