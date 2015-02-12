@@ -395,7 +395,7 @@ $xml .= "</rdf:Description>\n";
 
 $xml .= "</rdf:RDF>";
 
-file_put_contents(LH_RDF_PLUGIN_DIR.'/index.rdf', $xml); 
+file_put_contents(LH_RDF_PLUGIN_DIR.'/datadump/index.rdf', $xml); 
 
 
 return $xml;

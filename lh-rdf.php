@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: LH RDF
-Plugin URI: http://localhero.biz/plugins/lh-rdf/
+Plugin URI: http://lhero.org/plugins/lh-rdf/
 Description: Adds a semantic/SIOC RDF feed to Wordpress
 Author: shawfactor
-Version: 0.30
+Version: 0.31
 Author URI: http://shawfactor.com/
 
 == Changelog ==
@@ -71,6 +71,8 @@ Author URI: http://shawfactor.com/
 * Fixed wordpress pings to allow for semantic pinging
 = 0.30 =
 *Fixed hard code title value
+= 0.31 =
+*Minor bugfix and wp version number
 
 
 License:
