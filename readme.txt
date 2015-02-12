@@ -1,7 +1,7 @@
 === LH RDF ===
 Contributors: shawfactor
-Donate link: http://localhero.biz/plugins/lh-rdf/
-Tags: feed, feeds, rdf, localhero, sioc, skos, json, semantic web
+Donate link: http://lhero.org/plugins/lh-rdf/
+Tags: rdf, localhero, skos, feeds, rdf, sioc, skos, semantics
 Requires at least: 3.0
 Tested up to: 4.1
 Stable tag: trunk
